@@ -52,7 +52,7 @@ class _EditProfileState extends State<EditProfileScreen> {
         builder: (BuildContext context, Object? state) {
           nameController.text =  ProfileCubit.get(context) .profileModel?.data?.username ?? 'name not available';
           phoneController.text =  ProfileCubit.get(context).profileModel?.data?.phone ?? 'Phone not available';
-          passController.text= ProfileCubit.get(context).editProfileResponse?.data?.password ?? '123456';
+          passController.text= ProfileCubit.get(context).editProfileResponse?.data?.password ?? '12345678';
           String profilePhoto=ProfileCubit.get(context).editProfileResponse?.data?.profilephoto?.url ?? "";
 
           return ConditionalBuilder(

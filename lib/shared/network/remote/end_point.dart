@@ -14,8 +14,6 @@ const GET_ORGANIZATION='organizations';
 
 const GET_BRANDS='brands';
 
-const DONATION='donations';
+const DONATIONCARD='donationcard';
 
 
-
-// String GET_BRANDS_Details(String id) => 'brands/$id';
