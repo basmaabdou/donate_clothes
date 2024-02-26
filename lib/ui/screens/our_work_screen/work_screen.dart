@@ -139,7 +139,7 @@ class OurWorkScreen extends StatelessWidget {
                               color: Color(0xffF74F22),
                               borderRadius: BorderRadius.circular(10)),
                           child: MaterialButton(
-                            onPressed: () {Navigator.push(context,FadeRoute2(DonateClothesDetails()));},
+                           onPressed: () {Navigator.push(context,FadeRoute2(DonateClothesDetails()));},
                             child: Text(
                               'donate',
                               style: TextStyle(

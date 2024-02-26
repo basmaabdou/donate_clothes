@@ -19,7 +19,7 @@ class HomeCubit extends Cubit<HomeStates>{
       void getDonationData()
       {
             DioHelper.getData(
-                url: DONATION,
+                url: DONATIONCARD,
                 token: token
             ).then((value)
             {

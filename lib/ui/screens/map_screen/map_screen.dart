@@ -107,8 +107,12 @@ class _MapScreenState extends State<MapScreen> {
                   SizedBox(height: 10),
                   Container(
                     width: double.infinity,
-                    height: 58,
+                    height: 52,
                     child: TextFormField(
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w700
+                      ),
                       controller: addressController,
                       keyboardType: TextInputType.streetAddress,
                       validator: (value) {
@@ -160,7 +164,7 @@ class _MapScreenState extends State<MapScreen> {
                   SizedBox(height: 7),
                   Container(
                     width: double.infinity,
-                    height: 55,
+                    height: 50,
                     child: TextFormField(
                       keyboardType: TextInputType.text,
                       validator: (value) {
@@ -187,7 +191,7 @@ class _MapScreenState extends State<MapScreen> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(20.0),
                           borderSide: BorderSide(
                             color: Colors.white,
                           ),
@@ -210,8 +214,11 @@ class _MapScreenState extends State<MapScreen> {
                         color: Color(0xffF74F22),
                         borderRadius: BorderRadius.circular(20)
                     ),
-                    child: MaterialButton(
-                      onPressed: (){navigateTo(context, DonateClothesDetails());},
+                    child:MaterialButton(
+                      onPressed: () {
+                        String selectedAddress = addressController.text; // Get the selected address
+                        navigateTo(context, DonateClothesDetails(address: selectedAddress));
+                      },
                       child: Text(
                         'I’m here',
                         style: TextStyle(
@@ -222,12 +229,6 @@ class _MapScreenState extends State<MapScreen> {
                       ),
                     ),
                   ),
-                  // DefaultButton(
-                  //     text: 'I’m here',
-                  //     fun: (){
-                  //       navigateTo(context, DonateClothesDetails());
-                  //     }
-                  // ),
                 ],
               ),
             )
@@ -236,6 +237,7 @@ class _MapScreenState extends State<MapScreen> {
       ),
     );
   }
+
   void _getAddress(LatLng position) async {
     final List<Placemark> placemarks =
     await placemarkFromCoordinates(position.latitude, position.longitude);

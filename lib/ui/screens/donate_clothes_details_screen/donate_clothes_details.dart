@@ -10,19 +10,26 @@ import '../layout_screen/layout_screen.dart';
 import '../map_screen/map_screen.dart';
 
 class DonateClothesDetails extends StatefulWidget {
+  final String? address;
+
+  DonateClothesDetails({ this.address});
+
   @override
-  State<DonateClothesDetails> createState() => _DonateClothesDetailsState();
+  _DonateClothesDetailsState createState() => _DonateClothesDetailsState();
 }
 
 class _DonateClothesDetailsState extends State<DonateClothesDetails> {
-var addressController=TextEditingController();
-var pickUpController=TextEditingController();
-var dateController=TextEditingController();
-var phoneController=TextEditingController();
-var clothController=TextEditingController();
-// var dateController=TextEditingController();
+  late TextEditingController addressController;
 
-
+  @override
+  void initState() {
+    super.initState();
+    addressController = TextEditingController(text: widget.address);
+  }
+  var pickUpController=TextEditingController();
+  var dateController=TextEditingController();
+  var phoneController=TextEditingController();
+  var clothController=TextEditingController();
   double _startValue = 12;
   double _endValue = 15;
   String timeFormatter(double time) {
@@ -71,12 +78,17 @@ var clothController=TextEditingController();
               child: Column(
                 children: [
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Container(
                     width: 320,
-                    height:40 ,
+                    height:52 ,
                     child:   TextFormField(
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w700
+                      ),
+                      readOnly: true,
                       controller: addressController,
                       keyboardType:  TextInputType.streetAddress,
                       validator: (value) {
@@ -86,49 +98,49 @@ var clothController=TextEditingController();
                         return null;
                       },
                       onTap: (){
-                          navigateTo(context, MapScreen());
+                        navigateTo(context, MapScreen());
                       },
                       decoration: InputDecoration(
-                        hintText: 'Al Haram Street',
+                          hintText: 'Al Haram Street',
                           hintStyle: TextStyle(
-                          color: Color(0xff323232),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
+                            color: Color(0xff323232),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          ),
                           fillColor: Color(0xffFFFFFF),
                           filled: true,
-                        focusedBorder: OutlineInputBorder(
+                          focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Color(0xffFFFFFF), width: 2.0,),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        border:  OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Color(0xffFFFFFF)),
-                        ),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          border:  OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide(color: Color(0xffFFFFFF)),
+                          ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.circular(15.0),
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),
                           ),
-                        prefixIcon: Icon(
-                         Icons.location_on,color: Color(0xffC4C4C4),
-                        ),
-                        suffixIcon: InkWell(
+                          prefixIcon: Icon(
+                            Icons.location_on,color: Color(0xffC4C4C4),
+                          ),
+                          suffixIcon: InkWell(
                             child: Icon(Icons.wrong_location),
-                          onTap: (){addressController.clear();},
-                        )
+                            onTap: (){addressController.clear();},
+                          )
 
                       ),
 
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Container(
                     width: 320,
-                    height:40 ,
+                    height:47 ,
                     child:   TextFormField(
                       controller: pickUpController,
                       keyboardType:  TextInputType.text,
@@ -140,30 +152,30 @@ var clothController=TextEditingController();
                       },
                       readOnly: true,
                       decoration: InputDecoration(
-                          hintText: 'Pickup Instruction?',
-                          hintStyle: TextStyle(
-                            color: Color(0xff323232),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                        hintText: 'Pickup Instruction?',
+                        hintStyle: TextStyle(
+                          color: Color(0xff323232),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                        ),
+                        fillColor: Color(0xffFFFFFF),
+                        filled: true,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xffFFFFFF), width: 2.0,),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        border:  OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: BorderSide(
+                            color: Colors.white,
                           ),
-                          fillColor: Color(0xffFFFFFF),
-                          filled: true,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xffFFFFFF), width: 2.0,),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          border:  OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10.0),
-                            borderSide: BorderSide(
-                              color: Colors.white,
-                            ),
-                          ),
-                          prefixIcon: Icon(
-                            Icons.add,color: Color(0xffC4C4C4),
-                          ),
+                        ),
+                        prefixIcon: Icon(
+                          Icons.add,color: Color(0xffC4C4C4),
+                        ),
 
                       ),
 
@@ -223,9 +235,9 @@ var clothController=TextEditingController();
                             fontWeight: FontWeight.w400,
                             color: Color(0xff323232)
                         ),
-                      enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xffF4F1F1))
-                      )
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xffF4F1F1))
+                        )
                     ),
 
                   ),
@@ -241,18 +253,18 @@ var clothController=TextEditingController();
                     ),
                   ),
                   TextFormField(
-                      controller: phoneController,
-                      decoration: InputDecoration(
-                          hintText: "+9639554252222",
-                          hintStyle: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xff323232)
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xffF4F1F1))
-                          )
-                      ),
+                    controller: phoneController,
+                    decoration: InputDecoration(
+                        hintText: "+9639554252222",
+                        hintStyle: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xff323232)
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Color(0xffF4F1F1))
+                        )
+                    ),
                   ),
                   SizedBox(
                     height: 20,
@@ -268,13 +280,13 @@ var clothController=TextEditingController();
                   TextFormField(
                       controller: dateController,
                       decoration: InputDecoration(
-                        hintText: "11/12/2023",
-                        hintStyle: TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                          color: Color(0xff323232)
-                        ),
-                        suffixIcon: Icon(Icons.arrow_drop_down_outlined,size: 24,color: Color(0xff767676),),
+                          hintText: "11/12/2023",
+                          hintStyle: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xff323232)
+                          ),
+                          suffixIcon: Icon(Icons.arrow_drop_down_outlined,size: 24,color: Color(0xff767676),),
                           enabledBorder: UnderlineInputBorder(
                               borderSide: BorderSide(color: Color(0xffF4F1F1))
                           )
@@ -322,20 +334,20 @@ var clothController=TextEditingController();
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${timeFormatter(_startValue)}',
-                        style: TextStyle(
-                          color: Color(0xffC4C4C4),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12
-                      )
-                        ),
+                          '${timeFormatter(_startValue)}',
+                          style: TextStyle(
+                              color: Color(0xffC4C4C4),
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12
+                          )
+                      ),
                       Text(
                         '${timeFormatter(_endValue)}',
                         style: TextStyle(
-                          color: Color(0xffC4C4C4),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12
-                      ),
+                            color: Color(0xffC4C4C4),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12
+                        ),
                       ),
                     ],
                   ),
@@ -401,109 +413,109 @@ var clothController=TextEditingController();
             SizedBox(
               height: 15,
             ),
-          Center(
-          child: Container(
-            width: 155,
-            height: 35,
-            decoration: BoxDecoration(
-                color: Color(0xffF74F22),
-                borderRadius: BorderRadius.circular(20)
-            ),
-            child: MaterialButton(
-              onPressed: (){
-                Get.defaultDialog(
-                  title: '',
-                  content: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 15,
-                        ),
-                       Container(
-                         width:73,
-                           height: 71,
-                           decoration: BoxDecoration(
-                             color: defaultColor,
-                             borderRadius: BorderRadius.circular(50)
-                           ),
-                           child: Icon(Icons.check,size: 50,color: Colors.white,)
-                       ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Text(
-                          'Thank you for your  generous',
-                          style: TextStyle(
-                              color:defaultColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300
-                          ),
-                        ),
-                        SizedBox(
-                          height: 7,
-                        ),
-                        Text(
-                          'DONATION!',
-                          style: TextStyle(
-                              color: defaultColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                      width: 84,
-                      height: 80,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadiusDirectional.all(Radius.circular(20)),
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/like.jpg'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Container(
-                          width: 110,
-                          height: 35,
-                          decoration: BoxDecoration(
-                              color: Color(0xffF74F22),
-                              borderRadius: BorderRadius.circular(10)
-                          ),
-                          child: MaterialButton(
-                            onPressed: (){
-                              navigateFinish(context, LayoutScreen());
-                            },
-                            child: Text(
-                              'Go Home',
+            Center(
+              child: Container(
+                width: 155,
+                height: 35,
+                decoration: BoxDecoration(
+                    color: Color(0xffF74F22),
+                    borderRadius: BorderRadius.circular(20)
+                ),
+                child: MaterialButton(
+                  onPressed: (){
+                    Get.defaultDialog(
+                      title: '',
+                      content: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                                width:73,
+                                height: 71,
+                                decoration: BoxDecoration(
+                                    color: defaultColor,
+                                    borderRadius: BorderRadius.circular(50)
+                                ),
+                                child: Icon(Icons.check,size: 50,color: Colors.white,)
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Text(
+                              'Thank you for your  generous',
                               style: TextStyle(
-                                  color: Color(0xffFFFFFF),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400
+                                  color:defaultColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w300
                               ),
                             ),
-                          ),
-                        )
-                      ],
+                            SizedBox(
+                              height: 7,
+                            ),
+                            Text(
+                              'DONATION!',
+                              style: TextStyle(
+                                  color: defaultColor,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Container(
+                              width: 84,
+                              height: 80,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadiusDirectional.all(Radius.circular(20)),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/images/like.jpg'),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Container(
+                              width: 110,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                  color: Color(0xffF74F22),
+                                  borderRadius: BorderRadius.circular(10)
+                              ),
+                              child: MaterialButton(
+                                onPressed: (){
+                                  navigateFinish(context, LayoutScreen());
+                                },
+                                child: Text(
+                                  'Go Home',
+                                  style: TextStyle(
+                                      color: Color(0xffFFFFFF),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w400
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    'Donate',
+                    style: TextStyle(
+                        color: Color(0xffFFFFFF),
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400
                     ),
                   ),
-                );
-              },
-              child: Text(
-                'Donate',
-                style: TextStyle(
-                    color: Color(0xffFFFFFF),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400
                 ),
               ),
             ),
-          ),
-        ),
             SizedBox(
               height: 20,
             ),
@@ -512,4 +524,10 @@ var clothController=TextEditingController();
       ),
     );
   }
+
+  // @override
+  // void dispose() {
+  //   addressController.dispose();
+  //   super.dispose();
+  // }
 }
