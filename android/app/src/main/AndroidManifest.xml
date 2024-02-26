@@ -3,6 +3,8 @@
         android:label="donate_clothes"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBDeLr8GmU6bVUzVfXtC2LeFDhvcTZU4qg"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

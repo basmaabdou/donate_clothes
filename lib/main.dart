@@ -4,6 +4,7 @@ import 'package:donate_clothes/shared/constants.dart';
 import 'package:donate_clothes/shared/network/local/cache_helper.dart';
 import 'package:donate_clothes/shared/network/remote/dio_helper.dart';
 import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
+import 'package:donate_clothes/ui/screens/map_screen/map_screen.dart';
 import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
 import 'package:donate_clothes/ui/screens/users/login_screen.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: startWidget,
     );
   }
 }
