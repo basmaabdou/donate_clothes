@@ -4,12 +4,15 @@ import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../shared/constants.dart';
 import '../../../shared/network/local/cache_helper.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_button.dart';
 import '../../widgets/default_text_form_field..dart';
+import '../home_screen/home_screen.dart';
 import '../layout_screen/layout_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -18,14 +21,12 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
   var emailController = TextEditingController();
-
   var passController = TextEditingController();
-
-  var phoneController = TextEditingController();
-
   var formKey = GlobalKey<FormState>();
-
   bool isPassword = false;
 
   @override
@@ -125,20 +126,24 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         ConditionalBuilder(
                           condition: state is! LoginLoadingState,
-                          builder: (context) => DefaultButton(
-                              text: 'LogIn',
-                              fun: () {
-                                if (formKey.currentState!.validate()) {
-                                  UserCubit.get(context).userLogin(
-                                      email: emailController.text,
-                                      password: passController.text);
-                                }
-                              }),
+                          builder: (context) => Column(
+                            children: [
+                              DefaultButton(
+                                  text: 'LogIn',
+                                  fun: () {
+                                    if (formKey.currentState!.validate()) {
+                                      UserCubit.get(context).userLogin(
+                                          email: emailController.text,
+                                          password: passController.text);
+                                    }
+                                  }),
+                            ],
+                          ),
                           fallback: (context) =>
                               Center(child: CircularProgressIndicator()),
                         ),
                         SizedBox(
-                          height: 25,
+                          height: 15,
                         ),
                         Container(
                           height: 50,
@@ -172,6 +177,36 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 45.0), 
+                          child: MaterialButton(
+                            onPressed: () async {
+                              await signInWithGoogle();
+                            },
+                            height: 45.0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                side: BorderSide(
+                                    color: Colors.grey) 
+                                ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.network(
+                                  'http://pngimg.com/uploads/google/google_PNG19635.png',
+                                  height: 30.0,
+                                ),
+                                SizedBox(width: 8.0),
+                                Text(
+                                  'Google',
+                                  style: TextStyle(
+                                      fontSize: 20.0, color: Color(0xff756B6B)),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -182,5 +217,32 @@ class _LoginScreenState extends State<LoginScreen> {
         },
       ),
     );
+  }
+
+  Future<void> signInWithGoogle() async {
+    try {
+      GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
+      if (googleSignInAccount != null) {
+        GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+        AuthCredential authCredential = GoogleAuthProvider.credential(
+          idToken: googleSignInAuthentication.idToken,
+          accessToken: googleSignInAuthentication.accessToken,
+        );
+        UserCredential authResult =
+            await _auth.signInWithCredential(authCredential);
+        User user = authResult.user!;
+        print('User email: ${user.email}');
+        
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
+      } else {
+        print('Google sign in failed.');
+      }
+    } catch (error) {
+      print('Error signing in with Google: $error');
+    }
   }
 }

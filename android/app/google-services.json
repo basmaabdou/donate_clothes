@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "643278070250",
+    "project_id": "donate-clothes-fb39f",
+    "storage_bucket": "donate-clothes-fb39f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643278070250:android:8d3a0fadb85b063a595293",
+        "android_client_info": {
+          "package_name": "com.example.donate_clothes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj2rUHI0wTv7BJAkv7pK5oIi8OcTtLuEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
