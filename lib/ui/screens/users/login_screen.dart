@@ -12,7 +12,6 @@ import '../../../shared/network/local/cache_helper.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_button.dart';
 import '../../widgets/default_text_form_field..dart';
-import '../home_screen/home_screen.dart';
 import '../layout_screen/layout_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -178,8 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 45.0), 
+                          padding: EdgeInsets.symmetric(horizontal: 45.0),
                           child: MaterialButton(
                             onPressed: () async {
                               await signInWithGoogle();
@@ -187,9 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 45.0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(
-                                    color: Colors.grey) 
-                                ),
+                                side: BorderSide(color: Colors.grey)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -233,10 +229,10 @@ class _LoginScreenState extends State<LoginScreen> {
             await _auth.signInWithCredential(authCredential);
         User user = authResult.user!;
         print('User email: ${user.email}');
-        
+
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => LayoutScreen()),
         );
       } else {
         print('Google sign in failed.');
