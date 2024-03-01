@@ -52,7 +52,6 @@ class _MapScreenState extends State<MapScreen> {
                     },
                     markers: markers,
                     onTap: (LatLng latLng) async {
-
                       markers.add(
                         Marker(
                           markerId: MarkerId("1"),
@@ -98,7 +97,6 @@ class _MapScreenState extends State<MapScreen> {
               padding: const EdgeInsetsDirectional.only(start: 10,end: 10),
               child: Column(
                 children: [
-
                   Text(
                     'Pickup Address',
                     textAlign: TextAlign.center,
@@ -162,48 +160,6 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                   ),
                   SizedBox(height: 7),
-                  Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: TextFormField(
-                      keyboardType: TextInputType.text,
-                      validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'pickUp must be not empty';
-                        }
-                        return null;
-                      },
-                      readOnly: true,
-                      decoration: InputDecoration(
-                        hintText: 'Pickup Instruction?',
-                        hintStyle: TextStyle(
-                          color: Color(0xff323232),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                        ),
-                        fillColor: Colors.grey[100],
-                        filled: true,
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xffFFFFFF), width: 2.0,),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        border:  OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.add,color: Color(0xffC4C4C4),
-                        ),
-
-                      ),
-
-                    ),
-                  ),
                   SizedBox(
                     height: 15,
                   ),

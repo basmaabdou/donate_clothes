@@ -50,7 +50,8 @@ class LayoutScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(Icons.handshake,size: 24),
                     label: 'Brand'
-                ),BottomNavigationBarItem(
+                ),
+                BottomNavigationBarItem(
                     icon: Icon(Icons.person,size: 24),
                     label: 'Profile'
                 ),

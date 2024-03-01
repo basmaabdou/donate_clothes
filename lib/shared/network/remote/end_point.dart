@@ -17,3 +17,17 @@ const GET_BRANDS='brands';
 const DONATIONCARD='donationcard';
 
 
+const ORDER_DONATAIONORDER='order/donataionorder';
+
+
+const ORDER_DONATINORDERS='order/donationorders';
+
+
+const QRCODE='profile/exchange-coins';
+
+
+const GETCOINS='profile/collectcoins';
+
+
+
+

@@ -17,6 +17,7 @@ class MyDonationScreen extends StatelessWidget {
         listener: (BuildContext context, ProfileStates state) {  },
         builder: (BuildContext context, ProfileStates state) {
           var cubit = ProfileCubit.get(context);
+         // print(cubit.profileModel?.data!.orders!.length);
           return ConditionalBuilder(
               condition: cubit.profileModel != null  ,
               builder: (context) => MyDonationView(),

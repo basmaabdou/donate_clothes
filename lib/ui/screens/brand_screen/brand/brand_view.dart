@@ -119,22 +119,22 @@ class BrandView extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+
               Container(
                 height: 390,
                 child: ListView.separated(
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) => BrandsLogo(
-                    image: BrandCubit.get(context)
-                        .brandsResponse!
-                    .brands![index]
-                        .image!
-                        .url!,
+                    image: BrandCubit.get(context).brandsResponse!.brands![index].image!.url!,
+                    id:BrandCubit.get(context).brandsResponse!.brands![index].sId! ,
                   ),
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 25.0,
                   ),
-                  itemCount:
-                      BrandCubit.get(context).brandsResponse!.brands!.length,
+                  itemCount: BrandCubit.get(context).brandsResponse!.brands!.length,
                   scrollDirection: Axis.vertical,
                 ),
               ),

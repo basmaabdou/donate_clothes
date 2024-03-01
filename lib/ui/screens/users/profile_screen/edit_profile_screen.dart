@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:donate_clothes/ui/screens/users/profile_screen/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -47,13 +48,16 @@ class _EditProfileState extends State<EditProfileScreen> {
       create: (BuildContext context) =>ProfileCubit()..getProfileData()..editProfileResponse..editProfileImageResponse,
       child: BlocConsumer<ProfileCubit,ProfileStates>(
         listener: (BuildContext context, state) {
-
+         if (state is SuccessUpdateProfileState) {
+           Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
+         }
         },
         builder: (BuildContext context, Object? state) {
-          nameController.text =  ProfileCubit.get(context) .profileModel?.data?.username ?? 'name not available';
-          phoneController.text =  ProfileCubit.get(context).profileModel?.data?.phone ?? 'Phone not available';
-          passController.text= ProfileCubit.get(context).editProfileResponse?.data?.password ?? '12345678';
-          String profilePhoto=ProfileCubit.get(context).editProfileResponse?.data?.profilephoto?.url ?? "";
+          nameController.text=ProfileCubit.get(context).profileModel?.data?.username.toString() ?? "name not available";
+          phoneController.text = ProfileCubit.get(context).profileModel?.data?.phone??"phone  not available";
+          passController.text = ProfileCubit.get(context).editProfileResponse?.data?.password??"123456789";
+          String profilePhoto=ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ?? "";
+
 
           return ConditionalBuilder(
             condition: ProfileCubit.get(context).profileModel != null,
@@ -66,6 +70,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                   leading: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
+                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
+                      ProfileCubit.get(context).getProfileData();
                     },
                     icon: Icon(Icons.arrow_back, size: 25, color: Color(0xffF74F22)),
                   ),
@@ -216,8 +222,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                         ),
                         Center(
                           child: Container(
-                            width: 80,
-                            height: 40,
+                            width: MediaQuery.sizeOf(context).width/1.4,
+                            height: 45,
                             decoration: BoxDecoration(
                                 color: Color(0xffF74F22),
                                 borderRadius: BorderRadius.circular(10)),
@@ -229,6 +235,9 @@ class _EditProfileState extends State<EditProfileScreen> {
                                   phone: phoneController.text,
                                 );
                                 ProfileCubit.get(context).updateUserProfile(profilephoto: profilePhoto);
+                                setState(() {
+                                  ProfileCubit.get(context).getProfileData();
+                                });
                               },
                               child: Text(
                                 'save',

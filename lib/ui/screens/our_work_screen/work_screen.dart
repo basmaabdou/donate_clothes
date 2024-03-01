@@ -3,8 +3,13 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../widgets/animation.dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
+import '../home_screen/home_cubit/cubit.dart';
 
 class OurWorkScreen extends StatelessWidget {
+  String img, title, description;
+   OurWorkScreen({super.key, required this.img, required this.description, required this.title});
+
+
   double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
@@ -31,7 +36,7 @@ class OurWorkScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/h2.jpg'),
+                  image: NetworkImage(img),
                     fit: BoxFit.fill
                 ),
               ),
@@ -42,7 +47,7 @@ class OurWorkScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Welcome to the charity application',
+                  title,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
@@ -59,7 +64,7 @@ class OurWorkScreen extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'We act as an intermediary between you and the NGOs where you can submit a request to donate clothes and specify the organization you want to donate to and the number of clothes to donate in addition to determining the location Your place of residence and the right time for the worker to be able to receive donations from you, and depending on the quality of the clothes, you get virtual money, later you can exchange it for discounts on the brands available to us. So far, 4 organizations and 4 brands have participated with us.',
+              description,
               style: TextStyle(
                 fontWeight: FontWeight.w400,
                 fontSize: 15,

@@ -35,6 +35,7 @@ class Data {
   String? createdAt;
   String? updatedAt;
   int? iV;
+  String? qrcode;
 
   Data(
       {this.sId,
@@ -48,7 +49,9 @@ class Data {
         this.orders,
         this.createdAt,
         this.updatedAt,
-        this.iV});
+        this.iV,
+        this.qrcode
+      });
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -70,6 +73,7 @@ class Data {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
+    qrcode = json['qrcode'];
   }
 
   Map<String, dynamic> toJson() {
@@ -90,6 +94,7 @@ class Data {
     data['createdAt'] = this.createdAt;
     data['updatedAt'] = this.updatedAt;
     data['__v'] = this.iV;
+    data['qrcode'] = this.qrcode;
     return data;
   }
 }
@@ -116,44 +121,37 @@ class Profilephoto {
 class Orders {
   String? sId;
   String? itemsName;
+  String? location;
   Charity? charity;
   int? quantity;
   int? phone;
-  String? address;
-  String? city;
-  String? state;
-  Profilephoto? photo;
   String? status;
+  int? ordercoins;
   String? userinfo;
   int? iV;
 
   Orders(
       {this.sId,
         this.itemsName,
+        this.location,
         this.charity,
         this.quantity,
         this.phone,
-        this.address,
-        this.city,
-        this.state,
-        this.photo,
         this.status,
+        this.ordercoins,
         this.userinfo,
         this.iV});
 
   Orders.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     itemsName = json['itemsName'];
+    location = json['location'];
     charity =
     json['charity'] != null ? new Charity.fromJson(json['charity']) : null;
     quantity = json['quantity'];
     phone = json['phone'];
-    address = json['address'];
-    city = json['city'];
-    state = json['state'];
-    photo =
-    json['photo'] != null ? new Profilephoto.fromJson(json['photo']) : null;
     status = json['status'];
+    ordercoins = json['ordercoins'];
     userinfo = json['userinfo'];
     iV = json['__v'];
   }
@@ -162,24 +160,19 @@ class Orders {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['_id'] = this.sId;
     data['itemsName'] = this.itemsName;
+    data['location'] = this.location;
     if (this.charity != null) {
       data['charity'] = this.charity!.toJson();
     }
     data['quantity'] = this.quantity;
     data['phone'] = this.phone;
-    data['address'] = this.address;
-    data['city'] = this.city;
-    data['state'] = this.state;
-    if (this.photo != null) {
-      data['photo'] = this.photo!.toJson();
-    }
     data['status'] = this.status;
+    data['ordercoins'] = this.ordercoins;
     data['userinfo'] = this.userinfo;
     data['__v'] = this.iV;
     return data;
   }
 }
-
 class Charity {
   String? sId;
   String? title;

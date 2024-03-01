@@ -4,15 +4,15 @@ import '../screens/brand_screen/brand_detail/brand_details_screen.dart';
 import 'basic.dart';
 class BrandsLogo extends StatelessWidget {
 
-  final String image;
+  final String image,id;
 
-  const BrandsLogo({super.key, required this.image});
+  const BrandsLogo({super.key, required this.image, required this.id});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        navigateTo(context, BrandDetailsScreen());
+        navigateTo(context, BrandDetailsScreen(id: id,));
       },
       child: Container(
         width: 339,

@@ -13,10 +13,11 @@ class BrandScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => BrandCubit()..getBrandsData(),
+      create: (BuildContext context) => BrandCubit()..getAllBrandsData(),
       child: BlocConsumer<BrandCubit,BrandStates>(
         listener: ( context,  state) {  },
         builder: ( context,state) {
+
           var cubit = BrandCubit.get(context);
           return ConditionalBuilder(
               condition: cubit.brandsResponse != null  ,

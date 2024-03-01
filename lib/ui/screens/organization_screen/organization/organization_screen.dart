@@ -13,7 +13,8 @@ class OrganizationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => OrganizationCubit()..getOrganizationData(),
+      create: (BuildContext context) => OrganizationCubit()..getAllOrganizationData(
+      ),
       child: BlocConsumer<OrganizationCubit,OrganizationStates>(
         listener: ( context,  state) {  },
         builder: ( context,state) {

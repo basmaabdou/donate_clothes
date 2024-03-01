@@ -84,14 +84,16 @@ class OrganizationView extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
+                  SizedBox(height: 10,),
                   Container(
-                    height: 500,
+                    height: 1000,
                     child: ListView.separated(
                       physics: BouncingScrollPhysics(),
                       itemBuilder: (context, index) =>  OurOrganization(
                         image: OrganizationCubit.get(context).organizationResponse!.allOrganizaions![index].images![index].url!,
                         title: OrganizationCubit.get(context).organizationResponse!.allOrganizaions![index].title!,
                         info: OrganizationCubit.get(context).organizationResponse!.allOrganizaions![index].organizationInfo!,
+                        sId:OrganizationCubit.get(context).organizationResponse!.allOrganizaions![index].sId! ,
                       ),
                       separatorBuilder: (context, index) => const SizedBox(
                         height: 15.0,

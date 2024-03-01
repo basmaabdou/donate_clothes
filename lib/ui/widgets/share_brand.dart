@@ -1,29 +1,51 @@
+import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ShareBrands extends StatelessWidget {
-  const ShareBrands({super.key});
+class ShareBrands extends StatefulWidget {
+  String image;
+  String id;
+  int? isSelectedIndex ;
+  bool isSelected ;
+
+
+  ShareBrands({super.key, required this.image, required this.id,    this.isSelected = false,
+  this.isSelectedIndex
+  });
+
+  @override
+  State<ShareBrands> createState() => _ShareBrandsState();
+}
+
+class _ShareBrandsState extends State<ShareBrands> {
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: (){
+
+        setState(() {
+          widget.isSelected = !widget.isSelected;
+          BrandCubit.get(context).idBrand=widget.id;
+
+        });
+      },
+      child: Container(
         width: 158,
         height: 165,
         decoration: BoxDecoration(
-          border: Border.all(color: Color(0xffF74F22),width: 1),
-          borderRadius: BorderRadiusDirectional.all(Radius.circular(10)),
-          image: DecorationImage(
-            image: AssetImage('assets/images/r1.png'),
-            fit: BoxFit.fill
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: widget.isSelected ? Colors.red : Colors.transparent,
+            width: 2,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 0,
-              blurRadius: 4,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        )
+          image: DecorationImage(
+            image: NetworkImage(widget.image),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

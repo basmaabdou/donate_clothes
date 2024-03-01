@@ -12,7 +12,6 @@ import '../../../shared/network/local/cache_helper.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_button.dart';
 import '../../widgets/default_text_form_field..dart';
-import '../home_screen/home_screen.dart';
 import '../layout_screen/layout_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -36,20 +35,28 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<UserCubit, UserStates>(
         listener: (BuildContext context, state) {
           if (state is LoginSuccessState) {
-            if (state.loginModel.success!) {
-              print(state.loginModel.message);
-              print(state.loginModel.token);
-              CacheHelper.saveData(key: 'token', value: state.loginModel.token)
-                  .then((value) {
+
+            if (state.loginModel.success == true){
+              messageToast(
+                  msg: state.loginModel.message!, state: ToastStates.SUCCESS);
+              navigateFinish(context, LayoutScreen());
+              CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
                 token = state.loginModel.token;
-                navigateFinish(context, LayoutScreen());
               });
-            } else {
-              print(state.loginModel.message);
+            }
+
+            if (state.loginModel.success == false) {
               messageToast(
                   msg: state.loginModel.message!, state: ToastStates.ERROR);
             }
+
+
           }
+          if (state is LoginErrorState)  {
+            messageToast(
+                msg: state.error, state: ToastStates.ERROR);
+          }
+
         },
         builder: (BuildContext context, Object? state) {
           return Form(
@@ -124,23 +131,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(
                           height: 25,
                         ),
-                        ConditionalBuilder(
-                          condition: state is! LoginLoadingState,
-                          builder: (context) => Column(
-                            children: [
-                              DefaultButton(
-                                  text: 'LogIn',
-                                  fun: () {
-                                    if (formKey.currentState!.validate()) {
-                                      UserCubit.get(context).userLogin(
-                                          email: emailController.text,
-                                          password: passController.text);
-                                    }
-                                  }),
-                            ],
+                        Center(
+                          child: ConditionalBuilder(
+                            condition: state is! LoginLoadingState,
+                            builder: (context) => Column(
+                              children: [
+                                DefaultButton(
+                                    text: 'LogIn',
+                                    fun: () {
+                                      if (formKey.currentState!.validate()) {
+                                        UserCubit.get(context).userLogin(
+                                            email: emailController.text,
+                                            password: passController.text);
+                                      }
+                                    }),
+                              ],
+                            ),
+                            fallback: (context) =>
+                                Center(child: CircularProgressIndicator()),
                           ),
-                          fallback: (context) =>
-                              Center(child: CircularProgressIndicator()),
                         ),
                         SizedBox(
                           height: 15,
@@ -178,8 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 45.0), 
+                          padding: EdgeInsets.symmetric(horizontal: 45.0),
                           child: MaterialButton(
                             onPressed: () async {
                               await signInWithGoogle();
@@ -187,9 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             height: 45.0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10.0),
-                                side: BorderSide(
-                                    color: Colors.grey) 
-                                ),
+                                side: BorderSide(color: Colors.grey)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -233,10 +239,10 @@ class _LoginScreenState extends State<LoginScreen> {
             await _auth.signInWithCredential(authCredential);
         User user = authResult.user!;
         print('User email: ${user.email}');
-        
+
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
+          MaterialPageRoute(builder: (context) => LayoutScreen()),
         );
       } else {
         print('Google sign in failed.');

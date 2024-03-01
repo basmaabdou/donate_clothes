@@ -7,7 +7,7 @@ Widget  defaultTextForm({
    String? labelText,
    String? hintText,
   required final validate,
-  required IconData prefix,
+   IconData? prefix,
   final  suffixPressed,
   final onChanged,
   final onSubmit,
@@ -15,8 +15,7 @@ Widget  defaultTextForm({
   final onTap,
   bool isEnabled=true,
 })=>Container(
-  width: 344,
-  height:50 ,
+  height:65 ,
   child:   TextFormField(
     controller: controller,
     keyboardType: type,
@@ -28,6 +27,7 @@ Widget  defaultTextForm({
     enabled: isEnabled,
 
     decoration: InputDecoration(
+      contentPadding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
       labelText: labelText,
       labelStyle: TextStyle(
           color: Colors.grey,

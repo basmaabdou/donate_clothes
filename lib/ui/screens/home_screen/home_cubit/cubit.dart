@@ -16,6 +16,7 @@ class HomeCubit extends Cubit<HomeStates>{
       static HomeCubit get(context)=>BlocProvider.of(context);
 
       DonationCardResponse? donationCardResponse;
+
       void getDonationData()
       {
             DioHelper.getData(

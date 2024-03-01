@@ -10,9 +10,9 @@ class ErrorBrandStates extends BrandStates{}
 
 class LoadingBrandDetailStates extends BrandStates{}
 
-class SuccessBrandDetailStates extends BrandStates{}
+class SuccessSingleBrandDetailStates extends BrandStates{}
 
-class ErrorBrandDetailStates extends BrandStates{}
+class ErrorSingleBrandDetailStates extends BrandStates{}
 
 
 

@@ -8,12 +8,13 @@ import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
 import 'package:donate_clothes/ui/screens/map_screen/map_screen.dart';
 import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
 import 'package:donate_clothes/ui/screens/users/login_screen.dart';
+import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,);
@@ -24,20 +25,20 @@ void main() async {
   Bloc.observer = MyBlocObserver();
   DioHelper.init();
   await CacheHelper.init();
-  bool? onBoarding= CacheHelper.getData(key: 'onBoarding',);
-  token=CacheHelper.getData(key: 'token' );
-   sId=CacheHelper.getData(key: 'id' );
+  bool? onBoarding = CacheHelper.getData(key: 'onBoarding',);
+  token = CacheHelper.getData(key: 'token');
+  sId = CacheHelper.getData(key: 'id');
   print(token);
 
   Widget widget;
-  if(onBoarding!=null){
-    if(token !=null) {
+  if (onBoarding != null) {
+    if (token != null) {
       widget = LayoutScreen();
-    }else {
+    } else {
       widget = LoginScreen();
     }
-  }else{
-    widget=OnBoardingScreen();
+  } else {
+    widget = OnBoardingScreen();
   }
 
   runApp(MyApp(
@@ -47,13 +48,17 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   final Widget? startWidget;
-  MyApp( { this.startWidget});
+
+  MyApp({ this.startWidget});
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: startWidget,
+    return MultiBlocProvider(
+      providers: [ BlocProvider(create: (context) => ProfileCubit()..getProfileData())],
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: startWidget,
+      ),
     );
   }
 }

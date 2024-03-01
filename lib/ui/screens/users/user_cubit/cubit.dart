@@ -28,15 +28,6 @@ class UserCubit extends Cubit<UserStates>{
       loginModel = UserModel.fromJson(value.data);
 
       if (loginModel != null) {
-        print(loginModel!.success);
-        print(loginModel!.message);
-        print(loginModel!.token);
-
-        if (loginModel!.data != null) {
-          print(loginModel!.data!.email);
-        } else {
-          print('Data is null');
-        }
 
         emit(LoginSuccessState(loginModel!));
       } else {
