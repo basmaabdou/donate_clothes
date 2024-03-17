@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:donate_clothes/ui/screens/users/forget_password/forget_password_page.dart';
 import 'package:donate_clothes/ui/screens/users/register_screen.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
@@ -120,6 +121,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                 isPassword = !isPassword;
                               });
                             }),
+
+                        Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => ForgetPasswordPage()),
+                        );
+                      },
+                      child: Text(
+                        'Forget Password?',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w700,
+                                      color: Color(0xffF74F22)),
+                      ),
+                    ),),
+
                         const SizedBox(
                           height: 25,
                         ),
