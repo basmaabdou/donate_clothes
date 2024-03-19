@@ -307,7 +307,7 @@ class _CoinsViewState extends State<CoinsView> {
                       //   child: DefaultButton(
                       //       text: 'Exchange your coins',
                       //       fun: () {
-                      //         ProfileCubit.get(context).getExchangeCoins(
+                       //         ProfileCubit.get(context).getExchangeCoins(
                       //             amount: amountController.text);
                       //         if (state is SuccessExchangeCoinsStates) {
                       //           print(ProfileCubit.get(context)
