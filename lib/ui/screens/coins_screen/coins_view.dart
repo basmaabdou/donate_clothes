@@ -208,7 +208,7 @@ class _CoinsViewState extends State<CoinsView> {
                                   ),
                                   const Spacer(),
                                   const Text(
-                                    'Donations',
+                                    'Donation',
                                     style: TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w500,
@@ -270,7 +270,7 @@ class _CoinsViewState extends State<CoinsView> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Center(child: QRCodeImage(base64String: "iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAYAAAB1PADUAAAAAklEQVR4AewaftIAAATESURBVO3BQY4bSRAEwfAC//9l3znmqYBGJ2clIczwR6qWnFQtOqladFK16KRq0UnVopOqRSdVi06qFp1ULTqpWnRSteikatFJ1aKTqkUnVYs+eQnIb1IzAZnUvAHkCTU3QJ5QMwH5TWreOKladFK16KRq0SfL1GwC8gSQSc0E5DepmYBMap5QswnIppOqRSdVi06qFn3yZUCeUPMnU3MD5Akgk5ongDyh5ptOqhadVC06qVr0yV9OzQRkAjKpeQLIBGRSM6m5AfIvO6ladFK16KRq0Sd/OSCTmhsgk5oJyKRmAvKGmn/ZSdWik6pFJ1WLPvkyNd+k5gk1E5AbIJOaGyA3aiYgk5on1PxJTqoWnVQtOqla9MkyIL8JyKRmAjKpuVEzAbkBMqmZgGwC8ic7qVp0UrXopGrRJy+p+T+pmYBMaiYgm9TcqJmAPKHmb3JSteikatFJ1SL8kReATGpugHyTmgnIpOYGyBtqngByo+YGyKRmAvKEmjdOqhadVC06qVqEP/JFQJ5QcwNkk5obIJOaGyA3aiYgN2pugDyh5ptOqhadVC06qVr0yUtA3lBzA2RSMwGZ1DwBZFKzSc2NmjfU3AD5TSdVi06qFp1ULfpkmZongNyouVEzAblRM6l5Asik5gkgk5oJyKRmAnKjZlIzAblR88ZJ1aKTqkUnVYvwR14A8oSaJ4DcqLkBMqmZgDyhZgKySc0EZFJzA2RSMwGZ1Gw6qVp0UrXopGrRJ8vUTEAmIE+oeQLIE2reUDMBmdRMQDYBuQEyqZmATGreOKladFK16KRq0Se/TM0EZFIzAXlCzQTkDSBPqJmAbAIyqZmA/J9OqhadVC06qVqEP/JFQJ5Q8waQSc0EZFIzAblRMwF5Qs0NkDfUTEAmNd90UrXopGrRSdWiT75MzQ2QGyA3at4AMqm5ATKpmYBMam6A3Kh5AsikZgIyqdl0UrXopGrRSdUi/JEXgNyomYBMap4AMqm5ATKpmYBMar4JyKRmAvKGmgnIpOabTqoWnVQtOqlahD/yApAbNROQf4maCchvUjMBmdRMQG7UvHFSteikatFJ1aJPfpmaN4BMaiYgm9RMQCYgk5pvAjIBuQHym06qFp1ULTqpWvTJlwG5UTMBuVEzAZnUTEBu1ExAbtQ8AeRPpmbTSdWik6pFJ1WLPnlJzSY1m9R8E5An1ExAJjVPAJnUTEB+00nVopOqRSdViz55CchvUnMDZFIzAZnUvKFmAjKpmYA8AWRS84Sa33RSteikatFJ1aJPlqnZBOQJNTdqJiBvAJnUTEDeUPM3OaladFK16KRq0SdfBuQJNW8AmdRMQL4JyKTmBsgE5G92UrXopGrRSdWiT/4xaiYgk5oJyKRmAjKpmdRMQCYgk5obNZuATGq+6aRq0UnVopOqRZ/85dRMQG6ATGomIJOaJ9RsArIJyI2aN06qFp1ULTqpWvTJl6n5TWomIDdAboBMap4AcqNmAjKpmYDcqJmATGomIJtOqhadVC06qVr0yTIgvwnIpGZS85uAfJOaCcgEZFJzo2bTSdWik6pFJ1WL8EeqlpxULTqpWnRSteikatFJ1aKTqkUnVYtOqhadVC06qVp0UrXopGrRSdWik6pFJ1WL/gNWMitBrsyYPgAAAABJRU5ErkJggg==",))
+                      Center(child: QRCodeImage(base64String: "${ProfileCubit.get(context).profileModel?.data?.qrcode?.replaceRange(0,22,"")}")
 
                       // Center(
                       //   child: Container(
@@ -333,7 +333,7 @@ class _CoinsViewState extends State<CoinsView> {
                       //         }
                       //       }),
                       // )
-                    ],
+                            )],
                   ),
                 ),
               ),
