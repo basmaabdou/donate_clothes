@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:donate_clothes/ui/screens/users/forget_password/forget_password_page.dart';
 import 'package:donate_clothes/ui/screens/users/register_screen.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
@@ -35,12 +36,12 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<UserCubit, UserStates>(
         listener: (BuildContext context, state) {
           if (state is LoginSuccessState) {
-
-            if (state.loginModel.success == true){
+            if (state.loginModel.success == true) {
               messageToast(
                   msg: state.loginModel.message!, state: ToastStates.SUCCESS);
               navigateFinish(context, LayoutScreen());
-              CacheHelper.saveData(key: 'token', value: state.loginModel.token).then((value) {
+              CacheHelper.saveData(key: 'token', value: state.loginModel.token)
+                  .then((value) {
                 token = state.loginModel.token;
               });
             }
@@ -49,14 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
               messageToast(
                   msg: state.loginModel.message!, state: ToastStates.ERROR);
             }
-
-
           }
-          if (state is LoginErrorState)  {
-            messageToast(
-                msg: state.error, state: ToastStates.ERROR);
+          if (state is LoginErrorState) {
+            messageToast(msg: state.error, state: ToastStates.ERROR);
           }
-
         },
         builder: (BuildContext context, Object? state) {
           return Form(
@@ -128,6 +125,25 @@ class _LoginScreenState extends State<LoginScreen> {
                                 isPassword = !isPassword;
                               });
                             }),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ForgetPasswordPage()),
+                              );
+                            },
+                            child: Text(
+                              'Forget Password?',
+                              style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w700,
+                                  color: Color(0xffF74F22)),
+                            ),
+                          ),
+                        ),
                         const SizedBox(
                           height: 25,
                         ),
