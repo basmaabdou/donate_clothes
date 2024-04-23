@@ -12,7 +12,20 @@
           "package_name": "com.example.donate_clothes"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.donate_clothes",
+            "certificate_hash": "2065d0d9b24b7161e05597dbd453f979b4103a57"
+          }
+        },
+        {
+          "client_id": "643278070250-t5iff4f2es58s1qcavps8e41e6tc3stm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDj2rUHI0wTv7BJAkv7pK5oIi8OcTtLuEE"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643278070250-t5iff4f2es58s1qcavps8e41e6tc3stm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "643278070250-gadn0jli95vmf9r97ns9nqch6gmpnb4l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.donateClothes"
+              }
+            }
+          ]
         }
       }
     }
