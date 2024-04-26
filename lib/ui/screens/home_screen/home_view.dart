@@ -1,8 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:donate_clothes/ui/widgets/basic.dart';
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../shared/constants.dart';
 import '../../widgets/our_recent_work.dart';
+import '../setting_screen/setting_screen.dart';
 import 'home_cubit/cubit.dart';
 
 
@@ -35,7 +39,7 @@ class _HomeScreenState extends State<HomeView> {
         leading: IconButton(
           icon: Icon(
             Icons.list,
-            color: Color(0xffF74F22),
+            color: controller2.app,
             size: 25,
           ),
           iconSize: 100,
@@ -60,38 +64,41 @@ class _HomeScreenState extends State<HomeView> {
             ],
             fontWeight: FontWeight.bold,
             fontSize: 35,
-            color: Color(0xffF74F22),
+            color: controller2.app,
             fontStyle: FontStyle.italic,
           ),
         ),
         actions: [
           Row(
             children: [
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                ),
-                child: Container(
-                  width: 20,
-                  height: 20,
-                  decoration: BoxDecoration(
-                      color: Color(0xffF74F22),
-                      borderRadius: BorderRadiusDirectional.circular(20)),
-                  child: Text(
-                    'R',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Color(0xffFFFFFF),
-                    ),
-                  ),
-                ),
+              // Container(
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(20),
+              //     color: Colors.white,
+              //   ),
+              //   child: Container(
+              //     width: 20,
+              //     height: 20,
+              //     decoration: BoxDecoration(
+              //         color: Color(0xffF74F22),
+              //         borderRadius: BorderRadiusDirectional.circular(20)),
+              //     child: Text(
+              //       'R',
+              //       textAlign: TextAlign.center,
+              //       style: TextStyle(
+              //         fontWeight: FontWeight.bold,
+              //         fontSize: 15,
+              //         color: Color(0xffFFFFFF),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              IconButton(
+                  onPressed: (){
+                    navigateTo(context, SettingScreen());
+                  },
+                  icon: Icon(Icons.settings ,color: controller2.app,size: 3.h,)
               ),
-              SizedBox(
-                width: 10,
-              )
             ],
           ),
         ],

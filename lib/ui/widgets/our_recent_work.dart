@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:sizer/sizer.dart';
 
 import '../screens/donate_clothes_details_screen/donate_clothes_details.dart';
 import '../screens/our_work_screen/work_screen.dart';
 import 'animation.dart';
+import 'default_text_form_field..dart';
 
 class OurRecentWork extends StatelessWidget {
 
@@ -18,6 +20,7 @@ class OurRecentWork extends StatelessWidget {
         Navigator.push(context,ScaleTransition1( OurWorkScreen(img: img, description: description, title: title,)));
       },
       child: Container(
+        width: 47.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadiusDirectional.circular(20),
             color: Color(0xffFFFFFF),
@@ -61,7 +64,7 @@ class OurRecentWork extends StatelessWidget {
                         padding: const EdgeInsetsDirectional.only(start: 4),
                         child: Row(
                           children: [
-                            Icon(Icons.access_time_outlined,size: 8,color: Color(0xffF74F22),),
+                            Icon(Icons.access_time_outlined,size: 8,color: controller2.app,),
                             SizedBox(
                               width: 4,
                             ),
@@ -70,7 +73,7 @@ class OurRecentWork extends StatelessWidget {
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 8,
-                                color: Color(0xffF74F22),
+                                color:controller2.app,
                               ),
                             ),
                           ],
@@ -87,7 +90,7 @@ class OurRecentWork extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 15,
-                    color: Color(0xffF74F22),
+                    color: controller2.app,
                   ),
                 ),
                 SizedBox(
@@ -95,16 +98,16 @@ class OurRecentWork extends StatelessWidget {
                 ),
                 Text(
                   description,
-                  maxLines: 2,
+                  maxLines: 4,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 12,
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                // SizedBox(
+                //   height: 10,
+                // ),
                 // LinearPercentIndicator(
                 //   width: 290.0,
                 //   lineHeight: 7.0,
@@ -122,7 +125,7 @@ class OurRecentWork extends StatelessWidget {
                       width: 73,
                       height: 26,
                       decoration: BoxDecoration(
-                          color: Color(0xffF74F22),
+                          color: controller2.app,
                           borderRadius: BorderRadius.circular(10)),
                       child: MaterialButton(
                         onPressed: () {

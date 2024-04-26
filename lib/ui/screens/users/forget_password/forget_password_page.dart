@@ -1,6 +1,10 @@
+import 'package:donate_clothes/shared/constants.dart';
+import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:donate_clothes/ui/screens/users/forget_password/check_email.dart';
 import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   @override
@@ -10,11 +14,17 @@ class ForgetPasswordPage extends StatefulWidget {
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
   bool isButtonEnabled = false; // تعريف متغير للتحكم في تفعيل الزر
-
+ThemeController controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+          preferredSize:
+          const Size.fromHeight(0.0), // here the desired height
+          child: AppBar(
+            backgroundColor: controller.app,
+            elevation: 0,
+          )),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
@@ -22,15 +32,24 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Forgot password',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Colors.black,
-                ),
+              Row(
+                children: [
+                  InkWell(
+                      child: Icon(Icons.arrow_back_ios,color: controller.app,size: 2.5.h,),
+                    onTap: (){Get.back();},
+                  ),
+                  SizedBox(width: 7.h,),
+                  Text(
+                    'Forgot password',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 4.h),
               Text(
                 'Please enter your email to reset the password',
                 style: TextStyle(
@@ -68,11 +87,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
                       if (states.contains(MaterialState.disabled)) {
-                        return Color.fromARGB(255, 253, 211,
-                            199); // تعيين اللون عندما يكون الزر فعالا
+                        return controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB); // تعيين اللون عندما يكون الزر فعالا
                       }
-                      return Color(
-                          0xffF74F22); // تعيين اللون عندما يكون الزر فعالا
+                      return controller.app; // تعيين اللون عندما يكون الزر فعالا
                     },
                   ),
                   fixedSize: MaterialStateProperty.all<Size>(

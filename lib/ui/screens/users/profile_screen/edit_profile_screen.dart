@@ -73,7 +73,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
                       ProfileCubit.get(context).getProfileData();
                     },
-                    icon: Icon(Icons.arrow_back, size: 25, color: Color(0xffF74F22)),
+                    icon: Icon(Icons.arrow_back, size: 25, color: controller2.app),
                   ),
                   titleSpacing: 80,
                   title: Text(
@@ -131,7 +131,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                                     },
                                     icon: CircleAvatar(
                                         radius: 20,
-                                        backgroundColor: Color(0xffF74F22),
+                                        backgroundColor: controller2.app,
                                         child: Icon(
                                           Icons.camera_alt_outlined,
                                           size: 20,
@@ -225,7 +225,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                             width: MediaQuery.sizeOf(context).width/1.4,
                             height: 45,
                             decoration: BoxDecoration(
-                                color: Color(0xffF74F22),
+                                color: controller2.app,
                                 borderRadius: BorderRadius.circular(10)),
                             child: MaterialButton(
                               onPressed: () {

@@ -1,5 +1,7 @@
+import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+ThemeController controller2=Get.find();
 Widget  defaultTextForm({
   required TextEditingController controller,
   required TextInputType type,
@@ -39,16 +41,16 @@ Widget  defaultTextForm({
           fontSize: 16
       ),
       focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Color(0xffF74F22), width: 2.0)
+        borderSide: BorderSide(color:controller2.app, width: 2.0)
       ),
       border:  OutlineInputBorder(borderRadius: BorderRadius.circular(8),),
       prefixIcon: Icon(
-        prefix ,color: Color(0xffF74F22),
+        prefix ,color: controller2.app,
       ),
       suffixIcon: suffix != null ? IconButton(
         onPressed: suffixPressed,
         icon: Icon(
-          suffix,color: Color(0xffF74F22),
+          suffix,color: controller2.app,
         ),
       ) : null,
 

@@ -1,4 +1,5 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:donate_clothes/ui/screens/users/forget_password/forget_password_page.dart';
 import 'package:donate_clothes/ui/screens/users/register_screen.dart';
 import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
@@ -6,6 +7,7 @@ import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../../../shared/constants.dart';
@@ -29,6 +31,7 @@ class _LoginScreenState extends State<LoginScreen> {
   var formKey = GlobalKey<FormState>();
   bool isPassword = false;
 
+  ThemeController controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -140,7 +143,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               style: TextStyle(
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w700,
-                                  color: Color(0xffF74F22)),
+                                  color: controller.app
+                              ),
                             ),
                           ),
                         ),
@@ -191,12 +195,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                           builder: (context) =>
                                               RegisterScreen()));
                                 },
-                                child: const Text(
+                                child:  Text(
                                   'SignUp',
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.w700,
-                                      color: Color(0xffF74F22)),
+                                      color: controller.app
+                                  ),
                                 ),
                               )
                             ],

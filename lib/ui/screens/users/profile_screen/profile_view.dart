@@ -1,5 +1,6 @@
 import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
 import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -26,7 +27,7 @@ class ProfileView extends StatelessWidget {
           return Scaffold(
             backgroundColor: const Color(0xffF9F9F9),
             appBar: AppBar(
-              backgroundColor: const Color(0xffF74F22),
+              backgroundColor: controller2.app,
               elevation: 0,
               leading: IconButton(
                 onPressed: () {
@@ -46,7 +47,7 @@ class ProfileView extends StatelessWidget {
                     borderRadius: const BorderRadiusDirectional.only(
                         bottomStart: const Radius.circular(50),
                         bottomEnd: Radius.circular(50)),
-                    color: const Color(0xffF74F22),
+                    color: controller2.app,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.5),
@@ -132,7 +133,7 @@ class ProfileView extends StatelessWidget {
                         width: 360,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: const Color(0xffF74F22),
+                          color: controller2.app,
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: [
                             BoxShadow(
@@ -167,10 +168,10 @@ class ProfileView extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                            const Icon(
+                             Icon(
                               Icons.layers,
                               size: 23,
-                              color: Color(0xffF74F22),
+                              color: controller2.app,
                             ),
                             const SizedBox(
                               width: 7,
@@ -184,14 +185,14 @@ class ProfileView extends StatelessWidget {
                             ),
                             const Spacer(),
                             IconButton(
-                              color: const Color(0xffF74F22),
+                              color: controller2.app,
                               onPressed: () {
                                 navigateTo(context, const CoinsScreen());
                               },
                               icon: Container(
                                   height: 18.75,
                                   width: 18.75,
-                                  color: const Color(0xffF74F22),
+                                  color: controller2.app,
                                   child: const Icon(
                                     Icons.add,
                                     color: Colors.white,
@@ -209,10 +210,10 @@ class ProfileView extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                            const Icon(
+                             Icon(
                               Icons.favorite_rounded,
                               size: 23,
-                              color: Color(0xffF74F22),
+                              color: controller2.app,
                             ),
                             const SizedBox(
                               width: 7,
@@ -226,7 +227,7 @@ class ProfileView extends StatelessWidget {
                             ),
                             const Spacer(),
                             IconButton(
-                              color: const Color(0xffF74F22),
+                              color: controller2.app,
                               onPressed: () {
                                 Navigator.push(context,
                                     SizeTransition2(const MyDonationScreen()));
@@ -234,7 +235,7 @@ class ProfileView extends StatelessWidget {
                               icon: Container(
                                   height: 18.75,
                                   width: 18.75,
-                                  color: const Color(0xffF74F22),
+                                  color: controller2.app,
                                   child: const Icon(
                                     Icons.add,
                                     color: Colors.white,

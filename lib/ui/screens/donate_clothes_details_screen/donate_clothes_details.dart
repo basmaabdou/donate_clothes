@@ -68,14 +68,14 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color: Color(0xffF74F22),
+                      color: controller2.app,
                     )),
                 title: Text(
                   'Donation Clothes Details',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xffF74F22)),
+                      color: controller2.app),
                 ),
                 backgroundColor: Color(0xffFBB7A4),
                 elevation: 0,
@@ -295,7 +295,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         width: 155,
                         height: 35,
                         decoration: BoxDecoration(
-                            color: Color(0xffF74F22),
+                            color: controller2.app,
                             borderRadius: BorderRadius.circular(20)),
                         child: MaterialButton(
                           onPressed: () {
@@ -373,7 +373,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                           width: 135,
                                           height: 37,
                                           decoration: BoxDecoration(
-                                              color: Color(0xffF74F22),
+                                              color: controller2.app,
                                               borderRadius:
                                               BorderRadius.circular(10)),
                                           child: MaterialButton(
@@ -463,7 +463,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         width: 110,
                                         height: 35,
                                         decoration: BoxDecoration(
-                                            color: Color(0xffF74F22),
+                                            color: controller2.app,
                                             borderRadius:
                                             BorderRadius.circular(10)),
                                         child: MaterialButton(

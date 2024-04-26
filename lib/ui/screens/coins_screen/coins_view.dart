@@ -66,7 +66,7 @@ class _CoinsViewState extends State<CoinsView> {
                                 width: 135,
                                 height: 37,
                                 decoration: BoxDecoration(
-                                    color: Color(0xffF74F22),
+                                    color: controller2.app,
                                     borderRadius: BorderRadius.circular(10)),
                                 child: MaterialButton(
                                   onPressed: () {
@@ -112,9 +112,9 @@ class _CoinsViewState extends State<CoinsView> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: const Icon(
+                    icon:  Icon(
                       Icons.arrow_back,
-                      color: Color(0xffF74F22),
+                      color: controller2.app,
                     )),
                 backgroundColor: Colors.white,
                 elevation: 0,
@@ -141,12 +141,12 @@ class _CoinsViewState extends State<CoinsView> {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
+                       Text(
                         'Results of Coins',
                         style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w900,
-                            color: Color(0xffF74F22)),
+                            color: controller2.app),
                       ),
                       const SizedBox(
                         height: 35,
@@ -164,10 +164,10 @@ class _CoinsViewState extends State<CoinsView> {
                             children: [
                               Row(
                                 children: [
-                                  const Icon(
+                                   Icon(
                                     Icons.check,
                                     size: 24,
-                                    color: Color(0xffF74F22),
+                                    color: controller2.app,
                                   ),
                                   const Spacer(),
                                   const Text(
@@ -201,10 +201,10 @@ class _CoinsViewState extends State<CoinsView> {
                               ),
                               Row(
                                 children: [
-                                  const Icon(
+                                   Icon(
                                     Icons.money_sharp,
                                     size: 24,
-                                    color: Color(0xffF74F22),
+                                    color: controller2.app,
                                   ),
                                   const Spacer(),
                                   const Text(
@@ -236,7 +236,7 @@ class _CoinsViewState extends State<CoinsView> {
                                   Icon(
                                     Icons.handshake,
                                     size: 24,
-                                    color: Color(0xffF74F22),
+                                    color: controller2.app,
                                   ),
                                   Spacer(),
                                   Text(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../widgets/animation.dart';
+import '../../widgets/default_text_form_field..dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
 import '../home_screen/home_cubit/cubit.dart';
 
@@ -22,7 +23,7 @@ class OurWorkScreen extends StatelessWidget {
           onPressed: (){
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back,size: 25,color: Color(0xffF74F22)),
+          icon: Icon(Icons.arrow_back,size: 25,color: controller2.app),
         ),
       ),
       body: Padding(
@@ -51,13 +52,13 @@ class OurWorkScreen extends StatelessWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
                     fontSize: 16,
-                    color: Color(0xffF74F22),
+                    color: controller2.app,
                   ),
                 ),
                 SizedBox(
                   width: 10,
                 ),
-                Icon(Icons.favorite_sharp,size: 25,color: Color(0xffF74F22))
+                Icon(Icons.favorite_sharp,size: 25,color: controller2.app)
               ],
             ),
             SizedBox(
@@ -79,7 +80,7 @@ class OurWorkScreen extends StatelessWidget {
               style: TextStyle(
                 fontWeight: FontWeight.w700,
                 fontSize: 14,
-                color: Color(0xffF74F22),
+                color: controller2.app,
               ),
             ),
             SizedBox(
@@ -104,7 +105,7 @@ class OurWorkScreen extends StatelessWidget {
                       lineHeight: 7.0,
                       percent: 0.5,
                       barRadius: Radius.circular(10),
-                      progressColor: Color(0xffF74F22),
+                      progressColor: controller2.app,
                     ),
                     SizedBox(
                       height: 15,
@@ -113,7 +114,7 @@ class OurWorkScreen extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.favorite_rounded,
-                          color: Color(0xffF74F22),
+                          color: controller2.app,
                           size: 14,
                         ),
                         SizedBox(
@@ -124,7 +125,7 @@ class OurWorkScreen extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
                               fontSize: 10,
-                              color: Color(0xffF74F22)),
+                              color: controller2.app),
                         ),
                         SizedBox(
                           width: 5,
@@ -141,7 +142,7 @@ class OurWorkScreen extends StatelessWidget {
                           width: 73,
                           height: 26,
                           decoration: BoxDecoration(
-                              color: Color(0xffF74F22),
+                              color: controller2.app,
                               borderRadius: BorderRadius.circular(10)),
                           child: MaterialButton(
                            onPressed: () {Navigator.push(context,FadeRoute2(DonateClothesDetails()));},

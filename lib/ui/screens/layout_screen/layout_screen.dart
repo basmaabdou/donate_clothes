@@ -1,4 +1,5 @@
 
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,7 @@ class LayoutScreen extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               currentIndex: cubit.currentIndex,
               selectedLabelStyle: TextStyle(
-                  color: Color(0xffF74F22),
+                  color: controller2.app,
                   fontWeight: FontWeight.w600,
                   fontSize: 11
               ),
@@ -33,7 +34,7 @@ class LayoutScreen extends StatelessWidget {
                   fontSize: 12,
                   fontWeight: FontWeight.w200
               ),
-              selectedItemColor: Color(0xffF74F22),
+              selectedItemColor: controller2.app,
               // unselectedItemColor: Color(0xff828A89),
               onTap: (index) {
                 cubit.changeIndex(index);

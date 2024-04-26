@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../widgets/animation.dart';
+import '../../widgets/default_text_form_field..dart';
 import '../../widgets/my_donation.dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
 import '../organization_screen/organization_cubit/cubit.dart';
@@ -50,7 +51,7 @@ with SingleTickerProviderStateMixin {
                     Icons.arrow_back,
                     color: Colors.white,
                   )),
-              backgroundColor: Color(0xffF74F22),
+              backgroundColor: controller2.app,
               elevation: 0,
             ),
             body: SingleChildScrollView(
@@ -64,7 +65,7 @@ with SingleTickerProviderStateMixin {
                       borderRadius: BorderRadiusDirectional.only(
                           bottomStart: Radius.circular(50),
                           bottomEnd: Radius.circular(50)),
-                      color: Color(0xffF74F22),
+                      color: controller2.app,
                       boxShadow: [
                         BoxShadow(
                           color: Colors.grey.withOpacity(0.5),
@@ -237,7 +238,7 @@ with SingleTickerProviderStateMixin {
                 Navigator.push(context, FadeRoute1(DonateClothesDetails()));
               },
               child: Icon(Icons.add,color: Colors.white,),
-              backgroundColor: Color(0xffF74F22),
+              backgroundColor: controller2.app,
               mini: true,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)),

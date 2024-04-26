@@ -6,6 +6,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../shared/constants.dart';
 import '../../widgets/basic.dart';
+import '../../widgets/default_text_form_field..dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
 
 
@@ -167,7 +168,7 @@ class _MapScreenState extends State<MapScreen> {
                     width: 315,
                     height: 40,
                     decoration: BoxDecoration(
-                        color: Color(0xffF74F22),
+                        color: controller2.app,
                         borderRadius: BorderRadius.circular(20)
                     ),
                     child:MaterialButton(

@@ -1,5 +1,11 @@
 import 'package:donate_clothes/ui/screens/users/forget_password/confirm_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:sizer/sizer.dart';
+
+import '../../../../shared/constants.dart';
+import '../../../widgets/default_text_form_field..dart';
 
 class CheckEmailPage extends StatefulWidget {
   @override
@@ -33,21 +39,39 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+          preferredSize:
+          const Size.fromHeight(0.0), // here the desired height
+          child: AppBar(
+            backgroundColor: controller2.app,
+            elevation: 0,
+          )),
       body: Padding(
         padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              'Check your email',
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20,
-                  color: Colors.black),
+            Row(
+              children: [
+                InkWell(
+                  child: Icon(Icons.arrow_back_ios,color: controller2.app,size: 2.5.h,),
+                  onTap: (){Get.back();},
+                ),
+                SizedBox(width: 7.h,),
+                Text(
+                  'Check your email',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
             ),
-            SizedBox(height: 10),
+
+            SizedBox(height: 4.h),
+
             Text(
               'We sent a reset link Please enter the 5-digit code mentioned in the email.',
               style: TextStyle(
@@ -168,9 +192,9 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
                     if (states.contains(MaterialState.disabled)) {
-                      return Color.fromARGB(255, 253, 211, 199);
+                      return controller2.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB);
                     }
-                    return Color(0xffF74F22);
+                    return controller2.app;
                   },
                 ),
                 fixedSize: MaterialStateProperty.all<Size>(
@@ -211,7 +235,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
                     style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xffF74F22)),
+                        color: controller2.app),
                   ),
                 ),
               ],

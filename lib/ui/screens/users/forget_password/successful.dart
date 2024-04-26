@@ -3,14 +3,23 @@ import 'package:donate_clothes/ui/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import '../../../widgets/default_text_form_field..dart';
+
 class Successful extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: PreferredSize(
+          preferredSize:
+          const Size.fromHeight(0.0), // here the desired height
+          child: AppBar(
+            backgroundColor: controller2.app,
+            elevation: 0,
+          )),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
             Stack(
               alignment: Alignment.center,

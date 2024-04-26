@@ -245,12 +245,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     MaterialPageRoute(
                                         builder: (context) => LoginScreen()));
                               },
-                              child: const Text(
+                              child:  Text(
                                 'Login',
                                 style: TextStyle(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w700,
-                                    color: Color(0xffF74F22)),
+                                    color: controller2.app),
                               ),
                             )
                           ],

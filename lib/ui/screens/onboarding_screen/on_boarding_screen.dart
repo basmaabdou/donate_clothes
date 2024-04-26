@@ -1,4 +1,7 @@
+import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widgets/basic.dart';
@@ -29,6 +32,8 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  ThemeController controller=Get.find();
+
   List<BoardingModel> boarding = [
     BoardingModel(
         image1: 'assets/images/o7.jpg',
@@ -64,11 +69,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             onPressed: () {
                navigateTo(context, LoginScreen());
             },
-            child: const Text('skip  ',
+            child:  Text('skip  ',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 2.5.h,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xffF74F22))),
+                    color: controller.app)),
           ),
         ],
       ),
@@ -101,22 +106,17 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               count: boarding.length,
               effect: ExpandingDotsEffect(
                   dotColor: Colors.grey,
-                  activeDotColor: Color(0xffF74F22),
+                  activeDotColor: controller.app,
                   dotHeight: 7,
                   dotWidth: 10,
                   spacing: 5,
                   expansionFactor: 4),
             ),
             SizedBox(
-              height: 15,
+              height: 2.5.h,
             ),
             Container(
-              height: 40,
-              // width: 45,
-              // decoration: BoxDecoration(
-              //   color: Colors.white,
-              //   border: Border.all(color: defaultColor)
-              // ),
+              height: 5.h,
               child: FloatingActionButton(
                 onPressed: () {
                   if (isLast) {
@@ -132,7 +132,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   );
                 },
                 child: Icon(Icons.arrow_forward_ios, size: 20),
-                backgroundColor: Color(0xffF74F22),
+                backgroundColor: controller.app,
               ),
             ),
 
@@ -147,8 +147,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           Row(
             children: [
               Container(
-                height: 160,
-                width: 170,
+                height: 19.h,
+                width: 20.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
@@ -156,12 +156,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       fit: BoxFit.cover,
                     )),
               ),
-              SizedBox(
-                width: 10,
-              ),
+              Spacer(),
               Container(
-                height: 150,
-                width: 150,
+                height: 19.h,
+                width: 19.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadiusDirectional.only(
                         bottomEnd: Radius.circular(75),
@@ -175,13 +173,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ],
           ),
           SizedBox(
-            height: 15,
+            height: 2.5.h,
           ),
           Row(
             children: [
               Container(
-                height: 150,
-                width: 150,
+                height: 19.h,
+                width: 19.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadiusDirectional.only(bottomEnd: Radius.circular(75),topStart: Radius.circular(75)),
                     image: DecorationImage(
@@ -189,12 +187,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       fit: BoxFit.cover,
                     )),
               ),
-              SizedBox(
-                width: 10,
-              ),
+              Spacer(),
               Container(
-                height: 160,
-                width: 170,
+                height: 19.h,
+                width: 20.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                      image: DecorationImage(
@@ -204,10 +200,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
             ],
           ),
-
           SizedBox(
-            height: 30,
+            height: 1.5.h,
           ),
+          Spacer(),
+
           Text(
             '${model.title}',
             textAlign: TextAlign.center,
@@ -218,7 +215,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 3.h,
           ),
           Text(
             '${model.body}',
@@ -229,6 +226,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               fontWeight: FontWeight.w400,
             ),
           ),
+          Spacer(),
         ],
       );
 }
