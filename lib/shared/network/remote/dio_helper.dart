@@ -5,7 +5,7 @@ class DioHelper {
   static init() {
     dio=Dio(
       BaseOptions(
-        baseUrl: 'https://lovely-red-overshirt.cyclic.app/',
+        baseUrl: 'https://donation-system-utjy.onrender.com/',
         receiveDataWhenStatusError: true,
       )
     );

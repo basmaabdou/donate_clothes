@@ -43,8 +43,8 @@ class OurRecentWork extends StatelessWidget {
                   alignment: AlignmentDirectional.topEnd,
                   children: [
                     Container(
-                      width: 360,
-                      height: 140,
+                      width: double.infinity,
+                      height:controller2.selectedIndex==0 ? 140 : 100,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(

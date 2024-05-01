@@ -1,10 +1,11 @@
 import 'package:donate_clothes/shared/constants.dart';
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:donate_clothes/ui/screens/users/forget_password/check_email.dart';
 import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../setting_screen/setting_controller/theme_controller.dart';
 
 class ForgetPasswordPage extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class ForgetPasswordPage extends StatefulWidget {
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
   bool isButtonEnabled = false; // تعريف متغير للتحكم في تفعيل الزر
-ThemeController controller=Get.find();
+SettingController controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

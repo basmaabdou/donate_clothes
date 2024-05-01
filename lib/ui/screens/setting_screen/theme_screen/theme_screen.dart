@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../../shared/constants.dart';
 import '../../../widgets/ThemeImage.widget.dart';
 import '../../../widgets/default_button.dart';
-import '../../../widgets/default_text_button.dart';
-import '../../../widgets/smooth_indicator.dart';
-import '../theme_controller/theme_controller.dart';
+import '../setting_controller/theme_controller.dart';
 
 
-class ThemeScreen extends GetView<ThemeController> {
-  ThemeController controller = Get.find();
+class ThemeScreen extends GetView<SettingController> {
+  SettingController controller = Get.find();
 
 
 
@@ -37,7 +36,7 @@ class ThemeScreen extends GetView<ThemeController> {
                     IconButton(onPressed: (){Get.back();}, icon: Icon(Icons.arrow_back_ios,size: 2.5.h,color: controller.app,)),
                     SizedBox(width: 7.h,),
                     Text(
-                      'Change Theme',
+                      S.of(context).changetheme,
                       style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
                     ),
                   ],
@@ -49,7 +48,7 @@ class ThemeScreen extends GetView<ThemeController> {
                   children: [
                     Expanded(
                       child: Text(
-                       'Orange',
+                        S.of(context).orange,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                     ),
@@ -58,7 +57,7 @@ class ThemeScreen extends GetView<ThemeController> {
                     ),
                     Expanded(
                       child: Text(
-                        'Green',
+                        S.of(context).green,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                     ),
@@ -92,7 +91,7 @@ class ThemeScreen extends GetView<ThemeController> {
                       width: 10,
                     ),
                     Text(
-                     "You con change the theme later",
+                     S.of(context).changeThemeLater,
                       style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
                     ),
                   ],
@@ -102,7 +101,7 @@ class ThemeScreen extends GetView<ThemeController> {
                 Container(
                   height: 4.h,
                   width: double.infinity,
-                  child: DefaultButton(text: 'Save Change', fun: (){
+                  child: DefaultButton(text: S.of(context).saveChang, fun: (){
                     Get.to(SplashScreen());
                   },),
                 ),

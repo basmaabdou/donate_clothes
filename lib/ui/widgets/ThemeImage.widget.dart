@@ -4,10 +4,11 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:sizer/sizer.dart';
 
-import '../screens/theme_screen/theme_controller/theme_controller.dart';
+import '../screens/setting_screen/setting_controller/theme_controller.dart';
 
 
-ThemeController controller = Get.find();
+
+SettingController controller = Get.find();
 
 
 Widget ThemeImageWidget(String imagePath, Color color, Color txtColor,int index) {

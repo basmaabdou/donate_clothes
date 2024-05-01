@@ -55,7 +55,7 @@ class _EditProfileState extends State<EditProfileScreen> {
         builder: (BuildContext context, Object? state) {
           nameController.text=ProfileCubit.get(context).profileModel?.data?.username.toString() ?? "name not available";
           phoneController.text = ProfileCubit.get(context).profileModel?.data?.phone??"phone  not available";
-          passController.text = ProfileCubit.get(context).editProfileResponse?.data?.password??"123456789";
+          passController.text = ProfileCubit.get(context).editProfileResponse?.data?.password??"123456";
           String profilePhoto=ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ?? "";
 
 

@@ -1,11 +1,9 @@
 import 'dart:async';
-
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../onboarding_screen/on_boarding_screen.dart';
-import '../theme_screen/theme_screen/theme_screen.dart';
+import '../setting_screen/setting_controller/theme_controller.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -25,7 +23,7 @@ class _FirstScreenState extends State<SplashScreen> {
             (route) => false));
   }
 
-  ThemeController controller=Get.find();
+  SettingController controller=Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

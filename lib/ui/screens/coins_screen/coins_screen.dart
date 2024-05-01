@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/ThemeImage.widget.dart';
 import '../users/profile_screen/cubit_profile/cubit.dart';
 import '../users/profile_screen/cubit_profile/states.dart';
 import 'coins_view.dart';
@@ -20,7 +21,7 @@ class CoinsScreen extends StatelessWidget {
           return ConditionalBuilder(
               condition: cubit.profileModel != null  ,
               builder: (context) => CoinsView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator()))
+              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
           );
         },
       ),

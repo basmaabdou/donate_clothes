@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../widgets/ThemeImage.widget.dart';
 import '../organization_cubit/cubit.dart';
 import '../organization_cubit/states.dart';
 import 'organization_view.dart';
@@ -22,7 +23,7 @@ class OrganizationScreen extends StatelessWidget {
           return ConditionalBuilder(
               condition: cubit.organizationResponse != null  ,
               builder: (context) => OrganizationView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator()))
+              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
           );
         },
       ),

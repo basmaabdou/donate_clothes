@@ -7,7 +7,7 @@ import '../../../../shared/constants.dart';
 
 
 
-class ThemeController extends GetxController {
+class SettingController extends GetxController {
 
 
   var boardController1 = PageController();

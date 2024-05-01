@@ -1,10 +1,10 @@
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../widgets/basic.dart';
+import '../setting_screen/setting_controller/theme_controller.dart';
 import '../users/login_screen.dart';
 import 'on_boarding_two.dart';
 
@@ -32,7 +32,7 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  ThemeController controller=Get.find();
+  SettingController controller=Get.find();
 
   List<BoardingModel> boarding = [
     BoardingModel(

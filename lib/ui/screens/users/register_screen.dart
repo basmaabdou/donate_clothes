@@ -4,6 +4,7 @@ import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/ThemeImage.widget.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_button.dart';
 import '../../widgets/default_text_form_field..dart';
@@ -222,7 +223,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                                 }),
                             fallback: (context) =>
-                                Center(child: CircularProgressIndicator()),
+                                Center(child: CircularProgressIndicator(color: controller.app)),
                           ),
                         ),
                         const SizedBox(

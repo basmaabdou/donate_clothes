@@ -1,8 +1,9 @@
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../screens/setting_screen/setting_controller/theme_controller.dart';
 
 
 class SmoothIndicatorWidget extends StatelessWidget {
@@ -11,7 +12,7 @@ class SmoothIndicatorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeController controller = Get.find();
+    SettingController controller = Get.find();
     return SmoothPageIndicator(
       controller: borderController,
       count: 4,

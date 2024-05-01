@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../widgets/ThemeImage.widget.dart';
 import 'home_cubit/cubit.dart';
 import 'home_cubit/states.dart';
 import 'home_view.dart';
@@ -20,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           return ConditionalBuilder(
               condition: cubit.donationCardResponse != null  ,
               builder: (context) => HomeView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator()))
+              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app,)))
           );
         },
       ),

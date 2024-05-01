@@ -2,6 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../widgets/ThemeImage.widget.dart';
 import '../../organization_screen/organization_cubit/cubit.dart';
 import '../brand_cubit/cubit.dart';
 import '../brand_cubit/states.dart';
@@ -22,7 +23,7 @@ class BrandScreen extends StatelessWidget {
           return ConditionalBuilder(
               condition: cubit.brandsResponse != null  ,
               builder: (context) => BrandView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator()))
+              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
           );
         },
       ),

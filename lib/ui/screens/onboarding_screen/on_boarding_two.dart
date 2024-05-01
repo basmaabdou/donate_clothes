@@ -1,4 +1,3 @@
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -6,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../../../shared/network/local/cache_helper.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_button.dart';
+import '../setting_screen/setting_controller/theme_controller.dart';
 import '../users/login_screen.dart';
 
 class OnBoardingScreenTwo extends StatefulWidget {
@@ -16,7 +16,7 @@ class OnBoardingScreenTwo extends StatefulWidget {
 }
 
 class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
-  ThemeController controller=Get.find();
+  SettingController controller=Get.find();
   void submit(){
     CacheHelper.saveData(key: 'onBoarding', value: true).then((value) {
       navigateFinish(context, LoginScreen());

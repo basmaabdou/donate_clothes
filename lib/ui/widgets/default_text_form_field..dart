@@ -1,7 +1,9 @@
-import 'package:donate_clothes/ui/screens/theme_screen/theme_controller/theme_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-ThemeController controller2=Get.find();
+
+import '../screens/setting_screen/setting_controller/theme_controller.dart';
+SettingController controller2=Get.find();
 Widget  defaultTextForm({
   required TextEditingController controller,
   required TextInputType type,
