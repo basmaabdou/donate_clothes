@@ -186,7 +186,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         onTap: (){
                                           setState(() {
                                             isSelectedIndex=index;
-                                            OrganizationCubit.get(context).idOrganization=OrganizationCubit.get(context).organizationResponse?.allOrganizaions?[0].sId??'';
+                                            OrganizationCubit.get(context).idOrganization=OrganizationCubit.get(context).organizationResponse?.result?[0].sId??'';
                                           });
                                         },
                                         child: Container(
@@ -199,14 +199,14 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                               width: 2,
                                             ),
                                             image: DecorationImage(
-                                              image: NetworkImage(OrganizationCubit.get(context).organizationResponse?.allOrganizaions?[index].images?[0].url??''),
+                                              image: NetworkImage(OrganizationCubit.get(context).organizationResponse?.result?[index].images?[0].url??''),
                                               fit: BoxFit.fill,
                                             ),
                                           ),
                                         ),
                                       ),
                                   separatorBuilder: (context, index) => const SizedBox(width: 25.0,),
-                                  itemCount:OrganizationCubit.get(context).organizationResponse?.allOrganizaions?.length??5,
+                                  itemCount:OrganizationCubit.get(context).organizationResponse?.result?.length??5,
                                   scrollDirection: Axis.horizontal,
                                 ),
                               );

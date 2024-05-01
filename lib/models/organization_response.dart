@@ -2,19 +2,18 @@ class OrganizationResponse {
   bool? success;
   String? message;
   int? length;
-  List<AllOrganizaions>? allOrganizaions;
+  List<Result>? result;
 
-  OrganizationResponse(
-      {this.success, this.message, this.length, this.allOrganizaions});
+  OrganizationResponse({this.success, this.message, this.length, this.result});
 
   OrganizationResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     message = json['message'];
     length = json['length'];
-    if (json['allOrganizaions'] != null) {
-      allOrganizaions = <AllOrganizaions>[];
-      json['allOrganizaions'].forEach((v) {
-        allOrganizaions!.add(new AllOrganizaions.fromJson(v));
+    if (json['result'] != null) {
+      result = <Result>[];
+      json['result'].forEach((v) {
+        result!.add(new Result.fromJson(v));
       });
     }
   }
@@ -24,15 +23,14 @@ class OrganizationResponse {
     data['success'] = this.success;
     data['message'] = this.message;
     data['length'] = this.length;
-    if (this.allOrganizaions != null) {
-      data['allOrganizaions'] =
-          this.allOrganizaions!.map((v) => v.toJson()).toList();
+    if (this.result != null) {
+      data['result'] = this.result!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class AllOrganizaions {
+class Result {
   String? sId;
   String? title;
   List<Images>? images;
@@ -41,7 +39,7 @@ class AllOrganizaions {
   String? updatedAt;
   int? iV;
 
-  AllOrganizaions(
+  Result(
       {this.sId,
         this.title,
         this.images,
@@ -50,7 +48,7 @@ class AllOrganizaions {
         this.updatedAt,
         this.iV});
 
-  AllOrganizaions.fromJson(Map<String, dynamic> json) {
+  Result.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     title = json['title'];
     if (json['images'] != null) {

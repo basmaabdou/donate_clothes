@@ -1,36 +1,40 @@
 class BrandsResponse {
+  int? status;
   bool? success;
   String? message;
   int? length;
-  List<Brands>? brands;
+  List<Result>? result;
 
-  BrandsResponse({this.success, this.message, this.length, this.brands});
+  BrandsResponse(
+      {this.status, this.success, this.message, this.length, this.result});
 
   BrandsResponse.fromJson(Map<String, dynamic> json) {
+    status = json['status'];
     success = json['success'];
     message = json['message'];
     length = json['length'];
-    if (json['brands'] != null) {
-      brands = <Brands>[];
-      json['brands'].forEach((v) {
-        brands!.add(new Brands.fromJson(v));
+    if (json['result'] != null) {
+      result = <Result>[];
+      json['result'].forEach((v) {
+        result!.add(new Result.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['status'] = this.status;
     data['success'] = this.success;
     data['message'] = this.message;
     data['length'] = this.length;
-    if (this.brands != null) {
-      data['brands'] = this.brands!.map((v) => v.toJson()).toList();
+    if (this.result != null) {
+      data['result'] = this.result!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
-class Brands {
+class Result {
   String? sId;
   String? title;
   Image? image;
@@ -39,7 +43,7 @@ class Brands {
   String? updatedAt;
   int? iV;
 
-  Brands(
+  Result(
       {this.sId,
         this.title,
         this.image,
@@ -48,7 +52,7 @@ class Brands {
         this.updatedAt,
         this.iV});
 
-  Brands.fromJson(Map<String, dynamic> json) {
+  Result.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     title = json['title'];
     image = json['image'] != null ? new Image.fromJson(json['image']) : null;

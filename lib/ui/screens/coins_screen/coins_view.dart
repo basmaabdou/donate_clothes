@@ -1,6 +1,4 @@
 import 'dart:convert';
-
-import 'package:donate_clothes/shared/constants.dart';
 import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/states.dart';
 import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
@@ -8,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import '../../widgets/basic.dart';
-import '../../widgets/default_button.dart';
 import '../../widgets/default_text_form_field..dart';
 import '../layout_screen/layout_screen.dart';
 import '../users/profile_screen/cubit_profile/cubit.dart';
@@ -253,7 +250,7 @@ class _CoinsViewState extends State<CoinsView> {
                                     },
                                     builder: (context, state) {
                                       return Text(
-                                        "${BrandCubit.get(context).brandsResponse?.brands!.length ?? ''}",
+                                        "${BrandCubit.get(context).brandsResponse?.result!.length ?? ''}",
                                         style: TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w900,

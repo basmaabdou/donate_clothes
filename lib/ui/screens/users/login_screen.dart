@@ -41,8 +41,8 @@ class _LoginScreenState extends State<LoginScreen> {
         listener: (BuildContext context, state) {
           if (state is LoginSuccessState) {
             if (state.loginModel.success == true) {
-              messageToast(
-                  msg: state.loginModel.message!, state: ToastStates.SUCCESS);
+              // messageToast(
+              //     msg: state.loginModel.message!, state: ToastStates.SUCCESS);
               navigateFinish(context, LayoutScreen());
               CacheHelper.saveData(key: 'token', value: state.loginModel.token)
                   .then((value) {

@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/brands.dart';
-import '../../organization_screen/organization_cubit/cubit.dart';
 import '../brand_cubit/cubit.dart';
 
 class BrandView extends StatelessWidget {
@@ -128,13 +127,13 @@ class BrandView extends StatelessWidget {
                 child: ListView.separated(
                   physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) => BrandsLogo(
-                    image: BrandCubit.get(context).brandsResponse!.brands![index].image!.url!,
-                    id:BrandCubit.get(context).brandsResponse!.brands![index].sId! ,
+                    image: BrandCubit.get(context).brandsResponse!.result![index].image!.url!,
+                    id:BrandCubit.get(context).brandsResponse!.result![index].sId! ,
                   ),
                   separatorBuilder: (context, index) => const SizedBox(
                     height: 25.0,
                   ),
-                  itemCount: BrandCubit.get(context).brandsResponse!.brands!.length,
+                  itemCount: BrandCubit.get(context).brandsResponse!.result!.length,
                   scrollDirection: Axis.vertical,
                 ),
               ),

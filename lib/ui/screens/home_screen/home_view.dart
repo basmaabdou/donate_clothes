@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeView> {
                 ),
               ],
               fontWeight: FontWeight.bold,
-              fontSize:controller.selectedIndex.value == 0? 35 : 3.h,
+              fontSize:controller.selectedIndex.value == 0? 3.h : 2.3.h,
               color: controller2.app,
               fontStyle: FontStyle.italic,
             ),
