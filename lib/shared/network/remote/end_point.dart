@@ -28,6 +28,8 @@ const QRCODE='profile/exchange-coins';
 
 const GETCOINS='profile/collectcoins';
 
+const PAYMENT='payment/donate';
+
 
 
 

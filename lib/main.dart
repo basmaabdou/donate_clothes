@@ -5,9 +5,12 @@ import 'package:donate_clothes/shared/bloc_observed.dart';
 import 'package:donate_clothes/shared/constants.dart';
 import 'package:donate_clothes/shared/network/local/cache_helper.dart';
 import 'package:donate_clothes/shared/network/remote/dio_helper.dart';
+import 'package:donate_clothes/ui/screens/payment/controller/payement_controller.dart';
+import 'package:donate_clothes/ui/screens/home_screen/home_screen.dart';
 import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
 import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
 import 'package:donate_clothes/ui/screens/setting_screen/setting_controller/theme_controller.dart';
+import 'package:donate_clothes/ui/screens/splash_screen/splash_screen.dart';
 import 'package:donate_clothes/ui/screens/users/login_screen.dart';
 import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -47,7 +50,7 @@ void main() async {
       widget = LoginScreen();
     }
   } else {
-    widget = OnBoardingScreen();
+    widget = SplashScreen();
   }
 
   runApp(MyApp(
@@ -63,6 +66,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingController themeController = Get.put(SettingController());
+    PaymentController paymentController=Get.put(PaymentController());
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => ProfileCubit()..getProfileData())
@@ -80,7 +84,7 @@ class MyApp extends StatelessWidget {
               locale: const Locale('en'),
               supportedLocales: S.delegate.supportedLocales,
               debugShowCheckedModeBanner: false,
-              home: LoginScreen(),
+              home: SplashScreen(),
             );
           },
         ));

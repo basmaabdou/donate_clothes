@@ -62,9 +62,7 @@ class SettingScreen extends StatelessWidget {
                           child: Container(
                             height: 4.h,
                             decoration: BoxDecoration(
-                              color: controller.app == defaultColor
-                                  ? defaultColor
-                                  : defaultGreenColor,
+                              color: controller.app ,
                               borderRadius: BorderRadius.circular(5),
                             ),
                             child: MaterialButton(
@@ -74,11 +72,9 @@ class SettingScreen extends StatelessWidget {
                               child: Text(
                                 S.of(context).register,
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w400,
-                                    color: controller.app == defaultColor
-                                        ? Colors.black
-                                        : Colors.white),
+                                    color: Colors.white),
                               ),
                             ),
                           ),
@@ -90,9 +86,7 @@ class SettingScreen extends StatelessWidget {
                           child: Container(
                             height: 4.h,
                             decoration: BoxDecoration(
-                                color: controller.app == defaultColor
-                                    ? defaultColor
-                                    : defaultGreenColor,
+                                color: controller.app ,
                                 borderRadius: BorderRadius.circular(5),
                                 border: Border.all(color: controller.app)),
                             child: MaterialButton(
@@ -102,11 +96,9 @@ class SettingScreen extends StatelessWidget {
                               child: Text(
                                 S.of(context).login,
                                 style: TextStyle(
-                                    fontSize: 13,
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w400,
-                                    color: controller.app == defaultColor
-                                        ? Colors.black
-                                        : Colors.white),
+                                    color: Colors.white),
                               ),
                             ),
                           ),

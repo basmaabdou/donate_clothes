@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "aboutus": MessageLookupByLibrary.simpleMessage("نبذه عنا"),
         "anotheAcc": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
+        "blue": MessageLookupByLibrary.simpleMessage("أزرق"),
         "brand": MessageLookupByLibrary.simpleMessage("العلامات التجارية"),
         "c11": MessageLookupByLibrary.simpleMessage(
             "هناك الكثير من الأشخاص المحتاجين الذين"),
@@ -50,7 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeThemeLater": MessageLookupByLibrary.simpleMessage(
             "يمكنك تغيير الثيم في وقت لاحق"),
         "changetheme": MessageLookupByLibrary.simpleMessage("تغير ثيم التطبيق"),
-        "charity": MessageLookupByLibrary.simpleMessage("مؤسسة خيرية"),
+        "charityy": MessageLookupByLibrary.simpleMessage("صدقة"),
         "chooseLang":
             MessageLookupByLibrary.simpleMessage("اختار لغتك المفضلة"),
         "confirmLogout": MessageLookupByLibrary.simpleMessage(

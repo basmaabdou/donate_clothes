@@ -1,4 +1,5 @@
 
+import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
 import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
 import 'package:donate_clothes/ui/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class ThemeScreen extends GetView<SettingController> {
                   children: [
                     Expanded(
                       child: Text(
-                        S.of(context).orange,
+                        S.of(context).blue,
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                     ),
@@ -61,13 +62,23 @@ class ThemeScreen extends GetView<SettingController> {
                         style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                       ),
                     ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Expanded(
+                      child: Text(
+                        S.of(context).orange,
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 7,),
                 Row(
                   children: [
                     Expanded(
-                        child:  ThemeImageWidget('assets/images/orange.jpg', defaultColor, textOrangeTheme, 0)
+                      child:  ThemeImageWidget(
+                          'assets/images/blueThem.png', defaultBlueColor,textGreenTheme, 0),
                     ),
                     const SizedBox(width: 15),
 
@@ -75,6 +86,12 @@ class ThemeScreen extends GetView<SettingController> {
                       child:  ThemeImageWidget(
                           'assets/images/greenTheme.jpg', defaultGreenColor,textGreenTheme, 1),
                     ),
+                    const SizedBox(width: 15),
+
+                    Expanded(
+                        child:  ThemeImageWidget('assets/images/orange.jpg', defaultColor, textOrangeTheme, 3)
+                    ),
+
                   ],
                 ),
                 const Spacer(
@@ -102,7 +119,7 @@ class ThemeScreen extends GetView<SettingController> {
                   height: 4.h,
                   width: double.infinity,
                   child: DefaultButton(text: S.of(context).saveChang, fun: (){
-                    Get.to(SplashScreen());
+                    Get.to(LayoutScreen());
                   },),
                 ),
              ],

@@ -23,7 +23,7 @@ class BrandScreen extends StatelessWidget {
           return ConditionalBuilder(
               condition: cubit.brandsResponse != null  ,
               builder: (context) => BrandView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
+              fallback: (context) =>  Center(child: CircularProgressIndicator(color: controller.app))
           );
         },
       ),

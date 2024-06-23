@@ -1,5 +1,5 @@
 {
-    "charity":"charity",
+    "charityy":"Sadaka",
     "chooseLang":"Choose Your languge",
     "langInfo":"Please Choose Your prefered language to continue to the app",
     "saveChang":"Save Change",
@@ -12,6 +12,7 @@
     "lang":"English",
     "orange":"Orange",
     "green":"Green",
+    "blue":"Blue",
     "changeThemeLater":"You con change the theme later",
     "confirmLogout":"Are you sure to logout",
     "yes":"Yes",

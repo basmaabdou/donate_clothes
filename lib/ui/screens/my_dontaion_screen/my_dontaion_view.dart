@@ -1,5 +1,6 @@
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_state.dart';
+import 'package:donate_clothes/ui/widgets/basic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,6 +12,7 @@ import '../organization_screen/organization_cubit/cubit.dart';
 import '../users/profile_screen/cubit_profile/cubit.dart';
 
 class MyDonationView extends StatefulWidget {
+
   @override
   State<MyDonationView> createState() => _MyDonationViewState();
 }
@@ -164,7 +166,7 @@ with SingleTickerProviderStateMixin {
                         ),
                         TabBar(
                           unselectedLabelColor: Colors.black,
-                          labelColor: Colors.red,
+                          labelColor: controller2.app,
                           tabs: const [
                             Text('Pending'),
                             Text('Collected'),
@@ -235,7 +237,7 @@ with SingleTickerProviderStateMixin {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
-                Navigator.push(context, FadeRoute1(DonateClothesDetails()));
+                donateBottomSheet(context);
               },
               child: Icon(Icons.add,color: Colors.white,),
               backgroundColor: controller2.app,

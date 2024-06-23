@@ -56,10 +56,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
             key: formKey,
             child: Scaffold(
               backgroundColor: const Color(0xffFFFFFF),
-              appBar: AppBar(
-                backgroundColor: const Color(0xffFFFFFF),
-                elevation: 0,
-              ),
               body: Center(
                 child: SingleChildScrollView(
                   child: Padding(

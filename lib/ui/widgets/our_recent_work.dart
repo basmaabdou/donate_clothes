@@ -5,6 +5,7 @@ import 'package:sizer/sizer.dart';
 import '../screens/donate_clothes_details_screen/donate_clothes_details.dart';
 import '../screens/our_work_screen/work_screen.dart';
 import 'animation.dart';
+import 'basic.dart';
 import 'default_text_form_field..dart';
 
 class OurRecentWork extends StatelessWidget {
@@ -14,28 +15,27 @@ class OurRecentWork extends StatelessWidget {
   const OurRecentWork({super.key, required this.img, required this.description, required this.title});
   @override
   Widget build(BuildContext context) {
-    double _currentSliderValue = 20;
     return  InkWell(
       onTap: (){
         Navigator.push(context,ScaleTransition1( OurWorkScreen(img: img, description: description, title: title,)));
       },
-      child: Container(
-        width: 47.h,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadiusDirectional.circular(20),
-            color: Color(0xffFFFFFF),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 0,
-              blurRadius: 4,
-              offset: Offset(0, 3), // changes position of shadow
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
+      child: SingleChildScrollView(
+        child: Container(
+          width: 47.h,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadiusDirectional.circular(20),
+              color: Color(0xffFFFFFF),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 0,
+                blurRadius: 4,
+                offset: Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -129,7 +129,7 @@ class OurRecentWork extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)),
                       child: MaterialButton(
                         onPressed: () {
-                          Navigator.push(context,FadeRoute2(DonateClothesDetails()));
+                          donateBottomSheet(context);
                           },
                         child: Text(
                           'donate',

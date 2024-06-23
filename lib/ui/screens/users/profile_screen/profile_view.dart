@@ -4,6 +4,7 @@ import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 import '../../../../shared/constants.dart';
 import '../../../widgets/animation.dart';
 import '../../../widgets/basic.dart';
@@ -41,7 +42,7 @@ class ProfileView extends StatelessWidget {
             body: Column(
               children: [
                 Container(
-                  height: 180,
+                  height: 23.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: const BorderRadiusDirectional.only(
@@ -58,20 +59,21 @@ class ProfileView extends StatelessWidget {
                     ],
                   ),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.network(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: Image.network(
 
-                                ProfileCubit.get(context).profileModel?.data?.profilephoto?.url??'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png' ,
-                                width: 100,
-                                height: 100,
-                              ),
-                            )
-                          ,
+                          ProfileCubit.get(context).profileModel?.data?.profilephoto?.url??'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png' ,
+                          width: 16.h,
+                          height: 15.h,
+                        ),
+                      )
+                      ,
                       const SizedBox(
-                        height: 7,
+                        height: 4,
                       ),
                       Text(
                         ProfileCubit.get(context).profileModel?.data?.username.toString() ?? '',
@@ -85,16 +87,17 @@ class ProfileView extends StatelessWidget {
                       ),
                       Text(
                         ProfileCubit.get(context)
-                                .profileModel
-                                ?.data
-                                ?.phone
-                                .toString() ??
+                            .profileModel
+                            ?.data
+                            ?.phone
+                            .toString() ??
                             '',
                         style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Color(0xffF4F1F1)),
                       ),
+                      // SizedBox(height: 10,)
                     ],
                   ),
                 ),
@@ -114,10 +117,10 @@ class ProfileView extends StatelessWidget {
                           ),
                           Text(
                             ProfileCubit.get(context)
-                                    .profileModel
-                                    ?.data
-                                    ?.email
-                                    .toString() ??
+                                .profileModel
+                                ?.data
+                                ?.email
+                                .toString() ??
                                 '',
                             style: const TextStyle(
                                 fontSize: 18,
@@ -141,7 +144,7 @@ class ProfileView extends StatelessWidget {
                               spreadRadius: 0,
                               blurRadius: 4,
                               offset:
-                                  const Offset(0, 3), // changes position of shadow
+                              const Offset(0, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -168,7 +171,7 @@ class ProfileView extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                             Icon(
+                            Icon(
                               Icons.layers,
                               size: 23,
                               color: controller2.app,
@@ -210,7 +213,7 @@ class ProfileView extends StatelessWidget {
                         },
                         child: Row(
                           children: [
-                             Icon(
+                            Icon(
                               Icons.favorite_rounded,
                               size: 23,
                               color: controller2.app,
@@ -255,13 +258,13 @@ class ProfileView extends StatelessWidget {
                             title: '',
                             content: Column(
                               children: [
-                                const Row(
+                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.logout_outlined,
                                       size: 23,
-                                      color: Color(0xffF74F22),
+                                      color: controller2.app,
                                     ),
                                     SizedBox(
                                       width: 5,
@@ -289,10 +292,10 @@ class ProfileView extends StatelessWidget {
                                   height: 10,
                                 ),
                                 Container(
-                                  width: 80,
-                                  height: 30,
+                                  width: 12.h,
+                                  height: 5.h ,
                                   decoration: BoxDecoration(
-                                      color: const Color(0xffF74F22),
+                                      color: controller2.app,
                                       borderRadius: BorderRadius.circular(10)),
                                   child: MaterialButton(
                                     onPressed: () {
@@ -315,16 +318,16 @@ class ProfileView extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                   style: OutlinedButton.styleFrom(
-                                    side: const BorderSide(
-                                        color: Color(0xffF74F22)),
+                                    side:  BorderSide(
+                                        color: controller2.app),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  child: const Text(
+                                  child:  Text(
                                     'cancel',
                                     style: TextStyle(
-                                        color: Color(0xffF74F22),
+                                        color: controller2.app,
                                         fontSize: 18,
                                         fontWeight: FontWeight.w400),
                                   ),
@@ -333,12 +336,12 @@ class ProfileView extends StatelessWidget {
                             ),
                           );
                         },
-                        child: const Row(
+                        child:  Row(
                           children: [
                             Icon(
                               Icons.logout_outlined,
                               size: 23,
-                              color: Color(0xffF74F22),
+                              color:controller2.app,
                             ),
                             SizedBox(
                               width: 10,

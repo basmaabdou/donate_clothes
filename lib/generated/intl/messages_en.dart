@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutus": MessageLookupByLibrary.simpleMessage("AboutUs"),
         "anotheAcc":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "blue": MessageLookupByLibrary.simpleMessage("Blue"),
         "brand": MessageLookupByLibrary.simpleMessage("Brand"),
         "c11": MessageLookupByLibrary.simpleMessage(
             "There are a lot of people in need who"),
@@ -52,7 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "changeThemeLater": MessageLookupByLibrary.simpleMessage(
             "You con change the theme later"),
         "changetheme": MessageLookupByLibrary.simpleMessage("Change Theme"),
-        "charity": MessageLookupByLibrary.simpleMessage("charity"),
+        "charityy": MessageLookupByLibrary.simpleMessage("Sadaka"),
         "chooseLang":
             MessageLookupByLibrary.simpleMessage("Choose Your languge"),
         "confirmLogout":

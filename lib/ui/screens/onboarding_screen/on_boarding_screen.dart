@@ -131,7 +131,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       curve: Curves.fastEaseInToSlowEaseOut
                   );
                 },
-                child: Icon(Icons.arrow_forward_ios, size: 20),
+                child: Icon(Icons.arrow_forward_ios, size: 20,color: Colors.white,),
                 backgroundColor: controller.app,
               ),
             ),

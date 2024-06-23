@@ -24,6 +24,9 @@ Color textOrangeTheme=Colors.white;
 Color defaultGreenColor=Color(0xfff04533b);
 Color textGreenTheme=Colors.white;
 
+Color defaultBlueColor=Color(0xff3059A2);
+// 0xff01338D
+// 0xffF74F22
 void printFullText(String text) {
   final pattern = RegExp('.{1,800}'); // 800 is the size of each chunk
   pattern.allMatches(text).forEach((match) => print(match.group(0)));

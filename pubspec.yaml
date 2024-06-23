@@ -59,6 +59,8 @@ dependencies:
   flutter_svg: ^2.0.10+1
   qr_flutter: ^4.1.0
   sizer: null
+  webview_flutter: ^3.0.4
+
   flutter_localizations:
       sdk: flutter
 

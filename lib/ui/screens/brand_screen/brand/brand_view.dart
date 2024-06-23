@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 
 import '../../../widgets/brands.dart';
@@ -97,23 +98,23 @@ class BrandView extends StatelessWidget {
                     labelStyle: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        color: Color(0xffF74F22)),
+                        color: controller2.app),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.0),
                       borderSide: BorderSide(
-                        color: Color(0xffF74F22),
+                        color: controller2.app,
                       ),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Color(0xffF74F22)),
+                      borderSide: BorderSide(color: controller2.app),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: Color(0xffF74F22))),
+                        borderSide: BorderSide(color: controller2.app)),
                     prefixIcon: Icon(
                       Icons.search_outlined,
-                      color: Color(0xffF74F22),
+                      color:controller2.app,
                     ),
                   ),
                 ),

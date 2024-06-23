@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:label="donate_clothes"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
         <meta-data android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBDeLr8GmU6bVUzVfXtC2LeFDhvcTZU4qg"/>
         <activity
@@ -31,5 +34,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
     </application>
+
 </manifest>

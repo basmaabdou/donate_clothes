@@ -45,7 +45,7 @@ Widget  defaultTextForm({
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color:controller2.app, width: 2.0)
       ),
-      border:  OutlineInputBorder(borderRadius: BorderRadius.circular(8),),
+      border:  OutlineInputBorder(borderRadius: BorderRadius.circular(8),borderSide: BorderSide(color:controller2.app)),
       prefixIcon: Icon(
         prefix ,color: controller2.app,
       ),

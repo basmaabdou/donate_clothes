@@ -1,7 +1,9 @@
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:donate_clothes/ui/widgets/setting_row.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../generated/l10n.dart';
 import '../../shared/constants.dart';
@@ -25,7 +27,7 @@ class LogOutWidget extends StatelessWidget {
                   Icon(
                     Icons.logout_outlined,
                     size: 23,
-                    color: Color(0xffF74F22),
+                    color:controller2.app,
                   ),
                   SizedBox(
                     width: 5,
@@ -53,10 +55,10 @@ class LogOutWidget extends StatelessWidget {
                 height: 10,
               ),
               Container(
-                width: 80,
-                height: 30,
+                width: 12.h,
+                height: 5.h,
                 decoration: BoxDecoration(
-                    color: const Color(0xffF74F22),
+                    color: controller2.app,
                     borderRadius: BorderRadius.circular(10)),
                 child: MaterialButton(
                   onPressed: () {
@@ -79,8 +81,8 @@ class LogOutWidget extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: OutlinedButton.styleFrom(
-                  side: const BorderSide(
-                      color: Color(0xffF74F22)),
+                  side:  BorderSide(
+                      color:controller2.app),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -88,7 +90,7 @@ class LogOutWidget extends StatelessWidget {
                 child:  Text(
                   S.of(context).cancel,
                   style: TextStyle(
-                      color: Color(0xffF74F22),
+                      color: controller2.app,
                       fontSize: 18,
                       fontWeight: FontWeight.w400),
                 ),

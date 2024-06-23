@@ -26,41 +26,66 @@ class _FirstScreenState extends State<SplashScreen> {
   SettingController controller=Get.find();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: controller.app,
-        body: Container(
-          child: const Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Charity',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(0, 3),
-                        blurRadius: 5.0,
-                          color: Colors.grey
-                        // color: Colors.grey.withOpacity(0.5),
-                      ),
-                      Shadow(
-                        offset: Offset(0, 3),
-                        blurRadius: 5.0,
-                        color: Colors.grey
-                        // color: Colors.grey.withOpacity(0.5),
-                      ),
-                    ],
-                    color: Color(0xffFFFFFF),
-                    fontSize: 47,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ],
-            ),
+    return
+      Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/images/logo.jpg',
+            fit: BoxFit.fill,
           ),
-        )
+        ],
+      ),
     );
+
+    //   Scaffold(
+    //   backgroundColor: controller.app,
+    //     body: Container(
+    //       child:  Center(
+    //         child: Column(
+    //           mainAxisAlignment: MainAxisAlignment.center,
+    //           children: [
+    //             Column(
+    //               children: [
+    //                 // ClipRRect(
+    //                 //   borderRadius: BorderRadius.circular(20.0),
+    //                 //   child: Image(
+    //                 //     width: 400,
+    //                 //     height: 400,
+    //                 //     image: AssetImage("assets/images/logo.jpg"),
+    //                 //   ),
+    //                 // ),
+    //                 Text(
+    //                   'Charity',
+    //                   textAlign: TextAlign.center,
+    //                   style: TextStyle(
+    //                     shadows: <Shadow>[
+    //                       Shadow(
+    //                         offset: Offset(0, 3),
+    //                         blurRadius: 5.0,
+    //                           color: Colors.grey
+    //                         // color: Colors.grey.withOpacity(0.5),
+    //                       ),
+    //                       Shadow(
+    //                         offset: Offset(0, 3),
+    //                         blurRadius: 5.0,
+    //                         color: Colors.grey
+    //                         // color: Colors.grey.withOpacity(0.5),
+    //                       ),
+    //                     ],
+    //                     color: Color(0xffFFFFFF),
+    //                     fontSize: 47,
+    //                     fontWeight: FontWeight.bold,
+    //                     fontStyle: FontStyle.italic,
+    //                   ),
+    //                 ),
+    //               ],
+    //             ),
+    //           ],
+    //         ),
+    //       ),
+    //     )
+    // );
   }
 }

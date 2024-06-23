@@ -38,18 +38,18 @@ class _HomeScreenState extends State<HomeView> {
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: const Color(0xffF9F9F9),
-          leading: IconButton(
-            icon: Icon(
-              Icons.list,
-              color: controller2.app,
-              size: 25,
+          leading: Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20.0),
+              child: Image(
+                image: AssetImage("assets/images/logo.jpg"),
+              ),
             ),
-            iconSize: 100,
-            onPressed: () {},
           ),
-          titleSpacing: 80,
+          titleSpacing: 100,
           title: Text(
-            S.of(context).charity,
+            S.of(context).charityy,
             textAlign: TextAlign.center,
             style: TextStyle(
               shadows: <Shadow>[
@@ -65,21 +65,17 @@ class _HomeScreenState extends State<HomeView> {
                 ),
               ],
               fontWeight: FontWeight.bold,
-              fontSize:controller.selectedIndex.value == 0? 3.h : 2.3.h,
+              fontSize:controller.selectedIndex.value == 0? 3.5.h : 3.5.h,
               color: controller2.app,
               fontStyle: FontStyle.italic,
             ),
           ),
           actions: [
-            Row(
-              children: [
-                IconButton(
-                    onPressed: (){
-                      navigateTo(context, SettingScreen());
-                    },
-                    icon: Icon(Icons.settings ,color: controller2.app,size: 3.h,)
-                ),
-              ],
+            IconButton(
+                onPressed: (){
+                  navigateTo(context, SettingScreen());
+                },
+                icon: Icon(Icons.settings ,color: controller2.app,size: 3.h,)
             ),
           ],
         ),

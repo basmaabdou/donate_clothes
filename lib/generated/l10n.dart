@@ -50,11 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `charity`
-  String get charity {
+  /// `Sadaka`
+  String get charityy {
     return Intl.message(
-      'charity',
-      name: 'charity',
+      'Sadaka',
+      name: 'charityy',
       desc: '',
       args: [],
     );
@@ -175,6 +175,16 @@ class S {
     return Intl.message(
       'Green',
       name: 'green',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Blue`
+  String get blue {
+    return Intl.message(
+      'Blue',
+      name: 'blue',
       desc: '',
       args: [],
     );

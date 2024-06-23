@@ -1,5 +1,13 @@
+import 'package:donate_clothes/shared/constants.dart';
+import 'package:donate_clothes/ui/widgets/ThemeImage.widget.dart';
+import 'package:donate_clothes/ui/widgets/basic.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../widgets/animation.dart';
 import '../../widgets/default_text_form_field..dart';
@@ -8,38 +16,40 @@ import '../home_screen/home_cubit/cubit.dart';
 
 class OurWorkScreen extends StatelessWidget {
   String img, title, description;
-   OurWorkScreen({super.key, required this.img, required this.description, required this.title});
-
+  OurWorkScreen(
+      {super.key,
+      required this.img,
+      required this.description,
+      required this.title});
 
   double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffFFFFFF),
-      appBar:AppBar(
+      appBar: AppBar(
         backgroundColor: const Color(0xffFFFFFF),
         elevation: 0,
         leading: IconButton(
-          onPressed: (){
+          onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back,size: 25,color: controller2.app),
+          icon: Icon(Icons.arrow_back, size: 25, color: controller2.app),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsetsDirectional.only(start: 20,end: 20,bottom: 10),
+        padding:
+            const EdgeInsetsDirectional.only(start: 20, end: 20, bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               width: double.infinity,
-              height: 241,
+              height: 200,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                image: DecorationImage(
-                  image: NetworkImage(img),
-                    fit: BoxFit.fill
-                ),
+                image:
+                    DecorationImage(image: NetworkImage(img), fit: BoxFit.fill),
               ),
             ),
             SizedBox(
@@ -58,7 +68,7 @@ class OurWorkScreen extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Icon(Icons.favorite_sharp,size: 25,color: controller2.app)
+                Icon(Icons.favorite_sharp, size: 25, color: controller2.app)
               ],
             ),
             SizedBox(
@@ -90,9 +100,8 @@ class OurWorkScreen extends StatelessWidget {
               width: 338,
               height: 81,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xffF1DCC7).withOpacity(.1)
-              ),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Color(0xffF1DCC7).withOpacity(.1)),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -145,7 +154,9 @@ class OurWorkScreen extends StatelessWidget {
                               color: controller2.app,
                               borderRadius: BorderRadius.circular(10)),
                           child: MaterialButton(
-                           onPressed: () {Navigator.push(context,FadeRoute2(DonateClothesDetails()));},
+                            onPressed: () {
+                              donateBottomSheet(context);
+                               },
                             child: Text(
                               'donate',
                               style: TextStyle(
@@ -155,14 +166,12 @@ class OurWorkScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   ],
                 ),
               ),
             ),
-
           ],
         ),
       ),

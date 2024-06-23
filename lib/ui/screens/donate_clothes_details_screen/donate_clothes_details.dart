@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:sizer/sizer.dart';
 import '../../../shared/constants.dart';
+import '../../widgets/ThemeImage.widget.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_text_form_field..dart';
 import '../layout_screen/layout_screen.dart';
@@ -77,7 +79,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                       fontWeight: FontWeight.w700,
                       color: controller2.app),
                 ),
-                backgroundColor: Color(0xffFBB7A4),
+                backgroundColor: controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB),
                 elevation: 0,
               ),
               body: SingleChildScrollView(
@@ -86,18 +88,18 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 120,
+                      height: 13.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadiusDirectional.only(
-                            bottomStart: Radius.circular(50),
-                            bottomEnd: Radius.circular(50)),
-                        color: Color(0xffFBB7A4),
+                            bottomStart: Radius.circular(5.h),
+                            bottomEnd: Radius.circular(5.h)),
+                        color: controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB),
                       ),
                       child:  Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding:  EdgeInsets.all(1.h),
                         child: Container(
-                          width: 320,
+                          width: double.infinity,
                           height: 52,
                           child: TextFormField(
                             style: TextStyle(
@@ -117,7 +119,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                             decoration: InputDecoration(
                                 hintText: 'Al Haram Street',
                                 hintStyle: TextStyle(
-                                  color: Color(0xff323232),
+                                  color: controller2.app,
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14,
                                 ),
@@ -125,7 +127,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 filled: true,
                                 focusedBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
-                                    color: Color(0xffFFFFFF),
+                                    color: controller2.app,
                                     width: 2.0,
                                   ),
                                   borderRadius: BorderRadius.circular(15),
@@ -133,7 +135,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   borderSide:
-                                  BorderSide(color: Color(0xffFFFFFF)),
+                                  BorderSide( color:controller2.app),
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15.0),
@@ -143,10 +145,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 ),
                                 prefixIcon: Icon(
                                   Icons.location_on,
-                                  color: Color(0xffC4C4C4),
+                                  color: controller2.app,
                                 ),
                                 suffixIcon: InkWell(
-                                  child: Icon(Icons.wrong_location),
+                                  child: Icon(Icons.wrong_location, color:controller2.app,),
                                   onTap: () {
                                     addressController.clear();
                                   },
@@ -157,7 +159,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
 
                     ),
                     SizedBox(
-                      height: 10,
+                      height: 1.5.h,
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -216,7 +218,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                             height: 20,
                           ),
                           Text(
-                            'Clothes Item',
+                            'Items Name',
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -225,7 +227,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                           SizedBox(height: 10,),
                           defaultTextForm(
                               controller: clothController,
-                              type: TextInputType.phone,
+                              type: TextInputType.text,
                               hintText: "Name of item",
                               validate: (value) {
                                 if (value!.isEmpty) {
@@ -288,15 +290,15 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                       ),
                     ),
                     SizedBox(
-                      height: 15,
+                      height: 0.5.h,
                     ),
                     Center(
                       child: Container(
-                        width: 155,
-                        height: 35,
+                        width: 200,
+                        height: 40,
                         decoration: BoxDecoration(
                             color: controller2.app,
-                            borderRadius: BorderRadius.circular(20)),
+                            borderRadius: BorderRadius.circular(10)),
                         child: MaterialButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
@@ -489,7 +491,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
 
                           },
                           child: Text(
-                            'Donate',
+                            'Donate Now',
                             style: TextStyle(
                                 color: Color(0xffFFFFFF),
                                 fontSize: 18,
@@ -498,6 +500,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 2.h,)
                   ],
                 ),
               ),

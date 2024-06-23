@@ -17,7 +17,7 @@ class SettingController extends GetxController {
   IconData selectedIcon = Icons.check;
 
   var boardController2 = PageController(initialPage: 1);
-  Color app = defaultColor;
+  Color app = defaultBlueColor;
   Color textApp=textOrangeTheme;
 
   void changeThemeColor(Color color,Color txtColor, int index) {

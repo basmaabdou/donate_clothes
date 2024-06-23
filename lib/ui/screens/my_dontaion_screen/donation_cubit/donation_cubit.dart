@@ -60,3 +60,4 @@ class DonationCubit extends Cubit<DonationStates> {
     });
   }
 }
+
