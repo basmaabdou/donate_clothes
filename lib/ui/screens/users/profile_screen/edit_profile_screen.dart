@@ -97,22 +97,22 @@ class _EditProfileState extends State<EditProfileScreen> {
                           height: 10,
                         ),
                       Container(
-                        height: 30.h,
+                        height: 33.h,
                         child: Stack(
                           alignment: AlignmentDirectional.bottomCenter,
                           children: [
                             Align(
                               alignment: AlignmentDirectional.topCenter,
                               child: Container(
-                                height: 190,
+                                height: 22.h,
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                     borderRadius:  BorderRadius.only(
-                                      topLeft: Radius.circular(4),
-                                      topRight:  Radius.circular(4),
+                                      bottomLeft: Radius.circular(8),
+                                      bottomRight:  Radius.circular(8),
                                     ),
                                     image: DecorationImage(
-                                      image:  AssetImage('assets/images/logo.jpg')  ,
+                                      image:  AssetImage('assets/images/gaza2.jpeg')  ,
                                       fit: BoxFit.fill,
                                     )
 
@@ -124,20 +124,20 @@ class _EditProfileState extends State<EditProfileScreen> {
                               children: [
                                 profileImage != null
                                     ? CircleAvatar(
-                                  radius: 80,
+                                  radius: 11.h,
                                   backgroundImage: (profileImage == null)
                                       ? NetworkImage(profileImage as String)
                                   as ImageProvider<Object>?
                                       : FileImage(profileImage!),
                                 )
                                     : CircleAvatar(
-                                  radius: 80,
+                                  radius: 11.h,
                                   backgroundImage:
                                   NetworkImage(ProfileCubit.get(context).profileModel!.data!.profilephoto!.url!),
                                 ),
                                 Positioned(
-                                  top: 13.h,
-                                  right: 1.h,
+                                  top: 15.h,
+                                  right: 0.5.h,
                                   child: IconButton(
                                       onPressed: () {
                                         getImageFromGallery();

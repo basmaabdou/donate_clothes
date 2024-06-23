@@ -30,14 +30,6 @@ class ProfileView extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: controller2.app,
               elevation: 0,
-              leading: IconButton(
-                onPressed: () {
-                  //Navigator.pop(context);
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => LayoutScreen()));
-
-                },
-                icon: Icon(Icons.arrow_back, size: 25, color: Colors.white),
-              ),
             ),
             body: Column(
               children: [

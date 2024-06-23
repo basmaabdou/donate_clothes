@@ -39,7 +39,7 @@ class OurWorkScreen extends StatelessWidget {
       ),
       body: Padding(
         padding:
-            const EdgeInsetsDirectional.only(start: 20, end: 20, bottom: 10),
+             EdgeInsetsDirectional.only(start: 3.h, end: 3.h, bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -97,8 +97,8 @@ class OurWorkScreen extends StatelessWidget {
               height: 15,
             ),
             Container(
-              width: 338,
-              height: 81,
+              width: double.infinity,
+              height: 15.h,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Color(0xffF1DCC7).withOpacity(.1)),
@@ -124,20 +124,20 @@ class OurWorkScreen extends StatelessWidget {
                         Icon(
                           Icons.favorite_rounded,
                           color: controller2.app,
-                          size: 14,
+                          size: 16,
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 1.h,
                         ),
                         Text(
                           '4562',
                           style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 10,
+                              fontSize: 12,
                               color: controller2.app),
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 1.h,
                         ),
                         Text(
                           'doners',
@@ -148,17 +148,17 @@ class OurWorkScreen extends StatelessWidget {
                         ),
                         Spacer(),
                         Container(
-                          width: 73,
-                          height: 26,
+                          width: 15.h,
+                          height: 4.h,
                           decoration: BoxDecoration(
                               color: controller2.app,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(1.h)),
                           child: MaterialButton(
                             onPressed: () {
                               donateBottomSheet(context);
-                               },
+                            },
                             child: Text(
-                              'donate',
+                              'Donate Now',
                               style: TextStyle(
                                   color: Color(0xffFFFFFF),
                                   fontSize: 13,

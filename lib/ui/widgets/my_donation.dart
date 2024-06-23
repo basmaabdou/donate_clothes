@@ -2,6 +2,7 @@ import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/cub
 import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 import '../screens/coins_screen/coins_screen.dart';
 import 'basic.dart';
 
@@ -42,7 +43,7 @@ class _MyDonationState extends State<MyDonation> {
         builder: (context, state) {
           return Container(
             width: double.infinity,
-            height: 140,
+            height: 14.h,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: Colors.white),
             child: Padding(
@@ -55,12 +56,12 @@ class _MyDonationState extends State<MyDonation> {
                     Padding(
                       padding: const EdgeInsets.only(top: 16.0),
                       child: Container(
-                        width: 64,
-                        height: 64,
+                        width: 70,
+                        height: 70,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                              image: AssetImage('assets/images/d1.png'),
+                              image: AssetImage('assets/images/o1.jpg'),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -72,6 +73,7 @@ class _MyDonationState extends State<MyDonation> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          SizedBox(height: 5,),
                           Row(
                             children: [
                               Text(

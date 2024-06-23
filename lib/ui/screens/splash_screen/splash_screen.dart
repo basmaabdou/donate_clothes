@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:donate_clothes/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,7 +33,8 @@ class _FirstScreenState extends State<SplashScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/images/logo.jpg',
+            controller.app==defaultBlueColor?
+            'assets/images/blueLogo.jpg' : controller.app==defaultGreenColor? 'assets/images/greenLogo.jpg' :  'assets/images/orangeLogo.jpg',
             fit: BoxFit.fill,
           ),
         ],

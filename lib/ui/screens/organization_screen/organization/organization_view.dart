@@ -23,7 +23,7 @@ class OrganizationView extends StatelessWidget {
                 alignment: AlignmentDirectional.bottomCenter,
                 children: [
                   Container(
-                    width: 375,
+                    width: double.infinity,
                     height: 240,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadiusDirectional.only(bottomStart: Radius.circular(20),bottomEnd: Radius.circular(20)),

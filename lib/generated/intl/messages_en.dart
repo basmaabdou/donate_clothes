@@ -44,8 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "c5": MessageLookupByLibrary.simpleMessage("Your Old Clothes."),
         "c6": MessageLookupByLibrary.simpleMessage(
             "for your money get a discount from our supporting Brands"),
-        "c71": MessageLookupByLibrary.simpleMessage("Come On  "),
-        "c72": MessageLookupByLibrary.simpleMessage("   With us"),
+        "c71": MessageLookupByLibrary.simpleMessage("Come On Donate With us"),
+        "c72": MessageLookupByLibrary.simpleMessage("With us"),
         "c81": MessageLookupByLibrary.simpleMessage(
             "in Exchange for your donation,"),
         "c82": MessageLookupByLibrary.simpleMessage("you will get coins ."),
@@ -60,7 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Are you sure to logout"),
         "dataOr": MessageLookupByLibrary.simpleMessage(
             "Help organizations save people"),
-        "donate": MessageLookupByLibrary.simpleMessage("Donate"),
+        "donate": MessageLookupByLibrary.simpleMessage(" Donate"),
         "enterData":
             MessageLookupByLibrary.simpleMessage("Please Enter You Details"),
         "forgetPassword":

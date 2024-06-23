@@ -125,7 +125,7 @@ with SingleTickerProviderStateMixin {
                             height: 7,
                           ),
                           Text(
-                            'You have contributed to the heating of \n many  people this month',
+                            'You have contributed to the helping of \n many  people this month',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -195,7 +195,7 @@ with SingleTickerProviderStateMixin {
                                 )
                                     : SizedBox(),
                                 separatorBuilder: (context, index) => const SizedBox(
-                                  height: 5.0,
+                                  height: 15.0,
                                 ),
                                 itemCount: user.profileModel!.data!.orders!.length,
                                 scrollDirection: Axis.vertical,

@@ -330,10 +330,10 @@ class S {
     );
   }
 
-  /// `Donate`
+  /// ` Donate`
   String get donate {
     return Intl.message(
-      'Donate',
+      ' Donate',
       name: 'donate',
       desc: '',
       args: [],
@@ -360,20 +360,20 @@ class S {
     );
   }
 
-  /// `Come On  `
+  /// `Come On Donate With us`
   String get c71 {
     return Intl.message(
-      'Come On  ',
+      'Come On Donate With us',
       name: 'c71',
       desc: '',
       args: [],
     );
   }
 
-  /// `   With us`
+  /// `With us`
   String get c72 {
     return Intl.message(
-      '   With us',
+      'With us',
       name: 'c72',
       desc: '',
       args: [],
