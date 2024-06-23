@@ -127,7 +127,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Thanks to your quest for charity, you got a ',
+                              'Thanks to your quest for charity, you con got a ',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 15,
