@@ -15,7 +15,9 @@ class OrganizationView extends StatelessWidget {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Directionality(
-          textDirection: controller.selectedIndex==0 ? TextDirection.ltr : TextDirection.rtl,
+          textDirection: controller.selectedIndex == 0
+              ? TextDirection.ltr
+              : TextDirection.rtl,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,11 +28,12 @@ class OrganizationView extends StatelessWidget {
                     width: double.infinity,
                     height: 240,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.only(bottomStart: Radius.circular(20),bottomEnd: Radius.circular(20)),
+                      borderRadius: BorderRadiusDirectional.only(
+                          bottomStart: Radius.circular(20),
+                          bottomEnd: Radius.circular(20)),
                       image: DecorationImage(
-                        image: AssetImage('assets/images/c2.jpg'),
-                          fit: BoxFit.fill
-                      ),
+                          image: AssetImage('assets/images/c2.jpg'),
+                          fit: BoxFit.fill),
                     ),
                   ),
                   Column(
@@ -50,7 +53,11 @@ class OrganizationView extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.handshake, color: Color(0xffF74F22),size: 15,),
+                          Icon(
+                            Icons.handshake,
+                            color: Color(0xffF74F22),
+                            size: 15,
+                          ),
                           SizedBox(
                             width: 10,
                           ),
@@ -65,7 +72,11 @@ class OrganizationView extends StatelessWidget {
                           SizedBox(
                             width: 10,
                           ),
-                          Icon(Icons.handshake, color: Color(0xffF74F22),size: 15,),
+                          Icon(
+                            Icons.handshake,
+                            color: Color(0xffF74F22),
+                            size: 15,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -74,7 +85,6 @@ class OrganizationView extends StatelessWidget {
                     ],
                   ),
                 ],
-
               ),
               Padding(
                 padding: const EdgeInsets.all(20.0),
@@ -88,21 +98,39 @@ class OrganizationView extends StatelessWidget {
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       height: 1000,
                       child: ListView.separated(
                         physics: BouncingScrollPhysics(),
-                        itemBuilder: (context, index) =>  OurOrganization(
-                          image: OrganizationCubit.get(context).organizationResponse!.result![index].images![index].url!,
-                          title: OrganizationCubit.get(context).organizationResponse!.result![index].title!,
-                          info: OrganizationCubit.get(context).organizationResponse!.result![index].organizationInfo!,
-                          sId:OrganizationCubit.get(context).organizationResponse!.result![index].sId! ,
+                        itemBuilder: (context, index) => OurOrganization(
+                          image: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .images![index]
+                              .url!,
+                          title: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .title!,
+                          info: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .organizationInfo!,
+                          sId: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .sId!,
                         ),
                         separatorBuilder: (context, index) => const SizedBox(
                           height: 15.0,
                         ),
-                        itemCount: OrganizationCubit.get(context).organizationResponse!.result!.length,
+                        itemCount: OrganizationCubit.get(context)
+                            .organizationResponse!
+                            .result!
+                            .length,
                         scrollDirection: Axis.vertical,
                       ),
                     ),

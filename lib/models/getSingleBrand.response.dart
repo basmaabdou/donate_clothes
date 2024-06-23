@@ -33,12 +33,12 @@ class Data {
 
   Data(
       {this.sId,
-        this.title,
-        this.image,
-        this.info,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.title,
+      this.image,
+      this.info,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

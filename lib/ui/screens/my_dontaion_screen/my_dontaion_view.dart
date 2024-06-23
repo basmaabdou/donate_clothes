@@ -12,15 +12,12 @@ import '../organization_screen/organization_cubit/cubit.dart';
 import '../users/profile_screen/cubit_profile/cubit.dart';
 
 class MyDonationView extends StatefulWidget {
-
   @override
   State<MyDonationView> createState() => _MyDonationViewState();
 }
 
 class _MyDonationViewState extends State<MyDonationView>
-with SingleTickerProviderStateMixin {
-
-
+    with SingleTickerProviderStateMixin {
   TabController? tabController;
 
   @override
@@ -28,6 +25,7 @@ with SingleTickerProviderStateMixin {
     tabController = TabController(length: 2, vsync: this);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -170,7 +168,6 @@ with SingleTickerProviderStateMixin {
                           tabs: const [
                             Text('Pending'),
                             Text('Collected'),
-
                           ],
                           controller: tabController,
                           indicatorSize: TabBarIndicatorSize.tab,
@@ -179,56 +176,75 @@ with SingleTickerProviderStateMixin {
                           height: 500,
                           child: TabBarView(
                             controller: tabController,
-                            children:  [
+                            children: [
                               ListView.separated(
                                 physics: BouncingScrollPhysics(),
                                 shrinkWrap: true,
-                                itemBuilder: (context, index) =>
-                                user.profileModel!.data!.orders![index].status! =="pending"
+                                itemBuilder: (context, index) => user
+                                            .profileModel!
+                                            .data!
+                                            .orders![index]
+                                            .status! ==
+                                        "pending"
                                     ? MyDonation(
-                                  title: user.profileModel!.data!.orders![index].itemsName.toString(),
-                                  status: user.profileModel!.data!.orders![index].status!,
-                                  date: user.profileModel!.data!.createdAt!,
-                                  loc: user.profileModel!.data!.orders![index].location!,
-                                  id: user.profileModel!.data!.orders![index].sId!,
-                                  coins: user.profileModel!.data!.orders![index].ordercoins! ,
-                                )
+                                        title: user.profileModel!.data!
+                                            .orders![index].itemsName
+                                            .toString(),
+                                        status: user.profileModel!.data!
+                                            .orders![index].status!,
+                                        date:
+                                            user.profileModel!.data!.createdAt!,
+                                        loc: user.profileModel!.data!
+                                            .orders![index].location!,
+                                        id: user.profileModel!.data!
+                                            .orders![index].sId!,
+                                        coins: user.profileModel!.data!
+                                            .orders![index].ordercoins!,
+                                      )
                                     : SizedBox(),
-                                separatorBuilder: (context, index) => const SizedBox(
+                                separatorBuilder: (context, index) =>
+                                    const SizedBox(
                                   height: 15.0,
                                 ),
-                                itemCount: user.profileModel!.data!.orders!.length,
+                                itemCount:
+                                    user.profileModel!.data!.orders!.length,
                                 scrollDirection: Axis.vertical,
                               ),
                               ListView.separated(
                                 physics: BouncingScrollPhysics(),
                                 shrinkWrap: true,
-                                itemBuilder: (context, index) =>
-                                user.profileModel!.data!.orders![index].status! =="collected"
+                                itemBuilder: (context, index) => user
+                                            .profileModel!
+                                            .data!
+                                            .orders![index]
+                                            .status! ==
+                                        "collected"
                                     ? MyDonation(
-                                  title: user
-                                      .profileModel!.data!.orders![index].itemsName
-                                      .toString(),
-                                  status:
-                                  user.profileModel!.data!.orders![index].status!,
-                                  date: user.profileModel!.data!.createdAt!,
-                                  loc: user.profileModel!.data!.orders![index].location!,
-                                  id: user.profileModel!.data!.orders![index].sId!,
-                                    coins: user.profileModel!.data!.orders![index].ordercoins!
-                                )
-                                    :SizedBox(),
-                                separatorBuilder: (context, index) => const SizedBox(
+                                        title: user.profileModel!.data!
+                                            .orders![index].itemsName
+                                            .toString(),
+                                        status: user.profileModel!.data!
+                                            .orders![index].status!,
+                                        date:
+                                            user.profileModel!.data!.createdAt!,
+                                        loc: user.profileModel!.data!
+                                            .orders![index].location!,
+                                        id: user.profileModel!.data!
+                                            .orders![index].sId!,
+                                        coins: user.profileModel!.data!
+                                            .orders![index].ordercoins!)
+                                    : SizedBox(),
+                                separatorBuilder: (context, index) =>
+                                    const SizedBox(
                                   height: 5.0,
                                 ),
-                                itemCount: user.profileModel!.data!.orders!.length,
+                                itemCount:
+                                    user.profileModel!.data!.orders!.length,
                                 scrollDirection: Axis.vertical,
                               ),
                             ],
                           ),
                         ),
-              
-              
-              
                       ],
                     ),
                   ),
@@ -239,7 +255,10 @@ with SingleTickerProviderStateMixin {
               onPressed: () {
                 donateBottomSheet(context);
               },
-              child: Icon(Icons.add,color: Colors.white,),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
               backgroundColor: controller2.app,
               mini: true,
               shape: RoundedRectangleBorder(

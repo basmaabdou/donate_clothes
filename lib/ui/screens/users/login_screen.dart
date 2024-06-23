@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
   var formKey = GlobalKey<FormState>();
   bool isPassword = false;
 
-  SettingController controller=Get.find();
+  SettingController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -73,11 +73,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: Directionality(
-                      textDirection:controller.selectedIndex==0? TextDirection.ltr:TextDirection.rtl,
+                      textDirection: controller.selectedIndex == 0
+                          ? TextDirection.ltr
+                          : TextDirection.rtl,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           Text(
+                          Text(
                             S.of(context).welcomBack,
                             style: TextStyle(
                                 fontWeight: FontWeight.w300,
@@ -87,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             height: 7,
                           ),
-                           Text(
+                          Text(
                             S.of(context).enterData,
                             style: TextStyle(
                                 fontWeight: FontWeight.w400,
@@ -138,7 +140,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ForgetPasswordPage()),
+                                      builder: (context) =>
+                                          ForgetPasswordPage()),
                                 );
                               },
                               child: Text(
@@ -146,8 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w700,
-                                    color: controller.app
-                                ),
+                                    color: controller.app),
                               ),
                             ),
                           ),
@@ -170,8 +172,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                       }),
                                 ],
                               ),
-                              fallback: (context) =>
-                                  Center(child: CircularProgressIndicator(color: controller.app,)),
+                              fallback: (context) => Center(
+                                  child: CircularProgressIndicator(
+                                color: controller.app,
+                              )),
                             ),
                           ),
                           SizedBox(
@@ -183,7 +187,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                 Text(
+                                Text(
                                   S.of(context).anotheAcc,
                                   style: TextStyle(
                                       fontSize: 20,
@@ -198,13 +202,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                             builder: (context) =>
                                                 RegisterScreen()));
                                   },
-                                  child:  Text(
+                                  child: Text(
                                     S.of(context).signUp,
                                     style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w700,
-                                        color: controller.app
-                                    ),
+                                        color: controller.app),
                                   ),
                                 )
                               ],
@@ -231,7 +234,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   Text(
                                     'Google',
                                     style: TextStyle(
-                                        fontSize: 20.0, color: Color(0xff756B6B)),
+                                        fontSize: 20.0,
+                                        color: Color(0xff756B6B)),
                                   ),
                                 ],
                               ),

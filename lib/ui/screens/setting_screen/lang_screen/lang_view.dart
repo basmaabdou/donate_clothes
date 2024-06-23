@@ -12,16 +12,16 @@ import '../../../widgets/default_button.dart';
 import '../../../widgets/default_container.dart';
 import '../../splash_screen/splash_screen.dart';
 
-
 class LanguageView extends GetView<SettingController> {
   SettingController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
     return Obx(
-        ()=> Scaffold(
+      () => Scaffold(
         appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(0.0), // here the desired height
+            preferredSize:
+                const Size.fromHeight(0.0), // here the desired height
             child: AppBar(
               backgroundColor: controller.app,
               elevation: 0,
@@ -32,7 +32,8 @@ class LanguageView extends GetView<SettingController> {
             children: [
               Text(
                 S.of(context).chooseLang,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                style:
+                    const TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 10,
@@ -52,7 +53,9 @@ class LanguageView extends GetView<SettingController> {
                 children: [
                   DefaultContainer(
                     circleText: controller.selectedIndex.value == 0 ? 'ع' : 'A',
-                    lang: controller.selectedIndex.value == 0 ? 'عربي' : 'English',
+                    lang: controller.selectedIndex.value == 0
+                        ? 'عربي'
+                        : 'English',
                     backColor: Colors.white,
                     circleColor: Colors.white,
                     textColor: Colors.black,
@@ -69,7 +72,9 @@ class LanguageView extends GetView<SettingController> {
                   const Spacer(),
                   DefaultContainer(
                     circleText: controller.selectedIndex.value == 0 ? 'A' : 'ع',
-                    lang: controller.selectedIndex.value == 0 ? 'English' : 'عربي',
+                    lang: controller.selectedIndex.value == 0
+                        ? 'English'
+                        : 'عربي',
                     backColor: Colors.black,
                     circleColor: controller.app,
                     textColor: Colors.white,
@@ -88,13 +93,16 @@ class LanguageView extends GetView<SettingController> {
               const Spacer(
                 flex: 1,
               ),
-          Container(
-            height: 4.h,
-            width: double.infinity,
-            child: DefaultButton(text: S.of(context).saveChang, fun: (){
-              Get.to(SettingScreen());
-            },),
-          )
+              Container(
+                height: 4.h,
+                width: double.infinity,
+                child: DefaultButton(
+                  text: S.of(context).saveChang,
+                  fun: () {
+                    Get.to(SettingScreen());
+                  },
+                ),
+              )
             ],
           ),
         ),

@@ -14,15 +14,18 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => HomeCubit()..getDonationData(),
-      child: BlocConsumer<HomeCubit,HomeStates>(
-        listener: (BuildContext context, HomeStates state) {  },
+      child: BlocConsumer<HomeCubit, HomeStates>(
+        listener: (BuildContext context, HomeStates state) {},
         builder: (BuildContext context, HomeStates state) {
           var cubit = HomeCubit.get(context);
           return ConditionalBuilder(
-              condition: cubit.donationCardResponse != null  ,
+              condition: cubit.donationCardResponse != null,
               builder: (context) => HomeView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app,)))
-          );
+              fallback: (context) => Scaffold(
+                      body: Center(
+                          child: CircularProgressIndicator(
+                    color: controller.app,
+                  ))));
         },
       ),
     );

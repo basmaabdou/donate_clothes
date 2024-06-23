@@ -43,14 +43,14 @@ class Data {
 
   Data(
       {this.sId,
-        this.title,
-        this.description,
-        this.info,
-        this.earning,
-        this.image,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.title,
+      this.description,
+      this.info,
+      this.earning,
+      this.image,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

@@ -15,16 +15,15 @@ class BrandScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => BrandCubit()..getAllBrandsData(),
-      child: BlocConsumer<BrandCubit,BrandStates>(
-        listener: ( context,  state) {  },
-        builder: ( context,state) {
-
+      child: BlocConsumer<BrandCubit, BrandStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
           var cubit = BrandCubit.get(context);
           return ConditionalBuilder(
-              condition: cubit.brandsResponse != null  ,
+              condition: cubit.brandsResponse != null,
               builder: (context) => BrandView(),
-              fallback: (context) =>  Center(child: CircularProgressIndicator(color: controller.app))
-          );
+              fallback: (context) => Center(
+                  child: CircularProgressIndicator(color: controller.app)));
         },
       ),
     );

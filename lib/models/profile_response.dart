@@ -39,19 +39,18 @@ class Data {
 
   Data(
       {this.sId,
-        this.username,
-        this.email,
-        this.phone,
-        this.profilephoto,
-        this.role,
-        this.coins,
-        this.isAccountVerified,
-        this.orders,
-        this.createdAt,
-        this.updatedAt,
-        this.iV,
-        this.qrcode
-      });
+      this.username,
+      this.email,
+      this.phone,
+      this.profilephoto,
+      this.role,
+      this.coins,
+      this.isAccountVerified,
+      this.orders,
+      this.createdAt,
+      this.updatedAt,
+      this.iV,
+      this.qrcode});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
@@ -132,22 +131,22 @@ class Orders {
 
   Orders(
       {this.sId,
-        this.itemsName,
-        this.location,
-        this.charity,
-        this.quantity,
-        this.phone,
-        this.status,
-        this.ordercoins,
-        this.userinfo,
-        this.iV});
+      this.itemsName,
+      this.location,
+      this.charity,
+      this.quantity,
+      this.phone,
+      this.status,
+      this.ordercoins,
+      this.userinfo,
+      this.iV});
 
   Orders.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     itemsName = json['itemsName'];
     location = json['location'];
     charity =
-    json['charity'] != null ? new Charity.fromJson(json['charity']) : null;
+        json['charity'] != null ? new Charity.fromJson(json['charity']) : null;
     quantity = json['quantity'];
     phone = json['phone'];
     status = json['status'];
@@ -173,6 +172,7 @@ class Orders {
     return data;
   }
 }
+
 class Charity {
   String? sId;
   String? title;

@@ -11,36 +11,33 @@ import '../../home_screen/home_view.dart';
 import '../../organization_screen/organization/organization_screen.dart';
 import '../../users/profile_screen/profile_screen.dart';
 
+class LayoutCubit extends Cubit<LayoutStates> {
+  LayoutCubit() : super(InitialState());
 
-class LayoutCubit extends Cubit<LayoutStates>{
-      LayoutCubit() : super(InitialState());
+  static LayoutCubit get(context) => BlocProvider.of(context);
 
-      static LayoutCubit get(context)=>BlocProvider.of(context);
+  int currentIndex = 0;
+  List<Widget> screen = [
+    HomeScreen(),
+    OrganizationScreen(),
+    BrandScreen(),
+    ProfileScreen()
+  ];
+  void changeIndex(int index) {
+    currentIndex = index;
+    emit(ChangeBottomNavStates());
+  }
 
-      int currentIndex=0;
-      List<Widget> screen=[
-            HomeScreen(),
-            OrganizationScreen(),
-            BrandScreen(),
-            ProfileScreen()
-      ];
-      void changeIndex(int index){
-      currentIndex=index;
-      emit(ChangeBottomNavStates());
-}
-
-
-      bool isDark=false;
-      void changeMode( { bool? fromShared}){
-            if(fromShared != null){
-                  isDark=fromShared;
-                  emit(AppChangeMode());
-            }else {
-                  isDark = !isDark;
-                  CacheHelper.putBoolean(key: 'isDark', value: isDark).then((value) {
-                        emit(AppChangeMode());
-                  });
-            }
-      }
-
+  bool isDark = false;
+  void changeMode({bool? fromShared}) {
+    if (fromShared != null) {
+      isDark = fromShared;
+      emit(AppChangeMode());
+    } else {
+      isDark = !isDark;
+      CacheHelper.putBoolean(key: 'isDark', value: isDark).then((value) {
+        emit(AppChangeMode());
+      });
+    }
+  }
 }

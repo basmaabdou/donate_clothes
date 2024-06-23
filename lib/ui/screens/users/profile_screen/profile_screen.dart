@@ -14,20 +14,27 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider(create: (BuildContext context) => ProfileCubit()..getProfileData(),),
-      BlocProvider(create: (BuildContext context) => DonationCubit(),),
-
-    ], child: BlocConsumer<ProfileCubit,ProfileStates>(
-      listener: (BuildContext context, ProfileStates state) {  },
-      builder: (BuildContext context, ProfileStates state) {
-        var cubit = ProfileCubit.get(context);
-        return ConditionalBuilder(
-            condition: cubit.profileModel != null  ,
-            builder: (context) => ProfileView(),
-            fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
-        );
-      },
-    ));
+    return MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (BuildContext context) => ProfileCubit()..getProfileData(),
+          ),
+          BlocProvider(
+            create: (BuildContext context) => DonationCubit(),
+          ),
+        ],
+        child: BlocConsumer<ProfileCubit, ProfileStates>(
+          listener: (BuildContext context, ProfileStates state) {},
+          builder: (BuildContext context, ProfileStates state) {
+            var cubit = ProfileCubit.get(context);
+            return ConditionalBuilder(
+                condition: cubit.profileModel != null,
+                builder: (context) => ProfileView(),
+                fallback: (context) => Scaffold(
+                    body: Center(
+                        child:
+                            CircularProgressIndicator(color: controller.app))));
+          },
+        ));
   }
 }

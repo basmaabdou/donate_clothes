@@ -66,7 +66,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingController themeController = Get.put(SettingController());
-    PaymentController paymentController=Get.put(PaymentController());
+    PaymentController paymentController = Get.put(PaymentController());
     return MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => ProfileCubit()..getProfileData())
@@ -84,7 +84,7 @@ class MyApp extends StatelessWidget {
               locale: const Locale('en'),
               supportedLocales: S.delegate.supportedLocales,
               debugShowCheckedModeBanner: false,
-              home: LayoutScreen(),
+              home: startWidget,
             );
           },
         ));

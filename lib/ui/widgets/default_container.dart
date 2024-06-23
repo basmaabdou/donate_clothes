@@ -3,16 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DefaultContainer extends StatelessWidget {
- final Color backColor,circleColor,textColor;
-  final String circleText,lang;
+  final Color backColor, circleColor, textColor;
+  final String circleText, lang;
   final onTap;
 
-  const DefaultContainer({super.key, required this.circleText, required this.lang,required this.backColor,required this.circleColor,required this.textColor, this.onTap});
+  const DefaultContainer(
+      {super.key,
+      required this.circleText,
+      required this.lang,
+      required this.backColor,
+      required this.circleColor,
+      required this.textColor,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    SettingController controller=Get.find();
-    return  InkWell(
+    SettingController controller = Get.find();
+    return InkWell(
       onTap: onTap,
       child: Container(
         height: 130,
@@ -20,8 +27,7 @@ class DefaultContainer extends StatelessWidget {
         decoration: BoxDecoration(
             color: backColor,
             borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: Colors.black)
-        ),
+            border: Border.all(color: Colors.black)),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
@@ -35,9 +41,12 @@ class DefaultContainer extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(25),
                         border: Border.all(color: Colors.black),
-                        color:circleColor
+                        color: circleColor),
+                    child: const Icon(
+                      Icons.check,
+                      size: 15,
+                      color: Colors.white,
                     ),
-                    child: const Icon(Icons.check,size: 15,color: Colors.white,),
                   ),
                 ],
               ),
@@ -46,28 +55,25 @@ class DefaultContainer extends StatelessWidget {
                 width: 45,
                 decoration: BoxDecoration(
                     color: controller.app,
-                    borderRadius: BorderRadius.circular(75)
-                ),
+                    borderRadius: BorderRadius.circular(75)),
                 child: Text(
                   circleText,
                   textAlign: TextAlign.center,
-                  style:  TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.w900,
-                    color: controller.textApp
-                  ),
+                  style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      color: controller.textApp),
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
-                lang
-                ,style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                  color: textColor
-              ),
+                lang,
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    color: textColor),
               ),
             ],
           ),

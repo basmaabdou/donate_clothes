@@ -43,21 +43,21 @@ class Orders {
 
   Orders(
       {this.sId,
-        this.itemsName,
-        this.location,
-        this.charity,
-        this.quantity,
-        this.phone,
-        this.status,
-        this.userinfo,
-        this.iV});
+      this.itemsName,
+      this.location,
+      this.charity,
+      this.quantity,
+      this.phone,
+      this.status,
+      this.userinfo,
+      this.iV});
 
   Orders.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     itemsName = json['itemsName'];
     location = json['location'];
     charity =
-    json['charity'] != null ? new Charity.fromJson(json['charity']) : null;
+        json['charity'] != null ? new Charity.fromJson(json['charity']) : null;
     quantity = json['quantity'];
     phone = json['phone'];
     status = json['status'];

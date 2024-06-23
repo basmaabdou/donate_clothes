@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 class SettingRow extends StatelessWidget {
   String txt, endText;
   final onTap;
-   SettingRow({super.key,required this.txt,required this.onTap,required this.endText});
+  SettingRow(
+      {super.key,
+      required this.txt,
+      required this.onTap,
+      required this.endText});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +17,7 @@ class SettingRow extends StatelessWidget {
         children: [
           Text(
             txt,
-            style: TextStyle(
-                fontSize: 13, fontWeight: FontWeight.w400),
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400),
           ),
           Spacer(),
           Text(

@@ -73,7 +73,9 @@ class _MyDonationState extends State<MyDonation> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 5,),
+                          SizedBox(
+                            height: 5,
+                          ),
                           Row(
                             children: [
                               Text(

@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import '../onboarding_screen/on_boarding_screen.dart';
 import '../setting_screen/setting_controller/theme_controller.dart';
 
-
 class SplashScreen extends StatefulWidget {
   @override
   State<SplashScreen> createState() => _FirstScreenState();
@@ -17,24 +16,26 @@ class _FirstScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds:5),
+        const Duration(seconds: 5),
         () => Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => OnBoardingScreen()),
             (route) => false));
   }
 
-  SettingController controller=Get.find();
+  SettingController controller = Get.find();
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
           Image.asset(
-            controller.app==defaultBlueColor?
-            'assets/images/blueLogo.jpg' : controller.app==defaultGreenColor? 'assets/images/greenLogo.jpg' :  'assets/images/orangeLogo.jpg',
+            controller.app == defaultBlueColor
+                ? 'assets/images/blueLogo.jpg'
+                : controller.app == defaultGreenColor
+                    ? 'assets/images/greenLogo.jpg'
+                    : 'assets/images/orangeLogo.jpg',
             fit: BoxFit.fill,
           ),
         ],

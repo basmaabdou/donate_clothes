@@ -10,8 +10,7 @@ class Successful extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize:
-          const Size.fromHeight(0.0), // here the desired height
+          preferredSize: const Size.fromHeight(0.0), // here the desired height
           child: AppBar(
             backgroundColor: controller2.app,
             elevation: 0,
@@ -19,7 +18,6 @@ class Successful extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-
           children: [
             Stack(
               alignment: Alignment.center,

@@ -32,27 +32,26 @@ class OnBoardingScreen extends StatefulWidget {
 }
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
-  SettingController controller=Get.find();
+  SettingController controller = Get.find();
 
   List<BoardingModel> boarding = [
     BoardingModel(
-        image1: 'assets/images/o7.jpg',
-        image2: 'assets/images/o5.jpg',
-        image3: 'assets/images/o6.jpg',
+        image1: 'assets/images/o1.jpg',
+        image2: 'assets/images/o4.jpg',
+        image3: 'assets/images/o7.jpg',
         image4: 'assets/images/o8.jpg',
         title: 'Let’s Help \n Each Others',
-        body: 'when we give cheerfully and accept gratefully everyone is blessed'),
+        body:
+            'when we give cheerfully and accept gratefully everyone is blessed'),
     BoardingModel(
-        image1: 'assets/images/o1.jpg',
-        image2: 'assets/images/o2.jpg',
-        image3: 'assets/images/o3.jpg',
-        image4: 'assets/images/o4.jpg',
-        title: 'Many Need\n People Needy\n Donations',
-        body: 'when we give cheerfully and accept gratefully everyone is blessed'
-    ),
+        image1: 'assets/images/gaza2.jpeg',
+        image2: 'assets/images/o5.jpg',
+        image3: 'assets/images/o6.jpg',
+        image4: 'assets/images/gaza1.jpeg',
+        title: 'Many People\n Need Many\n Donations',
+        body:
+            'when we give cheerfully and accept gratefully everyone is blessed'),
   ];
-
-
 
   var boardController = PageController();
   bool isLast = false;
@@ -67,9 +66,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         actions: [
           TextButton(
             onPressed: () {
-               navigateTo(context, LoginScreen());
+              navigateTo(context, LoginScreen());
             },
-            child:  Text('skip  ',
+            child: Text('skip  ',
                 style: TextStyle(
                     fontSize: 2.5.h,
                     fontWeight: FontWeight.w700,
@@ -78,7 +77,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsetsDirectional.only(start: 15,top: 15,end: 15,bottom: 40),
+        padding: const EdgeInsetsDirectional.only(
+            start: 15, top: 15, end: 15, bottom: 40),
         child: Column(
           children: [
             Expanded(
@@ -122,20 +122,22 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   if (isLast) {
                     Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context)=>OnBoardingScreenTwo()),
-                            (route) => false
-                    );
+                        MaterialPageRoute(
+                            builder: (context) => OnBoardingScreenTwo()),
+                        (route) => false);
                   }
                   boardController.nextPage(
                       duration: Duration(milliseconds: 50),
-                      curve: Curves.fastEaseInToSlowEaseOut
-                  );
+                      curve: Curves.fastEaseInToSlowEaseOut);
                 },
-                child: Icon(Icons.arrow_forward_ios, size: 20,color: Colors.white,),
+                child: Icon(
+                  Icons.arrow_forward_ios,
+                  size: 20,
+                  color: Colors.white,
+                ),
                 backgroundColor: controller.app,
               ),
             ),
-
           ],
         ),
       ),
@@ -163,8 +165,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadiusDirectional.only(
                         bottomEnd: Radius.circular(75),
-                        topStart: Radius.circular(75)
-                    ),
+                        topStart: Radius.circular(75)),
                     image: DecorationImage(
                       image: AssetImage('${model.image2}'),
                       fit: BoxFit.cover,
@@ -181,7 +182,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 height: 19.h,
                 width: 19.h,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadiusDirectional.only(bottomEnd: Radius.circular(75),topStart: Radius.circular(75)),
+                    borderRadius: BorderRadiusDirectional.only(
+                        bottomEnd: Radius.circular(75),
+                        topStart: Radius.circular(75)),
                     image: DecorationImage(
                       image: AssetImage('${model.image3}'),
                       fit: BoxFit.cover,
@@ -193,7 +196,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 width: 20.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                     image: DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage('${model.image4}'),
                       fit: BoxFit.fill,
                     )),
@@ -204,15 +207,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             height: 1.5.h,
           ),
           Spacer(),
-
           Text(
             '${model.title}',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w700,
-              color: Color(0xff000000)
-            ),
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+                color: Color(0xff000000)),
           ),
           SizedBox(
             height: 3.h,

@@ -14,15 +14,17 @@ class CoinsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (BuildContext context) => ProfileCubit()..getProfileData(),
-      child: BlocConsumer<ProfileCubit,ProfileStates>(
-        listener: (BuildContext context, ProfileStates state) {  },
+      child: BlocConsumer<ProfileCubit, ProfileStates>(
+        listener: (BuildContext context, ProfileStates state) {},
         builder: (BuildContext context, ProfileStates state) {
           var cubit = ProfileCubit.get(context);
           return ConditionalBuilder(
-              condition: cubit.profileModel != null  ,
+              condition: cubit.profileModel != null,
               builder: (context) => CoinsView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
-          );
+              fallback: (context) => Scaffold(
+                  body: Center(
+                      child:
+                          CircularProgressIndicator(color: controller.app))));
         },
       ),
     );

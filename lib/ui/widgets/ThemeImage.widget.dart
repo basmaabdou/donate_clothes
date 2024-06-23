@@ -6,13 +6,10 @@ import 'package:sizer/sizer.dart';
 
 import '../screens/setting_screen/setting_controller/theme_controller.dart';
 
-
-
 SettingController controller = Get.find();
 
-
-Widget ThemeImageWidget(String imagePath, Color color, Color txtColor,int index) {
-
+Widget ThemeImageWidget(
+    String imagePath, Color color, Color txtColor, int index) {
   return InkWell(
     onTap: () {
       controller.changeThemeColor(color, txtColor, index);
@@ -29,15 +26,16 @@ Widget ThemeImageWidget(String imagePath, Color color, Color txtColor,int index)
           Image(
             image: AssetImage(imagePath),
             // height: 40.h,
-            color:
-            controller.selectedIndexTheme.value == index ? Colors.grey : null,
+            color: controller.selectedIndexTheme.value == index
+                ? Colors.grey
+                : null,
             colorBlendMode: BlendMode.modulate,
           ),
-          if(controller.selectedIndexTheme.value == index)
-             const Icon(
-            Icons.check,
-            color: Colors.white,
-          )
+          if (controller.selectedIndexTheme.value == index)
+            const Icon(
+              Icons.check,
+              color: Colors.white,
+            )
         ],
       ),
     ),

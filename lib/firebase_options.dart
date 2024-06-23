@@ -67,8 +67,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '643278070250',
     projectId: 'donate-clothes-fb39f',
     storageBucket: 'donate-clothes-fb39f.appspot.com',
-    androidClientId: '643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com',
-    iosClientId: '643278070250-gadn0jli95vmf9r97ns9nqch6gmpnb4l.apps.googleusercontent.com',
+    androidClientId:
+        '643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com',
+    iosClientId:
+        '643278070250-gadn0jli95vmf9r97ns9nqch6gmpnb4l.apps.googleusercontent.com',
     iosBundleId: 'com.example.donateClothes',
   );
 
@@ -78,8 +80,10 @@ class DefaultFirebaseOptions {
     messagingSenderId: '643278070250',
     projectId: 'donate-clothes-fb39f',
     storageBucket: 'donate-clothes-fb39f.appspot.com',
-    androidClientId: '643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com',
-    iosClientId: '643278070250-k16gi7iapgg67bo14a44oo0agushkgt3.apps.googleusercontent.com',
+    androidClientId:
+        '643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com',
+    iosClientId:
+        '643278070250-k16gi7iapgg67bo14a44oo0agushkgt3.apps.googleusercontent.com',
     iosBundleId: 'com.example.donateClothes.RunnerTests',
   );
 }

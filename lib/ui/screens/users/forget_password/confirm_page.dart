@@ -12,8 +12,7 @@ class ConfirmPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize:
-          const Size.fromHeight(0.0), // here the desired height
+          preferredSize: const Size.fromHeight(0.0), // here the desired height
           child: AppBar(
             backgroundColor: controller2.app,
             elevation: 0,
@@ -27,10 +26,18 @@ class ConfirmPage extends StatelessWidget {
             Row(
               children: [
                 InkWell(
-                  child: Icon(Icons.arrow_back_ios,color: controller2.app,size: 2.5.h,),
-                  onTap: (){Get.back();},
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: controller2.app,
+                    size: 2.5.h,
+                  ),
+                  onTap: () {
+                    Get.back();
+                  },
                 ),
-                SizedBox(width: 7.h,),
+                SizedBox(
+                  width: 7.h,
+                ),
                 Text(
                   'Password reset',
                   style: TextStyle(

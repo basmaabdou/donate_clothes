@@ -21,25 +21,21 @@ class UserModel {
     data['data'] = this.data;
     return data;
   }
-
 }
 
-class UserData{
+class UserData {
   String? username;
   String? email;
   String? phone;
   String? password;
   String? confirmPassword;
 
-
   UserData(
       {this.username,
-        this.email,
-        this.phone,
-        this.password,
-        this.confirmPassword});
-
-
+      this.email,
+      this.phone,
+      this.password,
+      this.confirmPassword});
 
   UserData.fromJson(Map<String, dynamic> json) {
     username = json['username'];

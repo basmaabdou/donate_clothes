@@ -14,7 +14,7 @@ class BrandView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xffF9F9F9),
       body: Padding(
-        padding:  EdgeInsetsDirectional.only(
+        padding: EdgeInsetsDirectional.only(
             start: 2.h, end: 2.h, bottom: 2.h, top: 4.h),
         child: SingleChildScrollView(
           // physics: BouncingScrollPhysics(),
@@ -82,7 +82,9 @@ class BrandView extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     // viewportFraction: 2.0
                   )),
-              SizedBox(height: 30,),
+              SizedBox(
+                height: 30,
+              ),
               // Container(
               //   width: 342,
               //   height: 44,
@@ -119,21 +121,29 @@ class BrandView extends StatelessWidget {
                 'Our Brands',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  fontSize: 20,
+                  fontSize: 16,
                 ),
               ),
               Container(
-                height: 60.h,
+                height: 50.h,
                 child: ListView.separated(
-                  physics: BouncingScrollPhysics(),
+                  physics:BouncingScrollPhysics(),
                   itemBuilder: (context, index) => BrandsLogo(
-                    image: BrandCubit.get(context).brandsResponse!.result![index].image!.url!,
-                    id:BrandCubit.get(context).brandsResponse!.result![index].sId! ,
+                    image: BrandCubit.get(context)
+                        .brandsResponse!
+                        .result![index]
+                        .image!
+                        .url!,
+                    id: BrandCubit.get(context)
+                        .brandsResponse!
+                        .result![index]
+                        .sId!,
                   ),
-                  separatorBuilder: (context, index) =>  SizedBox(
+                  separatorBuilder: (context, index) => SizedBox(
                     height: 3.h,
                   ),
-                  itemCount: BrandCubit.get(context).brandsResponse!.result!.length,
+                  itemCount:
+                      BrandCubit.get(context).brandsResponse!.result!.length,
                   scrollDirection: Axis.vertical,
                 ),
               ),

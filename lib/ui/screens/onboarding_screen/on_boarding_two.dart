@@ -16,8 +16,8 @@ class OnBoardingScreenTwo extends StatefulWidget {
 }
 
 class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
-  SettingController controller=Get.find();
-  void submit(){
+  SettingController controller = Get.find();
+  void submit() {
     CacheHelper.saveData(key: 'onBoarding', value: true).then((value) {
       navigateFinish(context, LoginScreen());
     });
@@ -41,7 +41,8 @@ class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
-                      image: NetworkImage('https://img.freepik.com/fotos-premium/caja-donacion-aislada-blanco_392895-185544.jpg'),
+                      image: NetworkImage(
+                          'https://img.freepik.com/fotos-premium/caja-donacion-aislada-blanco_392895-185544.jpg'),
                       fit: BoxFit.fill,
                     )),
               ),
@@ -54,8 +55,7 @@ class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
                 style: TextStyle(
                     fontSize: 2.8.h,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xff000000)
-                ),
+                    color: Color(0xff000000)),
               ),
               SizedBox(
                 height: 2.5.h,
@@ -66,8 +66,7 @@ class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
                 style: TextStyle(
                     fontSize: 3.5.h,
                     fontWeight: FontWeight.w700,
-                    color: controller.app
-                ),
+                    color: controller.app),
               ),
               SizedBox(
                 height: 2.5.h,
@@ -77,15 +76,20 @@ class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: 1.8.h,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xff000000)
-                ),
+                    fontSize: 1.8.h,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xff000000)),
               ),
-              SizedBox(height: 2.h,),
+              SizedBox(
+                height: 2.h,
+              ),
               //Spacer(),
-              DefaultButton(text: 'Get Start', fun: (){submit();},)
-
+              DefaultButton(
+                text: 'Get Start',
+                fun: () {
+                  submit();
+                },
+              )
             ],
           ),
         ),

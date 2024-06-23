@@ -38,12 +38,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
   var clothController = TextEditingController();
   var numClothController = TextEditingController();
 
-
-
   var formKey = GlobalKey<FormState>();
 
   double quality = 1;
-  int? isSelectedIndex =0;
+  int? isSelectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +77,9 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                       fontWeight: FontWeight.w700,
                       color: controller2.app),
                 ),
-                backgroundColor: controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB),
+                backgroundColor: controller.app == defaultColor
+                    ? Color.fromARGB(255, 253, 211, 199)
+                    : Color(0xffD1DFDB),
                 elevation: 0,
               ),
               body: SingleChildScrollView(
@@ -94,10 +94,12 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         borderRadius: BorderRadiusDirectional.only(
                             bottomStart: Radius.circular(5.h),
                             bottomEnd: Radius.circular(5.h)),
-                        color: controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB),
+                        color: controller.app == defaultColor
+                            ? Color.fromARGB(255, 253, 211, 199)
+                            : Color(0xffD1DFDB),
                       ),
-                      child:  Padding(
-                        padding:  EdgeInsets.all(1.h),
+                      child: Padding(
+                        padding: EdgeInsets.all(1.h),
                         child: Container(
                           width: double.infinity,
                           height: 52,
@@ -135,7 +137,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   borderSide:
-                                  BorderSide( color:controller2.app),
+                                      BorderSide(color: controller2.app),
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15.0),
@@ -148,7 +150,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                   color: controller2.app,
                                 ),
                                 suffixIcon: InkWell(
-                                  child: Icon(Icons.wrong_location, color:controller2.app,),
+                                  child: Icon(
+                                    Icons.wrong_location,
+                                    color: controller2.app,
+                                  ),
                                   onTap: () {
                                     addressController.clear();
                                   },
@@ -156,7 +161,6 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                           ),
                         ),
                       ),
-
                     ),
                     SizedBox(
                       height: 1.5.h,
@@ -183,32 +187,52 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 height: 165,
                                 child: ListView.separated(
                                   physics: BouncingScrollPhysics(),
-                                  itemBuilder: (context, index) =>
-                                      InkWell(
-                                        onTap: (){
-                                          setState(() {
-                                            isSelectedIndex=index;
-                                            OrganizationCubit.get(context).idOrganization=OrganizationCubit.get(context).organizationResponse?.result?[0].sId??'';
-                                          });
-                                        },
-                                        child: Container(
-                                          width: 158,
-                                          height: 165,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(10),
-                                            border: Border.all(
-                                              color: isSelectedIndex == index ? Colors.red : Colors.transparent,
-                                              width: 2,
-                                            ),
-                                            image: DecorationImage(
-                                              image: NetworkImage(OrganizationCubit.get(context).organizationResponse?.result?[index].images?[0].url??''),
-                                              fit: BoxFit.fill,
-                                            ),
-                                          ),
+                                  itemBuilder: (context, index) => InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isSelectedIndex = index;
+                                        OrganizationCubit.get(context)
+                                                .idOrganization =
+                                            OrganizationCubit.get(context)
+                                                    .organizationResponse
+                                                    ?.result?[0]
+                                                    .sId ??
+                                                '';
+                                      });
+                                    },
+                                    child: Container(
+                                      width: 158,
+                                      height: 165,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        border: Border.all(
+                                          color: isSelectedIndex == index
+                                              ? Colors.red
+                                              : Colors.transparent,
+                                          width: 2,
+                                        ),
+                                        image: DecorationImage(
+                                          image: NetworkImage(
+                                              OrganizationCubit.get(context)
+                                                      .organizationResponse
+                                                      ?.result?[index]
+                                                      .images?[0]
+                                                      .url ??
+                                                  ''),
+                                          fit: BoxFit.fill,
                                         ),
                                       ),
-                                  separatorBuilder: (context, index) => const SizedBox(width: 25.0,),
-                                  itemCount:OrganizationCubit.get(context).organizationResponse?.result?.length??5,
+                                    ),
+                                  ),
+                                  separatorBuilder: (context, index) =>
+                                      const SizedBox(
+                                    width: 25.0,
+                                  ),
+                                  itemCount: OrganizationCubit.get(context)
+                                          .organizationResponse
+                                          ?.result
+                                          ?.length ??
+                                      5,
                                   scrollDirection: Axis.horizontal,
                                 ),
                               );
@@ -224,7 +248,9 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff767676)),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           defaultTextForm(
                               controller: clothController,
                               type: TextInputType.text,
@@ -235,9 +261,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 }
                                 return null;
                               },
-                              prefix: Icons.clean_hands
-                          ),
-
+                              prefix: Icons.clean_hands),
                           SizedBox(
                             height: 20,
                           ),
@@ -248,21 +272,21 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff767676)),
                           ),
-                          SizedBox(height: 5,),
-
-                          defaultTextForm(
-                              controller: phoneController,
-                              type: TextInputType.phone,
-                              hintText: "Phone Number",
-                              validate: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Phone must be not empty';
-                                }
-                                return null;
-                              },
-                              prefix: Icons.phone_in_talk_outlined,
+                          SizedBox(
+                            height: 5,
                           ),
-
+                          defaultTextForm(
+                            controller: phoneController,
+                            type: TextInputType.phone,
+                            hintText: "Phone Number",
+                            validate: (value) {
+                              if (value!.isEmpty) {
+                                return 'Phone must be not empty';
+                              }
+                              return null;
+                            },
+                            prefix: Icons.phone_in_talk_outlined,
+                          ),
                           SizedBox(
                             height: 20,
                           ),
@@ -273,7 +297,9 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 fontWeight: FontWeight.w500,
                                 color: Color(0xff767676)),
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                           defaultTextForm(
                             controller: numClothController,
                             type: TextInputType.number,
@@ -303,11 +329,13 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
                               DonationCubit.get(context).createUserOrderData(
-                                  itemsName: clothController.text,
-                                  location: addressController.text,
-                                  charity: OrganizationCubit.get(context).idOrganization??'656a214e49ffe49ca85e71f2',
-                                  quantity: quality,
-                                  phone: phoneController.text,
+                                itemsName: clothController.text,
+                                location: addressController.text,
+                                charity: OrganizationCubit.get(context)
+                                        .idOrganization ??
+                                    '656a214e49ffe49ca85e71f2',
+                                quantity: quality,
+                                phone: phoneController.text,
                               );
                               Get.defaultDialog(
                                 title: '',
@@ -324,7 +352,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                           decoration: BoxDecoration(
                                               color: defaultColor,
                                               borderRadius:
-                                              BorderRadius.circular(50)),
+                                                  BorderRadius.circular(50)),
                                           child: Icon(
                                             Icons.check,
                                             size: 50,
@@ -358,8 +386,8 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         height: 80,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadiusDirectional.all(
-                                              Radius.circular(20)),
+                                              BorderRadiusDirectional.all(
+                                                  Radius.circular(20)),
                                           image: DecorationImage(
                                             image: AssetImage(
                                                 'assets/images/like.jpg'),
@@ -377,7 +405,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                           decoration: BoxDecoration(
                                               color: controller2.app,
                                               borderRadius:
-                                              BorderRadius.circular(10)),
+                                                  BorderRadius.circular(10)),
                                           child: MaterialButton(
                                             onPressed: () {
                                               navigateFinish(
@@ -397,9 +425,8 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                   ),
                                 ),
                               );
-
                             }
-                            if(state is SuccessCreateStates){
+                            if (state is SuccessCreateStates) {
                               Get.defaultDialog(
                                 title: '',
                                 content: Padding(
@@ -415,7 +442,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                           decoration: BoxDecoration(
                                               color: defaultColor,
                                               borderRadius:
-                                              BorderRadius.circular(50)),
+                                                  BorderRadius.circular(50)),
                                           child: Icon(
                                             Icons.check,
                                             size: 50,
@@ -449,8 +476,8 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         height: 80,
                                         decoration: BoxDecoration(
                                           borderRadius:
-                                          BorderRadiusDirectional.all(
-                                              Radius.circular(20)),
+                                              BorderRadiusDirectional.all(
+                                                  Radius.circular(20)),
                                           image: DecorationImage(
                                             image: AssetImage(
                                                 'assets/images/like.jpg'),
@@ -467,7 +494,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         decoration: BoxDecoration(
                                             color: controller2.app,
                                             borderRadius:
-                                            BorderRadius.circular(10)),
+                                                BorderRadius.circular(10)),
                                         child: MaterialButton(
                                           onPressed: () {
                                             navigateFinish(
@@ -486,9 +513,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                   ),
                                 ),
                               );
-
                             }
-
                           },
                           child: Text(
                             'Donate Now',
@@ -500,7 +525,9 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 2.h,)
+                    SizedBox(
+                      height: 2.h,
+                    )
                   ],
                 ),
               ),

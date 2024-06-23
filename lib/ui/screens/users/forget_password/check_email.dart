@@ -40,8 +40,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize:
-          const Size.fromHeight(0.0), // here the desired height
+          preferredSize: const Size.fromHeight(0.0), // here the desired height
           child: AppBar(
             backgroundColor: controller2.app,
             elevation: 0,
@@ -55,10 +54,18 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
             Row(
               children: [
                 InkWell(
-                  child: Icon(Icons.arrow_back_ios,color: controller2.app,size: 2.5.h,),
-                  onTap: (){Get.back();},
+                  child: Icon(
+                    Icons.arrow_back_ios,
+                    color: controller2.app,
+                    size: 2.5.h,
+                  ),
+                  onTap: () {
+                    Get.back();
+                  },
                 ),
-                SizedBox(width: 7.h,),
+                SizedBox(
+                  width: 7.h,
+                ),
                 Text(
                   'Check your email',
                   style: TextStyle(
@@ -69,9 +76,7 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
                 ),
               ],
             ),
-
             SizedBox(height: 4.h),
-
             Text(
               'We sent a reset link Please enter the 5-digit code mentioned in the email.',
               style: TextStyle(
@@ -192,7 +197,9 @@ class _CheckEmailPageState extends State<CheckEmailPage> {
                 backgroundColor: MaterialStateProperty.resolveWith<Color>(
                   (Set<MaterialState> states) {
                     if (states.contains(MaterialState.disabled)) {
-                      return controller2.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB);
+                      return controller2.app == defaultColor
+                          ? Color.fromARGB(255, 253, 211, 199)
+                          : Color(0xffD1DFDB);
                     }
                     return controller2.app;
                   },

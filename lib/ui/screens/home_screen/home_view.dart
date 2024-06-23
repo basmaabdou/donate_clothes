@@ -29,8 +29,8 @@ class HomeView extends StatefulWidget {
   State<HomeView> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeView> with AutomaticKeepAliveClientMixin{
-
+class _HomeScreenState extends State<HomeView>
+    with AutomaticKeepAliveClientMixin {
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
@@ -46,311 +46,307 @@ class _HomeScreenState extends State<HomeView> with AutomaticKeepAliveClientMixi
   ];
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
     return Obx(() => Scaffold(
-      key: _scaffoldKey,
-      drawer: new Drawer(
-        backgroundColor: controller2.app,
-        child: DrawerContainer(),
-      ),
-      backgroundColor: const Color(0xffF9F9F9),
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: const Color(0xffF9F9F9),
-        leading: IconButton(
-          icon: Icon(Icons.menu,color: controller2.app,),
-          iconSize: 4.h,
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
-        titleSpacing: 80,
-        title: Text(
-          S.of(context).charityy,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontWeight: FontWeight.w900,
-            fontSize: 3.5.h,
-            color: controller2.app,
-            fontStyle: FontStyle.italic,
+          key: _scaffoldKey,
+          drawer: new Drawer(
+            backgroundColor: controller2.app,
+            child: DrawerContainer(),
           ),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                navigateTo(context, SettingScreen());
-              },
+          backgroundColor: const Color(0xffF9F9F9),
+          appBar: AppBar(
+            elevation: 0.0,
+            backgroundColor: const Color(0xffF9F9F9),
+            leading: IconButton(
               icon: Icon(
-                Icons.settings,
+                Icons.menu,
                 color: controller2.app,
-                size: 3.h,
-              )),
-        ],
-      ),
-      body: Directionality(
-          textDirection: controller.selectedIndex.value == 0
-              ? TextDirection.ltr
-              : TextDirection.rtl,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CarouselSlider(
-                    items: [
-                      HomeSliderItem(
-                        image: 'assets/images/gaza2.jpeg',
-                        text1: 'Be of help and hope',
-                        text2: 'for',
-                        text3: 'the children of Gaza',
-                      ),
-                      HomeSliderItem(
-                        image: 'assets/images/gaza1.jpeg',
-                        text1: S.of(context).c71,
-                        text2: 'Together, we can make a difference',
-                      ),
-                      HomeSliderItem(
-                          image: 'assets/images/o6.jpg',
-                          text1: S.of(context).c11,
-                          text2: S.of(context).c13),
-                      HomeSliderItem(
-                          image: 'assets/images/o5.jpg',
-                          text1: S.of(context).c21,
-                          text2: S.of(context).no,
-                          text3: S.of(context).c22),
-                      HomeSliderItem(
-                          image: 'assets/images/o2.jpg',
-                          text1: S.of(context).c31,
-                          text2: S.of(context).no,
-                          text3: S.of(context).c32),
-                      HomeSliderItem(
-                        image: 'assets/images/o8.jpg',
-                        text1: S.of(context).donate,
-                        text2: S.of(context).c5,
-                      ),
-                      Stack(
-                        alignment: Alignment.center,
-                        children: [
+              ),
+              iconSize: 4.h,
+              onPressed: () {
+                _scaffoldKey.currentState!.openDrawer();
+              },
+            ),
+            titleSpacing: 80,
+            title: Text(
+              S.of(context).charityy,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontSize: 3.5.h,
+                color: controller2.app,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+            actions: [
+              IconButton(
+                  onPressed: () {
+                    navigateTo(context, SettingScreen());
+                  },
+                  icon: Icon(
+                    Icons.settings,
+                    color: controller2.app,
+                    size: 3.h,
+                  )),
+            ],
+          ),
+          body: Directionality(
+              textDirection: controller.selectedIndex.value == 0
+                  ? TextDirection.ltr
+                  : TextDirection.rtl,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CarouselSlider(
+                        items: [
                           HomeSliderItem(
-                            image: 'assets/images/sale.jpg',
-                            text1: S.of(context).c6,
+                            image: 'assets/images/gaza2.jpeg',
+                            text1: 'Be of help and hope',
+                            text2: 'for',
+                            text3: 'the children of Gaza',
                           ),
-                          Positioned(
-                            bottom: 100,
-                            child: Container(
-                              width: 150,
-                              height: 85,
-                              decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(.7),
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: SingleChildScrollView(
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '30%',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black),
-                                      ),
-                                      Row(
+                          HomeSliderItem(
+                            image: 'assets/images/gaza1.jpeg',
+                            text1: S.of(context).c71,
+                            text2: 'Together, we can make a difference',
+                          ),
+                          HomeSliderItem(
+                              image: 'assets/images/o6.jpg',
+                              text1: S.of(context).c11,
+                              text2: S.of(context).c13),
+                          HomeSliderItem(
+                              image: 'assets/images/o5.jpg',
+                              text1: S.of(context).c21,
+                              text2: S.of(context).no,
+                              text3: S.of(context).c22),
+                          HomeSliderItem(
+                              image: 'assets/images/o2.jpg',
+                              text1: S.of(context).c31,
+                              text2: S.of(context).no,
+                              text3: S.of(context).c32),
+                          HomeSliderItem(
+                            image: 'assets/images/o8.jpg',
+                            text1: S.of(context).donate,
+                            text2: S.of(context).c5,
+                          ),
+                          Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              HomeSliderItem(
+                                image: 'assets/images/sale.jpg',
+                                text1: S.of(context).c6,
+                              ),
+                              Positioned(
+                                bottom: 100,
+                                child: Container(
+                                  width: 150,
+                                  height: 85,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(.7),
+                                      borderRadius: BorderRadius.circular(10)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
                                         children: [
                                           Text(
-                                            '50%',
+                                            '30%',
+                                            textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.bold,
                                                 color: Colors.black),
                                           ),
-                                          SizedBox(
-                                            width: 8,
+                                          Row(
+                                            children: [
+                                              Text(
+                                                '50%',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
+                                              ),
+                                              SizedBox(
+                                                width: 8,
+                                              ),
+                                              Text(
+                                                S.of(context).sale,
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: controller
+                                                                .selectedIndex
+                                                                .value ==
+                                                            0
+                                                        ? 22
+                                                        : 14,
+                                                    color: defaultColor),
+                                              ),
+                                              SizedBox(
+                                                width: 8,
+                                              ),
+                                              Text(
+                                                '40%',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
+                                              ),
+                                            ],
                                           ),
-                                          Text(
-                                            S.of(context).sale,
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: controller
-                                                    .selectedIndex
-                                                    .value ==
-                                                    0
-                                                    ? 22
-                                                    : 14,
-                                                color: defaultColor),
-                                          ),
-                                          SizedBox(
-                                            width: 8,
-                                          ),
-                                          Text(
-                                            '40%',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                color: Colors.black),
+                                          Row(
+                                            children: [
+                                              SizedBox(
+                                                width: 25,
+                                              ),
+                                              Text(
+                                                '70%',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
+                                              ),
+                                              SizedBox(
+                                                width: 25,
+                                              ),
+                                              Text(
+                                                '100%',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.black),
+                                              ),
+                                            ],
                                           ),
                                         ],
                                       ),
-                                      Row(
-                                        children: [
-                                          SizedBox(
-                                            width: 25,
-                                          ),
-                                          Text(
-                                            '70%',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                          SizedBox(
-                                            width: 25,
-                                          ),
-                                          Text(
-                                            '100%',
-                                            style: TextStyle(
-                                                fontSize: 16,
-                                                fontWeight:
-                                                FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          HomeSliderItem(
+                            image: 'assets/images/o1.jpg',
+                            text1: S.of(context).c81,
+                            text2: S.of(context).c82,
+                          ),
+                        ],
+                        options: CarouselOptions(
+                            height: 226,
+                            initialPage: 0,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: true,
+                            autoPlayInterval: Duration(seconds: 5),
+                            autoPlayAnimationDuration: Duration(seconds: 1),
+                            autoPlayCurve: Curves.linearToEaseOut,
+                            scrollDirection: Axis.horizontal,
+                            viewportFraction: 1.5)),
+                    Padding(
+                      padding: EdgeInsets.all(1.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          Container(
+                            height: 120,
+                            child: ListView.separated(
+                              physics: BouncingScrollPhysics(),
+                              itemBuilder: (context, index) => InkWell(
+                                onTap: () {
+                                  navigateTo(context, MyDonationScreen());
+                                },
+                                child: Container(
+                                  width: 155,
+                                  height: 145,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    image: DecorationImage(
+                                      image: AssetImage(
+                                          '${imageItems[index].image}'),
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
+                              separatorBuilder: (context, index) =>
+                                  const SizedBox(
+                                width: 7.0,
+                              ),
+                              itemCount: imageItems.length,
+                              scrollDirection: Axis.horizontal,
                             ),
-                          )
+                          ),
+                          SizedBox(
+                            height: 3.h,
+                          ),
+                          Text(
+                            S.of(context).ourWork,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 20,
+                            ),
+                          ),
                         ],
                       ),
-                      HomeSliderItem(
-                        image: 'assets/images/o1.jpg',
-                        text1: S.of(context).c81,
-                        text2: S.of(context).c82,
-                      ),
-                    ],
-                    options: CarouselOptions(
-                        height: 226,
-                        initialPage: 0,
-                        enableInfiniteScroll: true,
-                        reverse: false,
-                        autoPlay: true,
-                        autoPlayInterval: Duration(seconds: 5),
-                        autoPlayAnimationDuration: Duration(seconds: 1),
-                        autoPlayCurve: Curves.linearToEaseOut,
-                        scrollDirection: Axis.horizontal,
-                        viewportFraction: 1.5)),
-                Padding(
-                  padding: EdgeInsets.all(1.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Container(
-                        height: 120,
-                        child: ListView.separated(
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (context, index) => InkWell(
-                            onTap: (){
-                              navigateTo(context, MyDonationScreen());
-                            },
-                            child: Container(
-                              width: 155,
-                              height: 145,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                      '${imageItems[index].image}'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                            ),
-                          ),
-                          separatorBuilder: (context, index) =>
-                          const SizedBox(
-                            width: 7.0,
-                          ),
-                          itemCount: imageItems.length,
-                          scrollDirection: Axis.horizontal,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 3.h,
-                      ),
-                      Text(
-                        S.of(context).ourWork,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 1.h,
-                ),
-
-                Container(
-                  width: double.infinity,
-                  height: 41.h, // Add height constraint
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      final donationCard =
-                          HomeCubit.get(context).donationCardResponse;
-                      if (donationCard == null) {
-                        return Center(child: CircularProgressIndicator());
-                      }
-                      return OurRecentWork(
-                        img: donationCard.data![index].image!.url!,
-                        description:
-                        donationCard.data![index].description!,
-                        title: donationCard.data![index].title!,
-                      );
-                    },
-                    separatorBuilder: (context, index) => const SizedBox(
-                      width: 15.0,
                     ),
-                    itemCount: HomeCubit.get(context)
-                        .donationCardResponse
-                        ?.data
-                        ?.length ??
-                        0,
-                  ),
+                    SizedBox(
+                      height: 1.h,
+                    ),
+                    Padding(
+                      padding:  EdgeInsets.all(1.h),
+                      child: Container(
+                        width: double.infinity,
+                        height: 43.h, // Add height constraint
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                            final donationCard =
+                                HomeCubit.get(context).donationCardResponse;
+                            if (donationCard == null) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+                            return OurRecentWork(
+                              img: donationCard.data![index].image!.url!,
+                              description: donationCard.data![index].description!,
+                              title: donationCard.data![index].title!,
+                            );
+                          },
+                          separatorBuilder: (context, index) => const SizedBox(
+                            width: 15.0,
+                          ),
+                          itemCount: HomeCubit.get(context)
+                                  .donationCardResponse
+                                  ?.data
+                                  ?.length ??
+                              0,
+                        ),
+                      ),
+                    ),
+
+                  ],
                 ),
-                SizedBox(
-                  height: 2.h,
-                ),
-              ],
-            ),
-          )),
-    ));
+              )),
+        ));
   }
 
   Widget BuildImage(ImageModel model) => Container(
-    width: 155,
-    height: 145,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10),
-      image: DecorationImage(
-        image: AssetImage('${model.image}'),
-        fit: BoxFit.fill,
-      ),
-    ),
-  );
-
-
+        width: 155,
+        height: 145,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          image: DecorationImage(
+            image: AssetImage('${model.image}'),
+            fit: BoxFit.fill,
+          ),
+        ),
+      );
 }
 
 class ImageModel {

@@ -35,14 +35,14 @@ class Data {
 
   Data(
       {this.itemsName,
-        this.location,
-        this.charity,
-        this.quantity,
-        this.phone,
-        this.status,
-        this.userinfo,
-        this.sId,
-        this.iV});
+      this.location,
+      this.charity,
+      this.quantity,
+      this.phone,
+      this.status,
+      this.userinfo,
+      this.sId,
+      this.iV});
 
   Data.fromJson(Map<String, dynamic> json) {
     itemsName = json['itemsName'];

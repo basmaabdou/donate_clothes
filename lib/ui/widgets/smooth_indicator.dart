@@ -5,10 +5,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../screens/setting_screen/setting_controller/theme_controller.dart';
 
-
 class SmoothIndicatorWidget extends StatelessWidget {
   PageController borderController;
-   SmoothIndicatorWidget({super.key,required this.borderController});
+  SmoothIndicatorWidget({super.key, required this.borderController});
 
   @override
   Widget build(BuildContext context) {

@@ -20,7 +20,7 @@ class DrawerContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(3.h),
+      padding: EdgeInsets.all(3.h),
       child: Column(
         children: [
           SizedBox(
@@ -29,23 +29,25 @@ class DrawerContainer extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10.0),
             child: Image.network(
-              ProfileCubit.get(context).profileModel?.data?.profilephoto?.url??'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png' ,
+              ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
+                  'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
               width: 16.h,
               height: 15.h,
             ),
           ),
           Text(
-            ProfileCubit.get(context).profileModel?.data?.username.toString() ?? '',
+            ProfileCubit.get(context).profileModel?.data?.username.toString() ??
+                'Gest',
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
                 color: Color(0xffFFFFFF)),
           ),
           SizedBox(
-            height:  3.h,
+            height: 3.h,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               navigateTo(context, ProfileScreen());
             },
             child: Row(
@@ -56,7 +58,7 @@ class DrawerContainer extends StatelessWidget {
                   size: 26,
                 ),
                 SizedBox(
-                  width:  3.h,
+                  width: 3.h,
                 ),
                 Text(
                   'Profile',
@@ -83,15 +85,14 @@ class DrawerContainer extends StatelessWidget {
                   color: Colors.white,
                   size: 26,
                 ),
-                SizedBox(
-                    width: 3.h
-                ),
+                SizedBox(width: 3.h),
                 const Text(
                   'My Coins',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
-                    color: Color(0xffF9F9F9),),
+                    color: Color(0xffF9F9F9),
+                  ),
                 ),
               ],
             ),
@@ -121,14 +122,15 @@ class DrawerContainer extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     color: Color(0xffF9F9F9),
                   ),
-                )],
+                )
+              ],
             ),
           ),
           SizedBox(
-            height:  3.h,
+            height: 3.h,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               Get.to(() => LanguageView());
             },
             child: Row(
@@ -156,7 +158,7 @@ class DrawerContainer extends StatelessWidget {
             height: 3.h,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               donateBottomSheet(context);
             },
             child: Row(
@@ -184,7 +186,7 @@ class DrawerContainer extends StatelessWidget {
             height: 3.h,
           ),
           InkWell(
-            onTap: (){
+            onTap: () {
               navigateTo(context, ThemeScreen());
             },
             child: Row(
@@ -231,12 +233,9 @@ class DrawerContainer extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-              height: 3.h
-          ),
-
+          SizedBox(height: 3.h),
           InkWell(
-            onTap: (){
+            onTap: () {
               Get.defaultDialog(
                 title: '',
                 content: Column(
@@ -276,7 +275,7 @@ class DrawerContainer extends StatelessWidget {
                     ),
                     Container(
                       width: 12.h,
-                      height: 5.h ,
+                      height: 5.h,
                       decoration: BoxDecoration(
                           color: controller2.app,
                           borderRadius: BorderRadius.circular(10)),
@@ -301,13 +300,12 @@ class DrawerContainer extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       style: OutlinedButton.styleFrom(
-                        side:  BorderSide(
-                            color: controller2.app),
+                        side: BorderSide(color: controller2.app),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      child:  Text(
+                      child: Text(
                         'cancel',
                         style: TextStyle(
                             color: controller2.app,
@@ -327,7 +325,7 @@ class DrawerContainer extends StatelessWidget {
                   size: 26,
                 ),
                 SizedBox(
-                  width:  3.h,
+                  width: 3.h,
                 ),
                 Text(
                   'LogOut',

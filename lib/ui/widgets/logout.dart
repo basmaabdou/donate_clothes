@@ -16,7 +16,7 @@ class LogOutWidget extends StatelessWidget {
     return SettingRow(
       txt: S.of(context).logout,
       endText: '',
-      onTap:() {
+      onTap: () {
         Get.defaultDialog(
           title: '',
           content: Column(
@@ -27,7 +27,7 @@ class LogOutWidget extends StatelessWidget {
                   Icon(
                     Icons.logout_outlined,
                     size: 23,
-                    color:controller2.app,
+                    color: controller2.app,
                   ),
                   SizedBox(
                     width: 5,
@@ -64,7 +64,7 @@ class LogOutWidget extends StatelessWidget {
                   onPressed: () {
                     signOut(context);
                   },
-                  child:  Text(
+                  child: Text(
                     S.of(context).yes,
                     style: TextStyle(
                         color: Color(0xffFFFFFF),
@@ -81,13 +81,12 @@ class LogOutWidget extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: OutlinedButton.styleFrom(
-                  side:  BorderSide(
-                      color:controller2.app),
+                  side: BorderSide(color: controller2.app),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                child:  Text(
+                child: Text(
                   S.of(context).cancel,
                   style: TextStyle(
                       color: controller2.app,

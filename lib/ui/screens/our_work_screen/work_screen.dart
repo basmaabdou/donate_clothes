@@ -38,8 +38,7 @@ class OurWorkScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding:
-             EdgeInsetsDirectional.only(start: 3.h, end: 3.h, bottom: 10),
+        padding: EdgeInsetsDirectional.only(start: 3.h, end: 3.h, bottom: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

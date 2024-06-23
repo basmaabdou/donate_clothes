@@ -41,12 +41,12 @@ class Result {
 
   Result(
       {this.sId,
-        this.title,
-        this.images,
-        this.organizationInfo,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.title,
+      this.images,
+      this.organizationInfo,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Result.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

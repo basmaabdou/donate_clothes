@@ -6,10 +6,10 @@ import '../../../../models/users_model.dart';
 import '../../../../shared/network/remote/dio_helper.dart';
 import '../../../../shared/network/remote/end_point.dart';
 
-class UserCubit extends Cubit<UserStates>{
+class UserCubit extends Cubit<UserStates> {
   UserCubit() : super(InitialLogin());
 
-  static UserCubit get(context)=> BlocProvider.of(context);
+  static UserCubit get(context) => BlocProvider.of(context);
 
   UserModel? loginModel;
 
@@ -28,7 +28,6 @@ class UserCubit extends Cubit<UserStates>{
       loginModel = UserModel.fromJson(value.data);
 
       if (loginModel != null) {
-
         emit(LoginSuccessState(loginModel!));
       } else {
         print('Login model is null');
@@ -39,26 +38,22 @@ class UserCubit extends Cubit<UserStates>{
     });
   }
 
-
   void userRegister({
     required String username,
     required String email,
     required String phone,
     required String password,
     required String confirmPassword,
-  }){
+  }) {
     emit(RegisterLoadingState());
-    DioHelper.postData(
-        url: REGISTER,
-        data: {
-          'username':username,
-          'email':email,
-          'phone':phone,
-          'password':password,
-          'confirmPassword':confirmPassword
-        }
-    ).then((value) {
-      loginModel=UserModel.fromJson(value.data);
+    DioHelper.postData(url: REGISTER, data: {
+      'username': username,
+      'email': email,
+      'phone': phone,
+      'password': password,
+      'confirmPassword': confirmPassword
+    }).then((value) {
+      loginModel = UserModel.fromJson(value.data);
 
       if (loginModel != null) {
         print(loginModel!.success);
@@ -80,6 +75,4 @@ class UserCubit extends Cubit<UserStates>{
       print(error.toString());
     });
   }
-
-
 }

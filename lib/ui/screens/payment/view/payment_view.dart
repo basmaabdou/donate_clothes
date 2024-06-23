@@ -13,11 +13,15 @@ class PaymentView extends StatelessWidget {
     return Scaffold(
       body: Obx(() {
         if (controller.isLoading.value) {
-          return Center(child: CircularProgressIndicator(backgroundColor: controller2.app,));
+          return Center(
+              child: CircularProgressIndicator(
+            backgroundColor: controller2.app,
+          ));
         } else if (controller.errorMessage.isNotEmpty) {
           return Center(child: Text(controller.errorMessage.value));
         } else if (controller.paymentToken.value.isNotEmpty) {
-          final url = 'https://accept.paymob.com/api/acceptance/iframes/783534?payment_token=${controller.paymentToken.value}';
+          final url =
+              'https://accept.paymob.com/api/acceptance/iframes/783534?payment_token=${controller.paymentToken.value}';
           return WebView(
             initialUrl: url,
             javascriptMode: JavascriptMode.unrestricted,

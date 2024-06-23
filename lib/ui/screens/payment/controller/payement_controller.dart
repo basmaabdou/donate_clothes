@@ -17,7 +17,7 @@ class PaymentController extends GetxController {
   Future<void> fetchPaymentToken() async {
     isLoading.value = true;
     errorMessage.value = '';
-print(paymentToken);
+    print(paymentToken);
     try {
       final response = await http.get(
         Uri.parse('https://donation-system-utjy.onrender.com/payment/donate'),
@@ -27,7 +27,8 @@ print(paymentToken);
         final data = json.decode(response.body);
         paymentToken.value = data['token'];
       } else {
-        errorMessage.value = 'Failed to load payment token: ${response.statusCode}';
+        errorMessage.value =
+            'Failed to load payment token: ${response.statusCode}';
       }
     } catch (e) {
       errorMessage.value = 'Error: $e';

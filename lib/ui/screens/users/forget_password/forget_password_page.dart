@@ -15,13 +15,12 @@ class ForgetPasswordPage extends StatefulWidget {
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
   final TextEditingController _emailController = TextEditingController();
   bool isButtonEnabled = false; // تعريف متغير للتحكم في تفعيل الزر
-SettingController controller=Get.find();
+  SettingController controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-          preferredSize:
-          const Size.fromHeight(0.0), // here the desired height
+          preferredSize: const Size.fromHeight(0.0), // here the desired height
           child: AppBar(
             backgroundColor: controller.app,
             elevation: 0,
@@ -36,10 +35,18 @@ SettingController controller=Get.find();
               Row(
                 children: [
                   InkWell(
-                      child: Icon(Icons.arrow_back_ios,color: controller.app,size: 2.5.h,),
-                    onTap: (){Get.back();},
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: controller.app,
+                      size: 2.5.h,
+                    ),
+                    onTap: () {
+                      Get.back();
+                    },
                   ),
-                  SizedBox(width: 7.h,),
+                  SizedBox(
+                    width: 7.h,
+                  ),
                   Text(
                     'Forgot password',
                     style: TextStyle(
@@ -88,9 +95,13 @@ SettingController controller=Get.find();
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
                       if (states.contains(MaterialState.disabled)) {
-                        return controller.app==defaultColor? Color.fromARGB(255, 253, 211, 199) : Color(0xffD1DFDB); // تعيين اللون عندما يكون الزر فعالا
+                        return controller.app == defaultColor
+                            ? Color.fromARGB(255, 253, 211, 199)
+                            : Color(
+                                0xffD1DFDB); // تعيين اللون عندما يكون الزر فعالا
                       }
-                      return controller.app; // تعيين اللون عندما يكون الزر فعالا
+                      return controller
+                          .app; // تعيين اللون عندما يكون الزر فعالا
                     },
                   ),
                   fixedSize: MaterialStateProperty.all<Size>(

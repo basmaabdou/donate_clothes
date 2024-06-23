@@ -40,19 +40,19 @@ class Data {
 
   Data(
       {this.sId,
-        this.username,
-        this.email,
-        this.phone,
-        this.password,
-        this.confirmPassword,
-        this.profilephoto,
-        this.role,
-        this.coins,
-        this.isAccountVerified,
-        this.orders,
-        this.createdAt,
-        this.updatedAt,
-        this.iV});
+      this.username,
+      this.email,
+      this.phone,
+      this.password,
+      this.confirmPassword,
+      this.profilephoto,
+      this.role,
+      this.coins,
+      this.isAccountVerified,
+      this.orders,
+      this.createdAt,
+      this.updatedAt,
+      this.iV});
 
   Data.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];

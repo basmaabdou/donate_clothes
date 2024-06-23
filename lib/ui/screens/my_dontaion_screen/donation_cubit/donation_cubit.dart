@@ -10,15 +10,12 @@ import 'donation_state.dart';
 class DonationCubit extends Cubit<DonationStates> {
   DonationCubit() : super(InitialState());
 
-  static DonationCubit get(context)=> BlocProvider.of(context);
+  static DonationCubit get(context) => BlocProvider.of(context);
 
   DonationResponse? donationResponse;
 
   void getAllDonationData() {
-    DioHelper.getData(
-        url: ORDER_DONATINORDERS,
-        token: token
-    ).then((value) {
+    DioHelper.getData(url: ORDER_DONATINORDERS, token: token).then((value) {
       donationResponse = DonationResponse.fromJson(value.data);
       emit(SuccessDonationStates());
     }).catchError((error) {
@@ -39,7 +36,8 @@ class DonationCubit extends Cubit<DonationStates> {
     emit(LoadingCreateStates());
 
     DioHelper.postData(
-            url: ORDER_DONATAIONORDER, data: jsonEncode({
+            url: ORDER_DONATAIONORDER,
+            data: jsonEncode({
               'itemsName': itemsName,
               'location': location,
               'charity': charity,
@@ -60,4 +58,3 @@ class DonationCubit extends Cubit<DonationStates> {
     });
   }
 }
-

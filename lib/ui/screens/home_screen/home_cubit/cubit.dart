@@ -9,32 +9,21 @@ import '../../../../shared/constants.dart';
 import '../../../../shared/network/remote/dio_helper.dart';
 import '../../../../shared/network/remote/end_point.dart';
 
+class HomeCubit extends Cubit<HomeStates> {
+  HomeCubit() : super(InitialStates());
 
+  static HomeCubit get(context) => BlocProvider.of(context);
 
-class HomeCubit extends Cubit<HomeStates>{
-      HomeCubit() : super(InitialStates());
+  DonationCardResponse? donationCardResponse;
 
-      static HomeCubit get(context)=>BlocProvider.of(context);
-
-      DonationCardResponse? donationCardResponse;
-
-      UserModel userModel=UserModel();
-      void getDonationData()
-      {
-            DioHelper.getData(
-                url: DONATIONCARD,
-                token: token
-            ).then((value)
-            {
-                  donationCardResponse = DonationCardResponse.fromJson(value.data);
-                  emit(SuccessDonationStates());
-            }).catchError((error)
-            {
-                  emit(ErrorDonationStates());
-                  print(error.toString());
-            });
-      }
-
-
-
+  UserModel userModel = UserModel();
+  void getDonationData() {
+    DioHelper.getData(url: DONATIONCARD, token: token).then((value) {
+      donationCardResponse = DonationCardResponse.fromJson(value.data);
+      emit(SuccessDonationStates());
+    }).catchError((error) {
+      emit(ErrorDonationStates());
+      print(error.toString());
+    });
+  }
 }

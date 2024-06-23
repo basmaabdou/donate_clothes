@@ -16,15 +16,14 @@ class BrandDetailsScreen extends StatefulWidget {
 }
 
 class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
-
   void initState() {
     super.initState();
     Future.delayed(
-        const Duration(seconds:4),
-            () => Navigator.pushAndRemoveUntil(
+        const Duration(seconds: 4),
+        () => Navigator.pushAndRemoveUntil(
             context,
             MaterialPageRoute(builder: (context) => LayoutScreen()),
-                (route) => false));
+            (route) => false));
   }
 
   @override
@@ -41,7 +40,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
               padding: const EdgeInsetsDirectional.only(
                   top: 50, start: 20, end: 10, bottom: 10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start ,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
@@ -103,9 +102,13 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         image: DecorationImage(
-                          image: NetworkImage(BrandCubit.get(context).getSingleBrandResponse?.data?.image?.url??''),
+                          image: NetworkImage(BrandCubit.get(context)
+                                  .getSingleBrandResponse
+                                  ?.data
+                                  ?.image
+                                  ?.url ??
+                              ''),
                           fit: BoxFit.fill,
-
                         ),
                       ),
                     ),
@@ -146,7 +149,7 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                                       color: defaultColor),
                                 ),
                                 Text(
-                                  ' discount from the ${BrandCubit.get(context).getSingleBrandResponse?.data?.title??''}',
+                                  ' discount from the ${BrandCubit.get(context).getSingleBrandResponse?.data?.title ?? ''}',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 15,
@@ -162,7 +165,12 @@ class _BrandDetailsScreenState extends State<BrandDetailsScreen> {
                   SizedBox(
                     height: 35,
                   ),
-                  Text(BrandCubit.get(context).getSingleBrandResponse?.data?.info??'',
+                  Text(
+                    BrandCubit.get(context)
+                            .getSingleBrandResponse
+                            ?.data
+                            ?.info ??
+                        '',
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
                   ),
                 ],

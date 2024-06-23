@@ -1,9 +1,7 @@
-abstract class LayoutStates{}
+abstract class LayoutStates {}
 
-class InitialState extends LayoutStates{}
+class InitialState extends LayoutStates {}
 
-class ChangeBottomNavStates extends LayoutStates{}
+class ChangeBottomNavStates extends LayoutStates {}
 
-class AppChangeMode extends LayoutStates{}
-
-
+class AppChangeMode extends LayoutStates {}

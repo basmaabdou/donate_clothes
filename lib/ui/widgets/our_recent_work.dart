@@ -9,21 +9,30 @@ import 'basic.dart';
 import 'default_text_form_field..dart';
 
 class OurRecentWork extends StatelessWidget {
+  final String img, title, description;
 
-  final String img,title,description;
-
-  const OurRecentWork({super.key, required this.img, required this.description, required this.title});
+  const OurRecentWork(
+      {super.key,
+      required this.img,
+      required this.description,
+      required this.title});
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
-      onTap: (){
-        Navigator.push(context,ScaleTransition1( OurWorkScreen(img: img, description: description, title: title,)));
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+            context,
+            ScaleTransition1(OurWorkScreen(
+              img: img,
+              description: description,
+              title: title,
+            )));
       },
       child: Container(
-        width: 48.h,
+        width: 46.h,
         decoration: BoxDecoration(
-            borderRadius: BorderRadiusDirectional.circular(20),
-            color: Color(0xffFFFFFF),
+          borderRadius: BorderRadiusDirectional.circular(20),
+          color: Color(0xffFFFFFF),
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),
@@ -43,13 +52,11 @@ class OurRecentWork extends StatelessWidget {
                 children: [
                   Container(
                     width: double.infinity,
-                    height:controller2.selectedIndex==0 ? 20.h : 18.h,
+                    height: controller2.selectedIndex == 0 ? 20.h : 18.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
-                        image: NetworkImage(img),
-                          fit: BoxFit.cover
-                      ),
+                          image: NetworkImage(img), fit: BoxFit.cover),
                     ),
                   ),
                   Container(
@@ -57,13 +64,17 @@ class OurRecentWork extends StatelessWidget {
                     width: 63,
                     decoration: BoxDecoration(
                         color: Color(0xffFFFFFF),
-                        borderRadius: BorderRadiusDirectional.only(bottomStart:Radius.circular(20))
-                    ),
+                        borderRadius: BorderRadiusDirectional.only(
+                            bottomStart: Radius.circular(20))),
                     child: Padding(
                       padding: const EdgeInsetsDirectional.only(start: 4),
                       child: Row(
                         children: [
-                          Icon(Icons.access_time_outlined,size: 8,color: controller2.app,),
+                          Icon(
+                            Icons.access_time_outlined,
+                            size: 8,
+                            color: controller2.app,
+                          ),
                           SizedBox(
                             width: 4,
                           ),
@@ -72,7 +83,7 @@ class OurRecentWork extends StatelessWidget {
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                               fontSize: 8,
-                              color:controller2.app,
+                              color: controller2.app,
                             ),
                           ),
                         ],
@@ -85,7 +96,7 @@ class OurRecentWork extends StatelessWidget {
                 height: 1.h,
               ),
               Text(
-               title,
+                title,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 15,
@@ -105,7 +116,7 @@ class OurRecentWork extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height:2.h,
+                height: 2.h,
               ),
               Container(
                 width: 15.h,
@@ -116,7 +127,7 @@ class OurRecentWork extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: () {
                     donateBottomSheet(context);
-                    },
+                  },
                   child: Text(
                     'Donate Now',
                     style: TextStyle(
@@ -126,7 +137,6 @@ class OurRecentWork extends StatelessWidget {
                   ),
                 ),
               ),
-
             ],
           ),
         ),
@@ -134,4 +144,3 @@ class OurRecentWork extends StatelessWidget {
     );
   }
 }
-

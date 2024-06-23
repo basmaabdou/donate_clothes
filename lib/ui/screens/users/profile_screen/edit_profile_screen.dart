@@ -47,19 +47,33 @@ class _EditProfileState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) =>ProfileCubit()..getProfileData()..editProfileResponse..editProfileImageResponse,
-      child: BlocConsumer<ProfileCubit,ProfileStates>(
+      create: (BuildContext context) => ProfileCubit()
+        ..getProfileData()
+        ..editProfileResponse
+        ..editProfileImageResponse,
+      child: BlocConsumer<ProfileCubit, ProfileStates>(
         listener: (BuildContext context, state) {
-         if (state is SuccessUpdateProfileState) {
-           Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
-         }
+          if (state is SuccessUpdateProfileState) {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => ProfileView()));
+          }
         },
         builder: (BuildContext context, Object? state) {
-          nameController.text=ProfileCubit.get(context).profileModel?.data?.username.toString() ?? "name not available";
-          phoneController.text = ProfileCubit.get(context).profileModel?.data?.phone??"phone  not available";
-          passController.text = ProfileCubit.get(context).editProfileResponse?.data?.password??"123456";
-          String profilePhoto=ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ?? "";
-
+          nameController.text = ProfileCubit.get(context)
+                  .profileModel
+                  ?.data
+                  ?.username
+                  .toString() ??
+              "name not available";
+          phoneController.text =
+              ProfileCubit.get(context).profileModel?.data?.phone ??
+                  "phone  not available";
+          passController.text =
+              ProfileCubit.get(context).editProfileResponse?.data?.password ??
+                  "123456";
+          String profilePhoto =
+              ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
+                  "";
 
           return ConditionalBuilder(
             condition: ProfileCubit.get(context).profileModel != null,
@@ -72,10 +86,11 @@ class _EditProfileState extends State<EditProfileScreen> {
                   leading: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
-                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
+                      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileView()));
                       ProfileCubit.get(context).getProfileData();
                     },
-                    icon: Icon(Icons.arrow_back, size: 25, color: controller2.app),
+                    icon: Icon(Icons.arrow_back,
+                        size: 25, color: controller2.app),
                   ),
                   titleSpacing: 80,
                   title: Text(
@@ -90,9 +105,11 @@ class _EditProfileState extends State<EditProfileScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if(state is LoadingUpdateProfileImageState)
-                        LinearProgressIndicator(backgroundColor: controller2.app,),
-                      if(state is LoadingUpdateProfileImageState)
+                      if (state is LoadingUpdateProfileImageState)
+                        LinearProgressIndicator(
+                          backgroundColor: controller2.app,
+                        ),
+                      if (state is LoadingUpdateProfileImageState)
                         SizedBox(
                           height: 10,
                         ),
@@ -107,16 +124,15 @@ class _EditProfileState extends State<EditProfileScreen> {
                                 height: 22.h,
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                    borderRadius:  BorderRadius.only(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(8),
-                                      bottomRight:  Radius.circular(8),
+                                      bottomRight: Radius.circular(8),
                                     ),
                                     image: DecorationImage(
-                                      image:  AssetImage('assets/images/gaza2.jpeg')  ,
+                                      image: AssetImage(
+                                          'assets/images/gaza2.jpeg'),
                                       fit: BoxFit.fill,
-                                    )
-
-                                ),
+                                    )),
                               ),
                             ),
                             Stack(
@@ -124,17 +140,22 @@ class _EditProfileState extends State<EditProfileScreen> {
                               children: [
                                 profileImage != null
                                     ? CircleAvatar(
-                                  radius: 11.h,
-                                  backgroundImage: (profileImage == null)
-                                      ? NetworkImage(profileImage as String)
-                                  as ImageProvider<Object>?
-                                      : FileImage(profileImage!),
-                                )
+                                        radius: 11.h,
+                                        backgroundImage: (profileImage == null)
+                                            ? NetworkImage(
+                                                    profileImage as String)
+                                                as ImageProvider<Object>?
+                                            : FileImage(profileImage!),
+                                      )
                                     : CircleAvatar(
-                                  radius: 11.h,
-                                  backgroundImage:
-                                  NetworkImage(ProfileCubit.get(context).profileModel!.data!.profilephoto!.url!),
-                                ),
+                                        radius: 11.h,
+                                        backgroundImage: NetworkImage(
+                                            ProfileCubit.get(context)
+                                                .profileModel!
+                                                .data!
+                                                .profilephoto!
+                                                .url!),
+                                      ),
                                 Positioned(
                                   top: 15.h,
                                   right: 0.5.h,
@@ -209,7 +230,6 @@ class _EditProfileState extends State<EditProfileScreen> {
                       //   ),
                       // ),
 
-
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: Column(
@@ -222,9 +242,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                                   fontSize: 14,
                                   color: Color(0xff000000)),
                             ),
-                            SizedBox(
-                                height: 10
-                            ),
+                            SizedBox(height: 10),
                             defaultTextForm(
                                 controller: nameController,
                                 type: TextInputType.text,
@@ -258,7 +276,9 @@ class _EditProfileState extends State<EditProfileScreen> {
                                   return null;
                                 },
                                 prefix: Icons.lock,
-                                suffix: isPassword ? Icons.visibility : Icons.visibility_off,
+                                suffix: isPassword
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
                                 isPassword: !isPassword,
                                 suffixPressed: () {
                                   setState(() {
@@ -296,7 +316,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                       ),
                       Center(
                         child: Container(
-                          width: MediaQuery.sizeOf(context).width/1.4,
+                          width: MediaQuery.sizeOf(context).width / 1.4,
                           height: 45,
                           decoration: BoxDecoration(
                               color: controller2.app,
@@ -308,7 +328,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                                 password: passController.text,
                                 phone: phoneController.text,
                               );
-                              ProfileCubit.get(context).updateUserProfile(profilephoto: profilePhoto);
+                              ProfileCubit.get(context).updateUserProfile(
+                                  profilephoto: profilePhoto);
                               setState(() {
                                 ProfileCubit.get(context).getProfileData();
                               });
@@ -326,13 +347,14 @@ class _EditProfileState extends State<EditProfileScreen> {
                       SizedBox(
                         height: 30,
                       ),
-
                     ],
                   ),
                 ),
               );
             },
-            fallback: (context)=> Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app))),
+            fallback: (context) => Scaffold(
+                body: Center(
+                    child: CircularProgressIndicator(color: controller.app))),
           );
         },
       ),

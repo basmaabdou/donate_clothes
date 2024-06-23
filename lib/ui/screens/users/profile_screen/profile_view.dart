@@ -46,7 +46,8 @@ class ProfileView extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 0,
                         blurRadius: 4,
-                        offset: const Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),
@@ -57,18 +58,26 @@ class ProfileView extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
-
-                          ProfileCubit.get(context).profileModel?.data?.profilephoto?.url??'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png' ,
+                          ProfileCubit.get(context)
+                                  .profileModel
+                                  ?.data
+                                  ?.profilephoto
+                                  ?.url ??
+                              'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
                           width: 16.h,
                           height: 15.h,
                         ),
-                      )
-                      ,
+                      ),
                       const SizedBox(
                         height: 4,
                       ),
                       Text(
-                        ProfileCubit.get(context).profileModel?.data?.username.toString() ?? '',
+                        ProfileCubit.get(context)
+                                .profileModel
+                                ?.data
+                                ?.username
+                                .toString() ??
+                            '',
                         style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w800,
@@ -79,10 +88,10 @@ class ProfileView extends StatelessWidget {
                       ),
                       Text(
                         ProfileCubit.get(context)
-                            .profileModel
-                            ?.data
-                            ?.phone
-                            .toString() ??
+                                .profileModel
+                                ?.data
+                                ?.phone
+                                .toString() ??
                             '',
                         style: const TextStyle(
                             fontSize: 14,
@@ -109,10 +118,10 @@ class ProfileView extends StatelessWidget {
                           ),
                           Text(
                             ProfileCubit.get(context)
-                                .profileModel
-                                ?.data
-                                ?.email
-                                .toString() ??
+                                    .profileModel
+                                    ?.data
+                                    ?.email
+                                    .toString() ??
                                 '',
                             style: const TextStyle(
                                 fontSize: 18,
@@ -135,8 +144,8 @@ class ProfileView extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.5),
                               spreadRadius: 0,
                               blurRadius: 4,
-                              offset:
-                              const Offset(0, 3), // changes position of shadow
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -200,8 +209,8 @@ class ProfileView extends StatelessWidget {
                       myDivider(),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context, SizeTransition2(const MyDonationScreen()));
+                          Navigator.push(context,
+                              SizeTransition2(const MyDonationScreen()));
                         },
                         child: Row(
                           children: [
@@ -250,7 +259,7 @@ class ProfileView extends StatelessWidget {
                             title: '',
                             content: Column(
                               children: [
-                                 Row(
+                                Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
@@ -285,7 +294,7 @@ class ProfileView extends StatelessWidget {
                                 ),
                                 Container(
                                   width: 12.h,
-                                  height: 5.h ,
+                                  height: 5.h,
                                   decoration: BoxDecoration(
                                       color: controller2.app,
                                       borderRadius: BorderRadius.circular(10)),
@@ -310,13 +319,12 @@ class ProfileView extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                   style: OutlinedButton.styleFrom(
-                                    side:  BorderSide(
-                                        color: controller2.app),
+                                    side: BorderSide(color: controller2.app),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
-                                  child:  Text(
+                                  child: Text(
                                     'cancel',
                                     style: TextStyle(
                                         color: controller2.app,
@@ -328,12 +336,12 @@ class ProfileView extends StatelessWidget {
                             ),
                           );
                         },
-                        child:  Row(
+                        child: Row(
                           children: [
                             Icon(
                               Icons.logout_outlined,
                               size: 23,
-                              color:controller2.app,
+                              color: controller2.app,
                             ),
                             SizedBox(
                               width: 10,

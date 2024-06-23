@@ -1,35 +1,27 @@
 import '../../constants.dart';
 
-const LOGIN='login';
+const LOGIN = 'login';
 
-const REGISTER='register';
+const REGISTER = 'register';
 
-const PROFILE='profile';
+const PROFILE = 'profile';
 
-const UPDATE_PROFILE='profile/update';
+const UPDATE_PROFILE = 'profile/update';
 
-const UPDATE_PROFILE_Image='profile/uploadphoto';
+const UPDATE_PROFILE_Image = 'profile/uploadphoto';
 
-const GET_ORGANIZATION='organizations';
+const GET_ORGANIZATION = 'organizations';
 
-const GET_BRANDS='brands';
+const GET_BRANDS = 'brands';
 
-const DONATIONCARD='donationcard';
+const DONATIONCARD = 'donationcard';
 
+const ORDER_DONATAIONORDER = 'order/donataionorder';
 
-const ORDER_DONATAIONORDER='order/donataionorder';
+const ORDER_DONATINORDERS = 'order/donationorders';
 
+const QRCODE = 'profile/exchange-coins';
 
-const ORDER_DONATINORDERS='order/donationorders';
+const GETCOINS = 'profile/collectcoins';
 
-
-const QRCODE='profile/exchange-coins';
-
-
-const GETCOINS='profile/collectcoins';
-
-const PAYMENT='payment/donate';
-
-
-
-
+const PAYMENT = 'payment/donate';

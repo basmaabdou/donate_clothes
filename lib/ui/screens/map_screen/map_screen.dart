@@ -9,7 +9,6 @@ import '../../widgets/basic.dart';
 import '../../widgets/default_text_form_field..dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
 
-
 class MapScreen extends StatefulWidget {
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -59,8 +58,8 @@ class _MapScreenState extends State<MapScreen> {
                           position: LatLng(latLng.latitude, latLng.longitude),
                         ),
                       );
-                      final addresses =
-                      await placemarkFromCoordinates(latLng.latitude, latLng.longitude);
+                      final addresses = await placemarkFromCoordinates(
+                          latLng.latitude, latLng.longitude);
                       if (addresses.isNotEmpty) {
                         final address = addresses.first;
                         addressController.text = address.street.toString();
@@ -95,7 +94,7 @@ class _MapScreenState extends State<MapScreen> {
             ),
             SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsetsDirectional.only(start: 10,end: 10),
+              padding: const EdgeInsetsDirectional.only(start: 10, end: 10),
               child: Column(
                 children: [
                   Text(
@@ -108,10 +107,8 @@ class _MapScreenState extends State<MapScreen> {
                     width: double.infinity,
                     height: 52,
                     child: TextFormField(
-                      style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w700
-                      ),
+                      style:
+                          TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
                       controller: addressController,
                       keyboardType: TextInputType.streetAddress,
                       validator: (value) {
@@ -169,20 +166,20 @@ class _MapScreenState extends State<MapScreen> {
                     height: 40,
                     decoration: BoxDecoration(
                         color: controller2.app,
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child:MaterialButton(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: MaterialButton(
                       onPressed: () {
-                        String selectedAddress = addressController.text; // Get the selected address
-                        navigateTo(context, DonateClothesDetails(address: selectedAddress));
+                        String selectedAddress =
+                            addressController.text; // Get the selected address
+                        navigateTo(context,
+                            DonateClothesDetails(address: selectedAddress));
                       },
                       child: Text(
                         'I’m here',
                         style: TextStyle(
                             color: Color(0xffFFFFFF),
                             fontSize: 18,
-                            fontWeight: FontWeight.w400
-                        ),
+                            fontWeight: FontWeight.w400),
                       ),
                     ),
                   ),
@@ -197,17 +194,16 @@ class _MapScreenState extends State<MapScreen> {
 
   void _getAddress(LatLng position) async {
     final List<Placemark> placemarks =
-    await placemarkFromCoordinates(position.latitude, position.longitude);
+        await placemarkFromCoordinates(position.latitude, position.longitude);
 
     setState(() {
       if (placemarks.isNotEmpty) {
         final Placemark placemark = placemarks[0];
-        addressController.text = '${placemark.street}, ${placemark.locality}, ${placemark.administrativeArea} ${placemark.postalCode}, ${placemark.country}';
+        addressController.text =
+            '${placemark.street}, ${placemark.locality}, ${placemark.administrativeArea} ${placemark.postalCode}, ${placemark.country}';
       } else {
         addressController.text = 'No address found';
       }
     });
   }
 }
-
-

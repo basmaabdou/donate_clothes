@@ -7,24 +7,25 @@ import '../organization_cubit/cubit.dart';
 import '../organization_cubit/states.dart';
 import 'organization_view.dart';
 
-
 class OrganizationScreen extends StatelessWidget {
   const OrganizationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => OrganizationCubit()..getAllOrganizationData(
-      ),
-      child: BlocConsumer<OrganizationCubit,OrganizationStates>(
-        listener: ( context,  state) {  },
-        builder: ( context,state) {
+      create: (BuildContext context) =>
+          OrganizationCubit()..getAllOrganizationData(),
+      child: BlocConsumer<OrganizationCubit, OrganizationStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
           var cubit = OrganizationCubit.get(context);
           return ConditionalBuilder(
-              condition: cubit.organizationResponse != null  ,
+              condition: cubit.organizationResponse != null,
               builder: (context) => OrganizationView(),
-              fallback: (context) => Scaffold(body: Center(child: CircularProgressIndicator(color: controller.app)))
-          );
+              fallback: (context) => Scaffold(
+                  body: Center(
+                      child:
+                          CircularProgressIndicator(color: controller.app))));
         },
       ),
     );

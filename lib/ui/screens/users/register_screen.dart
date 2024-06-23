@@ -41,9 +41,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               messageToast(
                   msg: state.loginModel.message!, state: ToastStates.SUCCESS);
 
-
               navigateFinish(context, LoginScreen());
-
             } else {
               print(state.loginModel.message);
               messageToast(
@@ -177,49 +175,51 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             builder: (context) => DefaultButton(
                                 text: 'Sign Up',
                                 fun: () {
-                                    if (formKey.currentState!.validate()) {
-                                      UserCubit.get(context).userRegister(
-                                        username: nameController.text,
-                                        email: emailController.text,
-                                        phone: phoneController.text,
-                                        password: passController.text,
-                                        confirmPassword:
-                                            confirmPassController.text,
-                                      );
-                                      if (nameController.text.length < 3) {
-                                        messageToast(
-                                            msg:
-                                                '\'username\'length must be at least 3 characters long',
-                                            state: ToastStates.ERROR);
-                                      }
-                                      if (!emailController.text.endsWith(".com")) {
-                                        messageToast(
-                                          msg: "\"email\" must be a valid email",
-                                          state: ToastStates.ERROR,
-                                        );
-                                      }
-                                      if (phoneController.text.length < 11) {
-                                        messageToast(
-                                            msg:
-                                                "\"phone\" length must be at least 11 characters long",
-                                            state: ToastStates.ERROR);
-                                      }
-                                      if (passController.text.length < 6) {
-                                        messageToast(
-                                            msg:
-                                                "\"password\" length must be at least 6 characters long",
-                                            state: ToastStates.ERROR);
-                                      }
-                                      if (passController.text != confirmPassController.text) {
-                                        messageToast(
-                                            msg: "Passwords do not match",
-                                            state: ToastStates.ERROR);
-                                      }
+                                  if (formKey.currentState!.validate()) {
+                                    UserCubit.get(context).userRegister(
+                                      username: nameController.text,
+                                      email: emailController.text,
+                                      phone: phoneController.text,
+                                      password: passController.text,
+                                      confirmPassword:
+                                          confirmPassController.text,
+                                    );
+                                    if (nameController.text.length < 3) {
+                                      messageToast(
+                                          msg:
+                                              '\'username\'length must be at least 3 characters long',
+                                          state: ToastStates.ERROR);
                                     }
-
+                                    if (!emailController.text
+                                        .endsWith(".com")) {
+                                      messageToast(
+                                        msg: "\"email\" must be a valid email",
+                                        state: ToastStates.ERROR,
+                                      );
+                                    }
+                                    if (phoneController.text.length < 11) {
+                                      messageToast(
+                                          msg:
+                                              "\"phone\" length must be at least 11 characters long",
+                                          state: ToastStates.ERROR);
+                                    }
+                                    if (passController.text.length < 6) {
+                                      messageToast(
+                                          msg:
+                                              "\"password\" length must be at least 6 characters long",
+                                          state: ToastStates.ERROR);
+                                    }
+                                    if (passController.text !=
+                                        confirmPassController.text) {
+                                      messageToast(
+                                          msg: "Passwords do not match",
+                                          state: ToastStates.ERROR);
+                                    }
+                                  }
                                 }),
-                            fallback: (context) =>
-                                Center(child: CircularProgressIndicator(color: controller.app)),
+                            fallback: (context) => Center(
+                                child: CircularProgressIndicator(
+                                    color: controller.app)),
                           ),
                         ),
                         const SizedBox(
@@ -242,7 +242,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     MaterialPageRoute(
                                         builder: (context) => LoginScreen()));
                               },
-                              child:  Text(
+                              child: Text(
                                 'Login',
                                 style: TextStyle(
                                     fontSize: 20,
@@ -252,7 +252,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             )
                           ],
                         )
-                       ],
+                      ],
                     ),
                   ),
                 ),

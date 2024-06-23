@@ -4,22 +4,28 @@ import '../screens/organization_screen/organization_details/organization_details
 import 'animation.dart';
 
 class OurOrganization extends StatelessWidget {
-final String image,title,info,sId;
+  final String image, title, info, sId;
 
-  const OurOrganization({super.key, required this.image, required this.title, required this.info, required this.sId});
+  const OurOrganization(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.info,
+      required this.sId});
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context,SizeTransition1(OrganizationDetailsScreen(
-          sId: sId,
-        )));
+      onTap: () {
+        Navigator.push(
+            context,
+            SizeTransition1(OrganizationDetailsScreen(
+              sId: sId,
+            )));
         print(OrganizationCubit.get(context).getOrgDetails?.data);
-
       },
       child: Container(
         width: 346,
-        height: 310 ,
+        height: 310,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           color: Color(0xffFFFFFF),
@@ -32,7 +38,7 @@ final String image,title,info,sId;
             ),
           ],
         ),
-        child:Padding(
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: SingleChildScrollView(
             child: Column(
@@ -43,9 +49,7 @@ final String image,title,info,sId;
                   height: 134,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(image),
-                        fit: BoxFit.fill
-                    ),
+                        image: NetworkImage(image), fit: BoxFit.fill),
                   ),
                 ),
                 SizedBox(
@@ -59,14 +63,12 @@ final String image,title,info,sId;
                     color: Color(0xff000000),
                   ),
                 ),
-                SizedBox(
-                    height: 5
-                ),
+                SizedBox(height: 5),
                 Text(
                   info,
-                   maxLines: 6,
-                   overflow: TextOverflow.ellipsis,
-                   style: TextStyle(
+                  maxLines: 6,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 12,
                   ),

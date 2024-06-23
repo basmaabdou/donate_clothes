@@ -9,7 +9,12 @@ class HomeSliderItem extends StatelessWidget {
   final String text1;
   final String? text2;
   final String? text3;
-  const HomeSliderItem({super.key, required this.image,  required this.text1,  this.text2,   this.text3});
+  const HomeSliderItem(
+      {super.key,
+      required this.image,
+      required this.text1,
+      this.text2,
+      this.text3});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +48,9 @@ class HomeSliderItem extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: 2.h,),
+                SizedBox(
+                  height: 2.h,
+                ),
                 Text(
                   text1,
                   textAlign: TextAlign.center,
@@ -54,11 +61,11 @@ class HomeSliderItem extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     navigateTo(context, MyDonationScreen());
                   },
                   child: Text(
-                    text2??"",
+                    text2 ?? "",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
@@ -68,7 +75,7 @@ class HomeSliderItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                 text3??"",
+                  text3 ?? "",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.w700,
@@ -76,7 +83,9 @@ class HomeSliderItem extends StatelessWidget {
                     color: Color(0xffFFFFFF),
                   ),
                 ),
-                SizedBox(height: 1.h,)
+                SizedBox(
+                  height: 1.h,
+                )
               ],
             ),
           )

@@ -54,7 +54,6 @@ class _CoinsViewState extends State<CoinsView> {
                                 ),
                               ),
                             ),
-
                             SizedBox(
                               height: 5,
                             ),
@@ -83,11 +82,12 @@ class _CoinsViewState extends State<CoinsView> {
                         ),
                       ));
               ProfileCubit.get(context).getProfileData();
-
             }
-            if (state is ErrorExchangeCoinsStates){
-
-              messageToast(msg: "Coins not enough!", state: ToastStates.ERROR, );
+            if (state is ErrorExchangeCoinsStates) {
+              messageToast(
+                msg: "Coins not enough!",
+                state: ToastStates.ERROR,
+              );
 
               // Fluttertoast.showToast(
               //     msg: "Coins not enough!",
@@ -98,7 +98,6 @@ class _CoinsViewState extends State<CoinsView> {
               //     fontSize: 16.0,
               //   backgroundColor: Colors.red
               // );
-
             }
           },
           builder: (context, state) {
@@ -109,7 +108,7 @@ class _CoinsViewState extends State<CoinsView> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon:  Icon(
+                    icon: Icon(
                       Icons.arrow_back,
                       color: controller2.app,
                     )),
@@ -138,7 +137,7 @@ class _CoinsViewState extends State<CoinsView> {
                       const SizedBox(
                         height: 20,
                       ),
-                       Text(
+                      Text(
                         'Results of Coins',
                         style: TextStyle(
                             fontSize: 22,
@@ -161,7 +160,7 @@ class _CoinsViewState extends State<CoinsView> {
                             children: [
                               Row(
                                 children: [
-                                   Icon(
+                                  Icon(
                                     Icons.check,
                                     size: 24,
                                     color: controller2.app,
@@ -198,7 +197,7 @@ class _CoinsViewState extends State<CoinsView> {
                               ),
                               Row(
                                 children: [
-                                   Icon(
+                                  Icon(
                                     Icons.money_sharp,
                                     size: 24,
                                     color: controller2.app,
@@ -267,70 +266,74 @@ class _CoinsViewState extends State<CoinsView> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Center(child: QRCodeImage(base64String: "${ProfileCubit.get(context).profileModel?.data?.qrcode?.replaceRange(0,22,"")}")
+                      Center(
+                          child: QRCodeImage(
+                              base64String:
+                                  "${ProfileCubit.get(context).profileModel?.data?.qrcode?.replaceRange(0, 22, "")}")
 
-                      // Center(
-                      //   child: Container(
-                      //     width: 263,
-                      //     height: 154,
-                      //     decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(10),
-                      //       image: DecorationImage(
-                      //         image: NetworkImage("${ProfileCubit.get(context).profileModel?.data?.qrcode??''}"),
-                      //         fit: BoxFit.cover,
-                      //
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
+                          // Center(
+                          //   child: Container(
+                          //     width: 263,
+                          //     height: 154,
+                          //     decoration: BoxDecoration(
+                          //       borderRadius: BorderRadius.circular(10),
+                          //       image: DecorationImage(
+                          //         image: NetworkImage("${ProfileCubit.get(context).profileModel?.data?.qrcode??''}"),
+                          //         fit: BoxFit.cover,
+                          //
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
 
-                      //
-                        // Center(
-                      //   child: defaultTextForm(
-                      //       controller: amountController,
-                      //       type: TextInputType.text,
-                      //       validate: (value) {
-                      //         if (value!.isEmpty) {
-                      //           return 'amount must be not empty';
-                      //         }
-                      //         return null;
-                      //       },
-                      //       prefix: Icons.monetization_on_outlined),
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // Center(
-                      //   child: DefaultButton(
-                      //       text: 'Exchange your coins',
-                      //       fun: () {
-                       //         ProfileCubit.get(context).getExchangeCoins(
-                      //             amount: amountController.text);
-                      //         if (state is SuccessExchangeCoinsStates) {
-                      //           print(ProfileCubit.get(context)
-                      //               .exchangeCoins!
-                      //               .success);
-                      //
-                      //           // if (
-                      //           //  ProfileCubit.get(context).profileModel?.data!.coins! >= 5
-                      //           // ) {
-                      //           //   ProfileCubit.get(context).getExchangeCoins(
-                      //           //       amount: amountController.text);
-                      //           //   if (state is SuccessExchangeCoinsStates) {
-                      //           //     print(ProfileCubit
-                      //           //         .get(context)
-                      //           //         .exchangeCoins!
-                      //           //         .success);
-                      //           //   }
-                      //           // } else {
-                      //           //   print("error");
-                      //           // }
-                      //
-                      //           //navigateTo(context, const BrandScreen());
-                      //         }
-                      //       }),
-                      // )
-                            )],
+                          //
+                          // Center(
+                          //   child: defaultTextForm(
+                          //       controller: amountController,
+                          //       type: TextInputType.text,
+                          //       validate: (value) {
+                          //         if (value!.isEmpty) {
+                          //           return 'amount must be not empty';
+                          //         }
+                          //         return null;
+                          //       },
+                          //       prefix: Icons.monetization_on_outlined),
+                          // ),
+                          // SizedBox(
+                          //   height: 10,
+                          // ),
+                          // Center(
+                          //   child: DefaultButton(
+                          //       text: 'Exchange your coins',
+                          //       fun: () {
+                          //         ProfileCubit.get(context).getExchangeCoins(
+                          //             amount: amountController.text);
+                          //         if (state is SuccessExchangeCoinsStates) {
+                          //           print(ProfileCubit.get(context)
+                          //               .exchangeCoins!
+                          //               .success);
+                          //
+                          //           // if (
+                          //           //  ProfileCubit.get(context).profileModel?.data!.coins! >= 5
+                          //           // ) {
+                          //           //   ProfileCubit.get(context).getExchangeCoins(
+                          //           //       amount: amountController.text);
+                          //           //   if (state is SuccessExchangeCoinsStates) {
+                          //           //     print(ProfileCubit
+                          //           //         .get(context)
+                          //           //         .exchangeCoins!
+                          //           //         .success);
+                          //           //   }
+                          //           // } else {
+                          //           //   print("error");
+                          //           // }
+                          //
+                          //           //navigateTo(context, const BrandScreen());
+                          //         }
+                          //       }),
+                          // )
+                          )
+                    ],
                   ),
                 ),
               ),
@@ -340,7 +343,6 @@ class _CoinsViewState extends State<CoinsView> {
   }
 }
 
-
 class QRCodeImage extends StatelessWidget {
   final String base64String;
 
@@ -349,10 +351,10 @@ class QRCodeImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.memory(
-        base64Decode(base64String),
-        // You might need to adjust width and height as needed
-        width: 300,
-        height: 200,
-        );
+      base64Decode(base64String),
+      // You might need to adjust width and height as needed
+      width: 300,
+      height: 200,
+    );
   }
 }
