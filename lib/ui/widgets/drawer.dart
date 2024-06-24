@@ -37,7 +37,7 @@ class DrawerContainer extends StatelessWidget {
           ),
           Text(
             ProfileCubit.get(context).profileModel?.data?.username.toString() ??
-                'Gest',
+                '',
             style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
