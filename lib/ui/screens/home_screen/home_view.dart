@@ -293,7 +293,7 @@ class _HomeScreenState extends State<HomeView>
                           Text(
                             S.of(context).ourbr,
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w700,
                               fontSize: 18,
                             ),
                           ),
@@ -339,7 +339,7 @@ class _HomeScreenState extends State<HomeView>
                           Text(
                             S.of(context).ourOr,
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w700,
                               fontSize: 18,
                             ),
                           ),
