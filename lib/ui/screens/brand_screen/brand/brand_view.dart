@@ -121,7 +121,7 @@ class BrandView extends StatelessWidget {
                 'Our Brands',
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
               Container(

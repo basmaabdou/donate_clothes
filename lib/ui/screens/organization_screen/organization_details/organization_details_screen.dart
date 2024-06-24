@@ -1,7 +1,9 @@
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/states.dart';
+import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../widgets/organize_details_widget.dart';
 
@@ -26,6 +28,7 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
           listener: (BuildContext context, OrganizationStates state) {},
           builder: (BuildContext context, OrganizationStates state) {
             return Scaffold(
+              backgroundColor: const Color(0xffF9F9F9),
               body: Padding(
                 padding: const EdgeInsetsDirectional.only(
                     top: 50, start: 20, end: 10, bottom: 10),
@@ -44,9 +47,9 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
                                 '',
                             maxLines: 1,
                             style: TextStyle(
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight: FontWeight.w700,
-                                color: Colors.black),
+                                color: controller2.app),
                           ),
                           Spacer(),
                           InkWell(
@@ -55,14 +58,11 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
                             },
                             child: Icon(
                               Icons.exit_to_app,
-                              size: 20,
-                              color: Colors.grey,
+                              size: 25,
+                              color: controller2.app,
                             ),
                           )
                         ],
-                      ),
-                      SizedBox(
-                        height: 10,
                       ),
                       ListView.builder(
                         shrinkWrap: true,
@@ -75,7 +75,7 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
                           },
                           child: Container(
                             width: double.infinity,
-                            height: 178,
+                            height: 23.h,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               image: DecorationImage(
@@ -92,8 +92,8 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
                                 BoxShadow(
                                   color: Colors.grey.withOpacity(0.5),
                                   spreadRadius: 0,
-                                  blurRadius: 4,
-                                  offset: Offset(0, 3),
+                                  blurRadius: 3,
+                                  offset: Offset(0, 2),
                                 ),
                               ],
                             ),
@@ -105,7 +105,7 @@ class _OrganizationDetailsState extends State<OrganizationDetailsScreen> {
                         height: 30,
                       ),
                       Container(
-                        height: 91,
+                        height: 10.h,
                         child: ListView.separated(
                           shrinkWrap: true,
                           physics: BouncingScrollPhysics(),

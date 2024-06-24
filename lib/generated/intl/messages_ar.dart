@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "other": MessageLookupByLibrary.simpleMessage("+ أخرى NGOs"),
         "ourOr": MessageLookupByLibrary.simpleMessage("منظمتنا الخيريه"),
         "ourWork": MessageLookupByLibrary.simpleMessage("أعمالنا الأخيرة"),
+        "ourbr": MessageLookupByLibrary.simpleMessage("علاماتنا التجارية"),
         "profile": MessageLookupByLibrary.simpleMessage("الصفحة الشخصية"),
         "register": MessageLookupByLibrary.simpleMessage("انشاء حساب"),
         "sale": MessageLookupByLibrary.simpleMessage("أُوكَازيُون"),
