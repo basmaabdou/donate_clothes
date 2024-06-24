@@ -49,3 +49,5 @@ class ErrorGetCoinsState extends ProfileStates {
   final String error;
   ErrorGetCoinsState(this.error);
 }
+
+

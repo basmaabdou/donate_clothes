@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart' hide FormData;
+import 'package:donate_clothes/models/brands_response.dart';
+import 'package:donate_clothes/models/organization_response.dart';
 import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../models/edit_profile_image_response.dart';
@@ -115,4 +117,6 @@ class ProfileCubit extends Cubit<ProfileStates> {
       emit(ErrorGetCoinsState(error.toString()));
     });
   }
+
+
 }

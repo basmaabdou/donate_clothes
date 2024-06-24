@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:donate_clothes/ui/screens/brand_screen/brand_detail/brand_details_screen.dart';
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/my_donation_screen.dart';
+import 'package:donate_clothes/ui/screens/organization_screen/organization_details/organization_details_screen.dart';
 import 'package:donate_clothes/ui/screens/setting_screen/theme_screen/theme_screen.dart';
 import 'package:donate_clothes/ui/screens/users/profile_screen/profile_screen.dart';
 import 'package:donate_clothes/ui/widgets/basic.dart';
@@ -31,6 +33,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeView>
     with AutomaticKeepAliveClientMixin {
+
   @override
   // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
@@ -57,6 +60,7 @@ class _HomeScreenState extends State<HomeView>
           ),
           backgroundColor: const Color(0xffF9F9F9),
           appBar: AppBar(
+            forceMaterialTransparency: true,
             elevation: 0.0,
             backgroundColor: const Color(0xffF9F9F9),
             leading: IconButton(
@@ -69,15 +73,16 @@ class _HomeScreenState extends State<HomeView>
                 _scaffoldKey.currentState!.openDrawer();
               },
             ),
-            titleSpacing: 80,
-            title: Text(
-              S.of(context).charityy,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w900,
-                fontSize: 3.5.h,
-                color: controller2.app,
-                fontStyle: FontStyle.italic,
+            title: Center(
+              child: Text(
+                S.of(context).charityy,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 3.5.h,
+                  color: controller2.app,
+                  fontStyle: FontStyle.italic,
+                ),
               ),
             ),
             actions: [
@@ -250,6 +255,48 @@ class _HomeScreenState extends State<HomeView>
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          // SizedBox(
+                          //   height: 1.h,
+                          // ),
+                          // Container(
+                          //   height: 120,
+                          //   child: ListView.separated(
+                          //     physics: BouncingScrollPhysics(),
+                          //     itemBuilder: (context, index) => InkWell(
+                          //       onTap: () {
+                          //         navigateTo(context, MyDonationScreen());
+                          //       },
+                          //       child: Container(
+                          //         width: 155,
+                          //         height: 145,
+                          //         decoration: BoxDecoration(
+                          //           borderRadius: BorderRadius.circular(10),
+                          //           image: DecorationImage(
+                          //             image: AssetImage(
+                          //                 '${imageItems[index].image}'),
+                          //             fit: BoxFit.cover,
+                          //           ),
+                          //         ),
+                          //       ),
+                          //     ),
+                          //     separatorBuilder: (context, index) =>
+                          //         const SizedBox(
+                          //       width: 7.0,
+                          //     ),
+                          //     itemCount: imageItems.length,
+                          //     scrollDirection: Axis.horizontal,
+                          //   ),
+                          // ),
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          Text(
+                            S.of(context).ourbr,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                            ),
+                          ),
                           SizedBox(
                             height: 1.h,
                           ),
@@ -259,47 +306,98 @@ class _HomeScreenState extends State<HomeView>
                               physics: BouncingScrollPhysics(),
                               itemBuilder: (context, index) => InkWell(
                                 onTap: () {
-                                  navigateTo(context, MyDonationScreen());
+                                  navigateTo(context, BrandDetailsScreen(id:HomeCubit.get(context).brandsResponse!
+                                      .result![index]
+                                      .sId!));
                                 },
                                 child: Container(
                                   width: 155,
                                   height: 145,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.grey.withOpacity(0.5)),
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          '${imageItems[index].image}'),
-                                      fit: BoxFit.cover,
+                                      image: NetworkImage(
+                                        '${HomeCubit.get(context).brandsResponse?.result?[index].image?.url??""}'
+                                      ),
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
                               ),
                               separatorBuilder: (context, index) =>
-                                  const SizedBox(
+                              const SizedBox(
                                 width: 7.0,
                               ),
-                              itemCount: imageItems.length,
+                              itemCount: HomeCubit.get(context).brandsResponse?.length??0,
                               scrollDirection: Axis.horizontal,
                             ),
                           ),
                           SizedBox(
-                            height: 3.h,
+                            height: 2.5.h,
+                          ),
+                          Text(
+                            S.of(context).ourOr,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 1.h,
+                          ),
+                          Container(
+                            height: 120,
+                            child: ListView.separated(
+                              physics: BouncingScrollPhysics(),
+                              itemBuilder: (context, index) => InkWell(
+                                onTap: () {
+                                  navigateTo(context, OrganizationDetailsScreen(sId:HomeCubit.get(context).organizationResponse!
+                                      .result![index]
+                                      .sId!));
+                                },
+                                child: Container(
+                                  width: 155,
+                                  height: 145,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(color: Colors.grey.withOpacity(0.5)),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                          '${HomeCubit.get(context).organizationResponse!
+                                              .result![index]
+                                              .images![index]
+                                              .url!}'
+                                      ),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              separatorBuilder: (context, index) =>
+                              const SizedBox(
+                                width: 7.0,
+                              ),
+                              itemCount: HomeCubit.get(context).organizationResponse?.length??0,
+                              scrollDirection: Axis.horizontal,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 2.5.h,
                           ),
                           Text(
                             S.of(context).ourWork,
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              fontSize: 20,
+                              fontSize: 18,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 1.h,
-                    ),
+
                     Padding(
-                      padding:  EdgeInsets.all(1.h),
+                      padding:  EdgeInsetsDirectional.only(start: 1.h,end: 1.h,bottom: 2.h),
                       child: Container(
                         width: double.infinity,
                         height: 43.h, // Add height constraint

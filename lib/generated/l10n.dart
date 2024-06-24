@@ -430,11 +430,21 @@ class S {
     );
   }
 
-  /// `Our organization`
+  /// `Our Organizations`
   String get ourOr {
     return Intl.message(
-      'Our organization',
+      'Our Organizations',
       name: 'ourOr',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Our Brands`
+  String get ourbr {
+    return Intl.message(
+      'Our Brands',
+      name: 'ourbr',
       desc: '',
       args: [],
     );
