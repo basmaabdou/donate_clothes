@@ -82,96 +82,119 @@ class OurWorkScreen extends StatelessWidget {
                   color: Color(0xff000000),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                'The donation process is now available',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                  color: controller2.app,
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
               Container(
-                width: double.infinity,
-                height: 15.h,
+                width: 20.h,
+                height: 5.h,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffF1DCC7).withOpacity(.1)),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
+                    color: controller2.app,
+                    borderRadius: BorderRadius.circular(1.h)),
+                child: MaterialButton(
+                  onPressed: () {
+                    donateBottomSheet(context);
+                  },
+                  child: Row(
                     children: [
-                      SizedBox(
-                        height: 10,
+                      Text(
+                        'Donate Now',
+                        style: TextStyle(
+                            color: Color(0xffFFFFFF),
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500),
                       ),
-                      LinearPercentIndicator(
-                        width: 290.0,
-                        lineHeight: 7.0,
-                        percent: 0.5,
-                        barRadius: Radius.circular(10),
-                        progressColor: controller2.app,
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.favorite_rounded,
-                            color: controller2.app,
-                            size: 16,
-                          ),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          Text(
-                            '4562',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12,
-                                color: controller2.app),
-                          ),
-                          SizedBox(
-                            width: 1.h,
-                          ),
-                          Text(
-                            'doners',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 10,
-                            ),
-                          ),
-                          Spacer(),
-                          Container(
-                            width: 15.h,
-                            height: 4.h,
-                            decoration: BoxDecoration(
-                                color: controller2.app,
-                                borderRadius: BorderRadius.circular(1.h)),
-                            child: MaterialButton(
-                              onPressed: () {
-                                donateBottomSheet(context);
-                              },
-                              child: Text(
-                                'Donate Now',
-                                style: TextStyle(
-                                    color: Color(0xffFFFFFF),
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                      SizedBox(width: 1.h,),
+                      Icon(Icons.favorite_sharp, size: 3.h, color: Colors.white)
                     ],
                   ),
                 ),
               ),
+              // Text(
+              //   'The donation process is now available',
+              //   style: TextStyle(
+              //     fontWeight: FontWeight.w700,
+              //     fontSize: 14,
+              //     color: controller2.app,
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: 15,
+              // ),
+
+              // Container(
+              //   width: double.infinity,
+              //   height: 15.h,
+              //   decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(10),
+              //       color: Color(0xffF1DCC7).withOpacity(.1)),
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(10.0),
+              //     child: Column(
+              //       children: [
+              //         SizedBox(
+              //           height: 10,
+              //         ),
+              //         LinearPercentIndicator(
+              //           width: 290.0,
+              //           lineHeight: 7.0,
+              //           percent: 0.5,
+              //           barRadius: Radius.circular(10),
+              //           progressColor: controller2.app,
+              //         ),
+              //         SizedBox(
+              //           height: 15,
+              //         ),
+                      // Row(
+                      //   children: [
+                      //     Icon(
+                      //       Icons.favorite_rounded,
+                      //       color: controller2.app,
+                      //       size: 16,
+                      //     ),
+                      //     SizedBox(
+                      //       width: 1.h,
+                      //     ),
+                      //     Text(
+                      //       '4562',
+                      //       style: TextStyle(
+                      //           fontWeight: FontWeight.w700,
+                      //           fontSize: 12,
+                      //           color: controller2.app),
+                      //     ),
+                      //     SizedBox(
+                      //       width: 1.h,
+                      //     ),
+                      //     Text(
+                      //       'doners',
+                      //       style: TextStyle(
+                      //         fontWeight: FontWeight.w400,
+                      //         fontSize: 10,
+                      //       ),
+                      //     ),
+                      //     Spacer(),
+                      //     Container(
+                      //       width: 15.h,
+                      //       height: 4.h,
+                      //       decoration: BoxDecoration(
+                      //           color: controller2.app,
+                      //           borderRadius: BorderRadius.circular(1.h)),
+                      //       child: MaterialButton(
+                      //         onPressed: () {
+                      //           donateBottomSheet(context);
+                      //         },
+                      //         child: Text(
+                      //           'Donate Now',
+                      //           style: TextStyle(
+                      //               color: Color(0xffFFFFFF),
+                      //               fontSize: 13,
+                      //               fontWeight: FontWeight.w400),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //   ],
+                      // ),
+                    // ],
+                  // ),
+                // ),
+              // ),
             ],
           ),
         ),

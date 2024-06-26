@@ -108,13 +108,13 @@ class _HomeScreenState extends State<HomeView>
                     CarouselSlider(
                         items: [
                           HomeSliderItem(
-                            image: 'assets/images/gaza2.jpeg',
+                            image: 'assets/images/gaza1.jpeg',
                             text1: 'Be of help and hope',
                             text2: 'for',
                             text3: 'the children of Gaza',
                           ),
                           HomeSliderItem(
-                            image: 'assets/images/gaza1.jpeg',
+                            image: 'assets/images/gaza5.jpeg',
                             text1: S.of(context).c71,
                             text2: 'Together, we can make a difference',
                           ),

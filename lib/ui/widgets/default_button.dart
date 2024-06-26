@@ -13,10 +13,9 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 315,
-      height: 5.5.h,
+      height: 6.h,
       decoration: BoxDecoration(
-          color: controller.app, borderRadius: BorderRadius.circular(20)),
+          color: controller.app, borderRadius: BorderRadius.circular(15)),
       child: MaterialButton(
         onPressed: fun,
         child: Text(
@@ -24,7 +23,7 @@ class DefaultButton extends StatelessWidget {
           style: TextStyle(
               color: controller.textApp,
               fontSize: 18,
-              fontWeight: FontWeight.w400),
+              fontWeight: FontWeight.w500),
         ),
       ),
     );

@@ -130,7 +130,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                                     ),
                                     image: DecorationImage(
                                       image: AssetImage(
-                                          'assets/images/gaza2.jpeg'),
+                                          'assets/images/c2.jpg'),
                                       fit: BoxFit.fill,
                                     )),
                               ),

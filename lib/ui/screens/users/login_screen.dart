@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../shared/constants.dart';
@@ -64,186 +65,230 @@ class _LoginScreenState extends State<LoginScreen> {
             key: formKey,
             child: Scaffold(
               backgroundColor: const Color(0xffFFFFFF),
-              appBar: AppBar(
-                backgroundColor: const Color(0xffFFFFFF),
-                elevation: 0,
-              ),
-              body: Center(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Directionality(
-                      textDirection: controller.selectedIndex == 0
-                          ? TextDirection.ltr
-                          : TextDirection.rtl,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            S.of(context).welcomBack,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 32,
-                                color: Color(0xff264446)),
-                          ),
-                          SizedBox(
-                            height: 7,
-                          ),
-                          Text(
-                            S.of(context).enterData,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xff828A89)),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          defaultTextForm(
-                              controller: emailController,
-                              type: TextInputType.emailAddress,
-                              hintText: S.of(context).Email,
-                              validate: (value) {
-                                if (value!.isEmpty) {
-                                  return 'email must be not empty';
-                                }
-                                return null;
-                              },
-                              prefix: Icons.email_outlined),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          defaultTextForm(
-                              controller: passController,
-                              type: TextInputType.visiblePassword,
-                              hintText: S.of(context).Password,
-                              validate: (value) {
-                                if (value.isEmpty) {
-                                  return 'the password not allow to be empty';
-                                }
-                                return null;
-                              },
-                              prefix: Icons.lock,
-                              suffix: isPassword
-                                  ? Icons.visibility
-                                  : Icons.visibility_off,
-                              isPassword: !isPassword,
-                              suffixPressed: () {
-                                setState(() {
-                                  isPassword = !isPassword;
-                                });
-                              }),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          ForgetPasswordPage()),
-                                );
-                              },
-                              child: Text(
-                                S.of(context).forgetPassword,
-                                style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w700,
-                                    color: controller.app),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 25,
-                          ),
-                          Center(
-                            child: ConditionalBuilder(
-                              condition: state is! LoginLoadingState,
-                              builder: (context) => Column(
-                                children: [
-                                  DefaultButton(
-                                      text: S.of(context).login,
-                                      fun: () {
-                                        if (formKey.currentState!.validate()) {
-                                          UserCubit.get(context).userLogin(
-                                              email: emailController.text,
-                                              password: passController.text);
-                                        }
-                                      }),
-                                ],
-                              ),
-                              fallback: (context) => Center(
-                                  child: CircularProgressIndicator(
-                                color: controller.app,
-                              )),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Container(
-                            height: 50,
-                            // Adjust the height according to your needs
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  S.of(context).anotheAcc,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600,
-                                      color: Color(0xff756B6B)),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                RegisterScreen()));
-                                  },
-                                  child: Text(
-                                    S.of(context).signUp,
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700,
-                                        color: controller.app),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 45.0),
-                            child: MaterialButton(
-                              onPressed: () async {
-                                await signInWithGoogle();
-                              },
-                              height: 45.0,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  side: BorderSide(color: Colors.grey)),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Image.network(
-                                    'http://pngimg.com/uploads/google/google_PNG19635.png',
-                                    height: 30.0,
-                                  ),
-                                  SizedBox(width: 8.0),
-                                  Text(
-                                    'Google',
-                                    style: TextStyle(
-                                        fontSize: 20.0,
-                                        color: Color(0xff756B6B)),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+              // appBar: PreferredSize(
+              //     preferredSize:
+              //     const Size.fromHeight(0.0), // here the desired height
+              //     child: AppBar(
+              //       backgroundColor: Color(0xffFFFFFF),
+              //       elevation: 0,
+              //     )),
+              body: SingleChildScrollView(
+                child: Directionality(
+                  textDirection: controller.selectedIndex == 0
+                      ? TextDirection.ltr
+                      : TextDirection.rtl,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image(image: AssetImage('assets/images/blueLogo.jpg'),width:double.infinity,height:30.h,fit: BoxFit.fill,),
+                      SizedBox(height: 5.h,),
+                     Padding(
+                       padding:  EdgeInsetsDirectional.symmetric(horizontal: 2.h),
+                       child: Center(
+                         child: Column(
+                           mainAxisAlignment: MainAxisAlignment.center,
+                           children: [
+                             Text(
+                              'Login to your Account',
+                               style: TextStyle(
+                                   fontWeight: FontWeight.w700,
+                                   fontSize: 3.h,
+                                   color: controller2.app),
+                             ),
+                             SizedBox(
+                               height: 7,
+                             ),
+                             Text(
+                              'Your generosity can change lives. Donate today and make a difference!',
+                               textAlign: TextAlign.center,
+                               style: TextStyle(
+                                   fontWeight: FontWeight.w400,
+                                   fontSize: 15,
+                                   color: Color(0xff828A89)),
+                             ),
+                             SizedBox(
+                               height: 5 .h,
+                             ),
+                             defaultTextForm(
+                                 controller: emailController,
+                                 type: TextInputType.emailAddress,
+                                 hintText: S.of(context).Email,
+                                 validate: (value) {
+                                   if (value!.isEmpty) {
+                                     return 'email must be not empty';
+                                   }
+                                   return null;
+                                 },
+                                 prefix: Icons.email_outlined),
+                             const SizedBox(
+                               height: 25,
+                             ),
+                             defaultTextForm(
+                                 controller: passController,
+                                 type: TextInputType.visiblePassword,
+                                 hintText: S.of(context).Password,
+                                 validate: (value) {
+                                   if (value.isEmpty) {
+                                     return 'the password not allow to be empty';
+                                   }
+                                   return null;
+                                 },
+                                 prefix: Icons.lock,
+                                 suffix: isPassword
+                                     ? Icons.visibility
+                                     : Icons.visibility_off,
+                                 isPassword: !isPassword,
+                                 suffixPressed: () {
+                                   setState(() {
+                                     isPassword = !isPassword;
+                                   });
+                                 }),
+                             // Align(
+                             //   alignment: Alignment.centerRight,
+                             //   child: TextButton(
+                             //     onPressed: () {
+                             //       Navigator.push(
+                             //         context,
+                             //         MaterialPageRoute(
+                             //             builder: (context) =>
+                             //                 ForgetPasswordPage()),
+                             //       );
+                             //     },
+                             //     child: Text(
+                             //       S.of(context).forgetPassword,
+                             //       style: TextStyle(
+                             //           fontSize: 16.0,
+                             //           fontWeight: FontWeight.w700,
+                             //           color: controller.app),
+                             //     ),
+                             //   ),
+                             // ),
+                             const SizedBox(
+                               height: 20,
+                             ),
+                             Center(
+                               child: ConditionalBuilder(
+                                 condition: state is! LoginLoadingState,
+                                 builder: (context) => Container(
+                                   width: 315,
+                                   child: DefaultButton(
+                                       text: S.of(context).login,
+                                       fun: () {
+                                         if (formKey.currentState!.validate()) {
+                                           UserCubit.get(context).userLogin(
+                                               email: emailController.text,
+                                               password: passController.text);
+                                         }
+                                       }),
+                                 ),
+                                 fallback: (context) => Center(
+                                     child: CircularProgressIndicator(
+                                       color: controller.app,
+                                     )),
+                               ),
+                             ),
+                             SizedBox(
+                               height: 4.h,
+                             ),
+                         Row(
+                           children: <Widget>[
+                             Expanded(
+                               child: Divider(
+                                 thickness: 1.5,
+                                 color: Colors.grey[400],
+                               ),
+                             ),
+                             Padding(
+                               padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                               child: Text(
+                                 'OR',
+                                 style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500,color: Colors.grey[600]),
+                               ),
+                             ),
+                             Expanded(
+                               child: Divider(
+                                 thickness: 1.5,
+                                 color: Colors.grey[400],
+                               ),
+                             ),
+                           ],
+                         ),
+                             SizedBox(height: 3.h,),
+                             Center(
+                               child: DefaultButton(
+                                   text: "Create new account",
+                                   fun: () {
+                                      navigateTo(context, RegisterScreen());
+                                   }),
+                               ),
+                             // Row(
+                             //   mainAxisAlignment: MainAxisAlignment.center,
+                             //   children: [
+                             //     Text(
+                             //       S.of(context).anotheAcc,
+                             //       style: TextStyle(
+                             //           fontSize: 20,
+                             //           fontWeight: FontWeight.w600,
+                             //           color: Color(0xff756B6B)),
+                             //     ),
+                             //     TextButton(
+                             //       onPressed: () {
+                             //         Navigator.push(
+                             //             context,
+                             //             MaterialPageRoute(
+                             //                 builder: (context) =>
+                             //                     RegisterScreen()));
+                             //       },
+                             //       child: Text(
+                             //         S.of(context).signUp,
+                             //         style: TextStyle(
+                             //             fontSize: 20,
+                             //             fontWeight: FontWeight.w700,
+                             //             color: controller.app),
+                             //       ),
+                             //     )
+                             //   ],
+                             // ),
+
+
+
+
+
+
+                             /////////////////////////////////////
+                             // Padding(
+                             //   padding: EdgeInsets.symmetric(horizontal: 45.0),
+                             //   child: MaterialButton(
+                             //     onPressed: () async {
+                             //       await signInWithGoogle();
+                             //     },
+                             //     height: 45.0,
+                             //     shape: RoundedRectangleBorder(
+                             //         borderRadius: BorderRadius.circular(10.0),
+                             //         side: BorderSide(color: Colors.grey)),
+                             //     child: Row(
+                             //       mainAxisAlignment: MainAxisAlignment.center,
+                             //       children: [
+                             //         Image.network(
+                             //           'http://pngimg.com/uploads/google/google_PNG19635.png',
+                             //           height: 30.0,
+                             //         ),
+                             //         SizedBox(width: 8.0),
+                             //         Text(
+                             //           'Google',
+                             //           style: TextStyle(
+                             //               fontSize: 20.0,
+                             //               color: Color(0xff756B6B)),
+                             //         ),
+                             //       ],
+                             //     ),
+                             //   ),
+                             // ),
+                           ],
+                         ),
+                       ),
+                     )
+                    ],
                   ),
                 ),
               ),
@@ -254,30 +299,62 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Future<void> signInWithGoogle() async {
-    try {
-      GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
-      if (googleSignInAccount != null) {
-        GoogleSignInAuthentication googleSignInAuthentication =
-            await googleSignInAccount.authentication;
-        AuthCredential authCredential = GoogleAuthProvider.credential(
-          idToken: googleSignInAuthentication.idToken,
-          accessToken: googleSignInAuthentication.accessToken,
-        );
-        UserCredential authResult =
-            await _auth.signInWithCredential(authCredential);
-        User user = authResult.user!;
-        print('User email: ${user.email}');
+  // Future<void> signInWithGoogle() async {
+  //   try {
+  //     GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
+  //     if (googleSignInAccount != null) {
+  //       GoogleSignInAuthentication googleSignInAuthentication =
+  //           await googleSignInAccount.authentication;
+  //       AuthCredential authCredential = GoogleAuthProvider.credential(
+  //         idToken: googleSignInAuthentication.idToken,
+  //         accessToken: googleSignInAuthentication.accessToken,
+  //       );
+  //       UserCredential authResult =
+  //           await _auth.signInWithCredential(authCredential);
+  //       User user = authResult.user!;
+  //       print('User email: ${user.email}');
+  //
+  //       Navigator.pushReplacement(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => LayoutScreen()),
+  //       );
+  //     } else {
+  //       print('Google sign in failed.');
+  //     }
+  //   } catch (error) {
+  //     print('Error signing in with Google: $error');
+  //   }
+  // }
 
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => LayoutScreen()),
-        );
-      } else {
-        print('Google sign in failed.');
+  Future<UserCredential> signInWithGoogle() async {
+    try {
+      // Trigger the authentication flow
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      if (googleUser == null) {
+        // If the user cancels the sign-in, we return early
+        return Future.error('Sign in aborted by user');
       }
-    } catch (error) {
-      print('Error signing in with Google: $error');
+
+      // Obtain the auth details from the request
+      final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+
+      // Create a new credential
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken,
+      );
+
+      // Once signed in, return the UserCredential
+      UserCredential userCredential = await FirebaseAuth.instance.signInWithCredential(credential);
+
+      navigateFinish(context, LayoutScreen());
+
+      return userCredential;
+    } catch (e) {
+      print('Error signing in with Google: $e');
+      return Future.error('Error signing in with Google: $e');
     }
   }
+
 }

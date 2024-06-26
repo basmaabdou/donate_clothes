@@ -123,7 +123,7 @@ class _MyDonationViewState extends State<MyDonationView>
                             height: 7,
                           ),
                           Text(
-                            'You have contributed to the helping of \n many  people this month',
+                            'You have contributed to the helping of \n many people this month',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,

@@ -71,24 +71,30 @@ class _OnBoardingScreenTwoState extends State<OnBoardingScreenTwo> {
               SizedBox(
                 height: 2.5.h,
               ),
-              Text(
-                'when we give cheerfully and accept \ngratefully everyone is blessed',
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                    fontSize: 1.8.h,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff000000)),
+              Padding(
+                padding:  EdgeInsets.symmetric(horizontal: 3.h),
+                child: Text(
+                  'Help us bring hope and support to those who need it most. Your donation matters',
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                      fontSize: 1.8.h,
+                      fontWeight: FontWeight.w400,
+                      color: Color(0xff000000)),
+                ),
               ),
               SizedBox(
                 height: 2.h,
               ),
               //Spacer(),
-              DefaultButton(
-                text: 'Get Start',
-                fun: () {
-                  submit();
-                },
+              Container(
+                width: 30.h,
+                child: DefaultButton(
+                  text: 'Get Start',
+                  fun: () {
+                    submit();
+                  },
+                ),
               )
             ],
           ),

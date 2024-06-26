@@ -68,18 +68,18 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color: controller2.app,
+                      color:  controller.app ==defaultBlueColor? Color(0xffEAEEF5):Colors.white,
                     )),
                 title: Text(
                   'Donation Clothes Details',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      color: controller2.app),
+                      color:controller.app ==defaultBlueColor? Color(0xffEAEEF5):Colors.white),
                 ),
                 backgroundColor: controller.app == defaultColor
                     ? Color.fromARGB(255, 253, 211, 199)
-                    : Color(0xffD1DFDB),
+                    :controller.app ==defaultBlueColor? Color(0xff8AA1CA):Color(0xffD1DFDB),
                 elevation: 0,
               ),
               body: SingleChildScrollView(
@@ -94,9 +94,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         borderRadius: BorderRadiusDirectional.only(
                             bottomStart: Radius.circular(5.h),
                             bottomEnd: Radius.circular(5.h)),
-                        color: controller.app == defaultColor
+                        color:controller.app == defaultColor
                             ? Color.fromARGB(255, 253, 211, 199)
-                            : Color(0xffD1DFDB),
+                            :controller.app ==defaultBlueColor? Color(0xff8AA1CA):Color(0xffD1DFDB),
+
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(1.h),
@@ -320,8 +321,8 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     ),
                     Center(
                       child: Container(
-                        width: 200,
-                        height: 40,
+                        width: 21.h,
+                        height: 5.5.h,
                         decoration: BoxDecoration(
                             color: controller2.app,
                             borderRadius: BorderRadius.circular(10)),
@@ -515,12 +516,18 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                               );
                             }
                           },
-                          child: Text(
-                            'Donate Now',
-                            style: TextStyle(
-                                color: Color(0xffFFFFFF),
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Donate Now',
+                                style: TextStyle(
+                                    color: Color(0xffFFFFFF),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                              Spacer(),
+                              Icon(Icons.favorite_sharp, size: 3.h, color: Colors.white)
+                            ],
                           ),
                         ),
                       ),

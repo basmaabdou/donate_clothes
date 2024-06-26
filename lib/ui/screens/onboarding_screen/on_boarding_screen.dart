@@ -50,7 +50,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         image4: 'assets/images/gaza1.jpeg',
         title: 'Many People\n Need Many\n Donations',
         body:
-            'when we give cheerfully and accept gratefully everyone is blessed'),
+            'Small acts of kindness can have a big impact. Give generously'),
   ];
 
   var boardController = PageController();

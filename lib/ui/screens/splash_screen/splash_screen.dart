@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:donate_clothes/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
 import '../onboarding_screen/on_boarding_screen.dart';
 import '../setting_screen/setting_controller/theme_controller.dart';
@@ -27,17 +28,24 @@ class _FirstScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+      ),
+      body: Column(
         children: [
+          Spacer(flex: 1),
           Image.asset(
             controller.app == defaultBlueColor
-                ? 'assets/images/blueLogo.jpg'
+                ? 'assets/images/blueLogoo.jpg'
                 : controller.app == defaultGreenColor
                     ? 'assets/images/greenLogo.jpg'
                     : 'assets/images/orangeLogo.jpg',
             fit: BoxFit.fill,
           ),
+          Spacer(flex: 1),
+          Center(child: CircularProgressIndicator(color: controller.app)),
+           SizedBox(height: 4.h),
         ],
       ),
     );
