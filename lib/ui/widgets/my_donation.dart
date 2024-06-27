@@ -78,7 +78,7 @@ class _MyDonationState extends State<MyDonation> {
                           Row(
                             children: [
                               Text(
-                                widget.id,
+                                widget.title,
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,

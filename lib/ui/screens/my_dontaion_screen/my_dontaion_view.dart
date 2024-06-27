@@ -3,6 +3,7 @@ import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/dona
 import 'package:donate_clothes/ui/widgets/basic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../widgets/animation.dart';
 import '../../widgets/default_text_form_field..dart';
@@ -173,7 +174,7 @@ class _MyDonationViewState extends State<MyDonationView>
                           indicatorSize: TabBarIndicatorSize.tab,
                         ),
                         Container(
-                          height: 500,
+                          height: 85.h,
                           child: TabBarView(
                             controller: tabController,
                             children: [
