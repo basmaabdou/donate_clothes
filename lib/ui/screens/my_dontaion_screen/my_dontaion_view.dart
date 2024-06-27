@@ -192,8 +192,6 @@ class _MyDonationViewState extends State<MyDonationView>
                                             .toString(),
                                         status: user.profileModel!.data!
                                             .orders![index].status!,
-                                        date:
-                                            user.profileModel!.data!.createdAt!,
                                         loc: user.profileModel!.data!
                                             .orders![index].location!,
                                         id: user.profileModel!.data!
@@ -225,8 +223,6 @@ class _MyDonationViewState extends State<MyDonationView>
                                             .toString(),
                                         status: user.profileModel!.data!
                                             .orders![index].status!,
-                                        date:
-                                            user.profileModel!.data!.createdAt!,
                                         loc: user.profileModel!.data!
                                             .orders![index].location!,
                                         id: user.profileModel!.data!

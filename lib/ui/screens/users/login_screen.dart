@@ -53,11 +53,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
             if (state.loginModel.success == false) {
               messageToast(
-                  msg: state.loginModel.message!, state: ToastStates.ERROR);
+                  msg: 'check your internet', state: ToastStates.ERROR);
             }
           }
           if (state is LoginErrorState) {
-            messageToast(msg: state.error, state: ToastStates.ERROR);
+            messageToast(msg: 'User Name or Password is wrong', state: ToastStates.ERROR);
           }
         },
         builder: (BuildContext context, Object? state) {

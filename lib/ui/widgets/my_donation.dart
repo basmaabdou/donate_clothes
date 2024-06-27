@@ -7,14 +7,13 @@ import '../screens/coins_screen/coins_screen.dart';
 import 'basic.dart';
 
 class MyDonation extends StatefulWidget {
-  final String title, status, loc, date, id;
+  final String title, status, loc, id;
   final int coins;
 
   const MyDonation(
       {super.key,
       required this.title,
       required this.status,
-      required this.date,
       required this.loc,
       required this.id,
       required this.coins});
@@ -43,7 +42,7 @@ class _MyDonationState extends State<MyDonation> {
         builder: (context, state) {
           return Container(
             width: double.infinity,
-            height: 14.h,
+            // height: 14.h,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20), color: Colors.white),
             child: Padding(
@@ -54,7 +53,7 @@ class _MyDonationState extends State<MyDonation> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 16.0),
+                      padding:  EdgeInsets.only(top: 1.h),
                       child: Container(
                         width: 70,
                         height: 70,
@@ -79,10 +78,10 @@ class _MyDonationState extends State<MyDonation> {
                           Row(
                             children: [
                               Text(
-                                widget.title,
+                                widget.id,
                                 style: TextStyle(
                                     fontSize: 14,
-                                    fontWeight: FontWeight.w400,
+                                    fontWeight: FontWeight.w500,
                                     color: Color(0xff323232)),
                               ),
                               Spacer(),
@@ -158,7 +157,7 @@ class _MyDonationState extends State<MyDonation> {
                                 color: Color(0xff767676)),
                           ),
                           Text(
-                            widget.loc,
+                            'Location: ${widget.loc}',
                             overflow: TextOverflow.ellipsis,
                             maxLines: 1,
                             style: TextStyle(
@@ -166,16 +165,13 @@ class _MyDonationState extends State<MyDonation> {
                                 fontWeight: FontWeight.w400,
                                 color: Color(0xff767676)),
                           ),
-                          Text(
-                            widget.date.split("T")[0],
-                            style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Color(0xff767676)),
+                          SizedBox(
+                            height: 2.h,
                           ),
                         ],
                       ),
                     ),
+
                   ],
                 )),
           );

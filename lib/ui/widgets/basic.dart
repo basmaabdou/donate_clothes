@@ -82,7 +82,44 @@ Future<void> donateBottomSheet(context) => showModalBottomSheet<void>(
                         child: Column(
                           children: [
                             Text(
-                              "Clothes/Food",
+                              "Money",
+                              style: TextStyle(
+                                  color: controller.app,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            Container(
+                              width: 25.h,
+                              child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: controller.app ==
+                                          defaultColor
+                                          ? Color(0xffF8724E)
+                                          : controller.app == defaultGreenColor
+                                          ? Color(0xff367562)
+                                          : Color(0xff4469AB),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                          BorderRadius.circular(10))),
+                                  child: Text(
+                                    'PAYMOB',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  onPressed: () => {
+                                    Navigator.push(context,
+                                        SizeTransition1(PaymentView())),
+                                  }),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        width: 2.h,
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Other Donation",
                               style: TextStyle(
                                   color: controller.app,
                                   fontWeight: FontWeight.w800),
@@ -101,49 +138,12 @@ Future<void> donateBottomSheet(context) => showModalBottomSheet<void>(
                                         borderRadius:
                                             BorderRadius.circular(10))),
                                 child: Text(
-                                  'Dontate',
+                                  'Donation form',
                                   style: TextStyle(color: Colors.white),
                                 ),
                                 onPressed: () => Navigator.push(context,
                                     SizeTransition1(DonateClothesDetails())),
                               ),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        width: 2.h,
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Text(
-                              "Money",
-                              style: TextStyle(
-                                  color: controller.app,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            Container(
-                              width: 25.h,
-                              child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: controller.app ==
-                                              defaultColor
-                                          ? Color(0xffF8724E)
-                                          : controller.app == defaultGreenColor
-                                              ? Color(0xff367562)
-                                              : Color(0xff4469AB),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10))),
-                                  child: Text(
-                                    'PAYMOB',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  onPressed: () => {
-                                        Navigator.push(context,
-                                            SizeTransition1(PaymentView())),
-                                      }),
                             )
                           ],
                         ),

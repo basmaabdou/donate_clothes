@@ -6,6 +6,7 @@ import 'package:sizer/sizer.dart';
 import '../../shared/constants.dart';
 import '../screens/coins_screen/coins_screen.dart';
 import '../screens/my_dontaion_screen/my_donation_screen.dart';
+import '../screens/setting_screen/about_us/about_us.dart';
 import '../screens/setting_screen/lang_screen/lang_view.dart';
 import '../screens/setting_screen/theme_screen/theme_screen.dart';
 import '../screens/users/profile_screen/cubit_profile/cubit.dart';
@@ -213,25 +214,30 @@ class DrawerContainer extends StatelessWidget {
           SizedBox(
             height: 3.h,
           ),
-          Row(
-            children: [
-              Icon(
-                Icons.help,
-                color: Colors.white,
-                size: 26,
-              ),
-              SizedBox(
-                width: 3.h,
-              ),
-              Text(
-                'About Us',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w400,
-                  color: Color(0xffF9F9F9),
+          InkWell(
+            onTap: (){
+              navigateTo(context, AboutUsView());
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.help,
+                  color: Colors.white,
+                  size: 26,
                 ),
-              ),
-            ],
+                SizedBox(
+                  width: 3.h,
+                ),
+                Text(
+                  'About Us',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w400,
+                    color: Color(0xffF9F9F9),
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(height: 3.h),
           InkWell(

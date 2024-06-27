@@ -13,6 +13,7 @@ import '../../../shared/constants.dart';
 import '../../widgets/logout.dart';
 import '../../widgets/setting_row.dart';
 import '../layout_screen/layout_screen.dart';
+import 'about_us/about_us.dart';
 
 class SettingScreen extends StatelessWidget {
   SettingController controller = Get.find();
@@ -154,7 +155,7 @@ class SettingScreen extends StatelessWidget {
                     txt: S.of(context).aboutus,
                     endText: '',
                     onTap: () {
-                      //  Get.to(() => AboutUsView());
+                       Get.to(() => AboutUsView());
                     },
                   ),
                 ],
