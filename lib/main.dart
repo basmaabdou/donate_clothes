@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
               locale: const Locale('en'),
               supportedLocales: S.delegate.supportedLocales,
               debugShowCheckedModeBanner: false,
-              home: startWidget,
+              home: SplashScreen(),
             );
           },
         ));
