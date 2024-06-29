@@ -34,8 +34,8 @@ class AboutUsView extends StatelessWidget {
                             image: AssetImage(controller.app == defaultBlueColor
                                 ? 'assets/images/blueLogo.jpg'
                                 : controller.app == defaultGreenColor
-                                    ? 'assets/images/greenLogo.jpg'
-                                    : 'assets/images/orangeLogo.jpg'),
+                                    ? 'assets/images/greenLogo.jpeg'
+                                    : 'assets/images/orangeLogo.jpeg'),
                             fit: BoxFit.cover,
                           ),
                         ),
