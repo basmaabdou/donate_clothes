@@ -129,8 +129,7 @@ class _EditProfileState extends State<EditProfileScreen> {
                                       bottomRight: Radius.circular(8),
                                     ),
                                     image: DecorationImage(
-                                      image: AssetImage(
-                                          'assets/images/c2.jpg'),
+                                      image: AssetImage('assets/images/c2.jpg'),
                                       fit: BoxFit.fill,
                                     )),
                               ),
@@ -147,18 +146,33 @@ class _EditProfileState extends State<EditProfileScreen> {
                                                 as ImageProvider<Object>?
                                             : FileImage(profileImage!),
                                       )
-                                    : CircleAvatar(
-                                        radius: 11.h,
-                                        backgroundImage: NetworkImage(
-                                            ProfileCubit.get(context)
-                                                .profileModel!
-                                                .data!
-                                                .profilephoto!
-                                                .url!),
+                                    : ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(10.0),
+                                        child: Image.network(
+                                          ProfileCubit.get(context)
+                                                  .profileModel
+                                                  ?.data
+                                                  ?.profilephoto
+                                                  ?.url ??
+                                              'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
+                                          width: 50.h,
+                                          height: 25.h,
+                                        ),
                                       ),
+
+                                // CircleAvatar(
+                                //         radius: 11.h,
+                                //         backgroundImage: NetworkImage(
+                                //             ProfileCubit.get(context)
+                                //                 .profileModel!
+                                //                 .data!
+                                //                 .profilephoto!
+                                //                 .url!),
+                                //       ),
                                 Positioned(
                                   top: 15.h,
-                                  right: 0.5.h,
+                                  right: 13.h,
                                   child: IconButton(
                                       onPressed: () {
                                         getImageFromGallery();
@@ -178,57 +192,6 @@ class _EditProfileState extends State<EditProfileScreen> {
                         ),
                       ),
 
-                      // if(state is LoadingUpdateProfileImageState)
-                      //   LinearProgressIndicator(backgroundColor: controller2.app,),
-                      // if(state is LoadingUpdateProfileImageState)
-                      //   SizedBox(
-                      //     height: 10,
-                      //   ),
-                      // if(state is LoadingUpdateProfileState)
-                      //   LinearProgressIndicator(backgroundColor:controller2.app),
-                      // if(state is LoadingUpdateProfileState)
-                      //   SizedBox(
-                      //     height: 10,
-                      //   ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      // Center(
-                      //   child: Stack(
-                      //     alignment: AlignmentDirectional.bottomEnd,
-                      //     children: [
-                      //       profileImage != null
-                      //           ? CircleAvatar(
-                      //         radius: 80,
-                      //         backgroundImage: (profileImage == null)
-                      //             ? NetworkImage(profileImage as String)
-                      //         as ImageProvider<Object>?
-                      //             : FileImage(profileImage!),
-                      //       )
-                      //           : CircleAvatar(
-                      //         radius: 80,
-                      //         backgroundImage:
-                      //         NetworkImage(ProfileCubit.get(context).profileModel!.data!.profilephoto!.url!),
-                      //       ),
-                      //       Positioned(
-                      //         top: 13.h,
-                      //         right: 1.h,
-                      //         child: IconButton(
-                      //             onPressed: () {
-                      //               getImageFromGallery();
-                      //             },
-                      //             icon: CircleAvatar(
-                      //                 radius: 20,
-                      //                 backgroundColor: controller2.app,
-                      //                 child: Icon(
-                      //                   Icons.camera_alt_outlined,
-                      //                   size: 20,
-                      //                   color: Colors.white,
-                      //                 ))),
-                      //       ),
-                      //     ],
-                      //   ),
-                      // ),
 
                       Padding(
                         padding: const EdgeInsets.all(15.0),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/states.dart';
@@ -6,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
 import '../../../shared/constants.dart';
 import '../../widgets/ThemeImage.widget.dart';
@@ -42,6 +45,18 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
 
   double quality = 1;
   int? isSelectedIndex = 0;
+  File? image;
+
+  Future<void> pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      setState(() {
+        image = File(pickedFile.path);
+      });
+      print(image);
+
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -319,6 +334,44 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     SizedBox(
                       height: 0.5.h,
                     ),
+                    Padding(
+                      padding:  EdgeInsetsDirectional.symmetric(horizontal: 2.h),
+                      child: Container(
+                        width: double.infinity,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 1,
+                          ),
+                        ),
+                        child: image == null
+                            ? Center(
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Upload donation image",style: TextStyle(color: controller.app, fontWeight: FontWeight.w600,
+                                  fontSize: 16),),
+                              IconButton(
+                                  onPressed: () {
+                                    pickImage();
+                                  },
+                                  icon: Icon(
+                                    Icons.camera_alt_outlined,
+                                    size: 20,
+                                    color: controller.app,
+                                  )),
+                            ],
+                          ),
+                        )
+                            : Image.file(image!, fit: BoxFit.cover),
+                      ),
+                    ),
+                    SizedBox(
+                      height:2.h,
+                    ),
                     Center(
                       child: Container(
                         width: 21.h,
@@ -329,15 +382,21 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         child: MaterialButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              DonationCubit.get(context).createUserOrderData(
-                                itemsName: clothController.text,
-                                location: addressController.text,
-                                charity: OrganizationCubit.get(context)
-                                        .idOrganization ??
-                                    '656a214e49ffe49ca85e71f2',
-                                quantity: quality,
-                                phone: phoneController.text,
-                              );
+                              if(image !=null) {
+                                DonationCubit.get(context).createUserOrderData(
+                                  itemsName: clothController.text,
+                                  location: addressController.text,
+                                  charity: OrganizationCubit
+                                      .get(context)
+                                      .idOrganization ??
+                                      '656a214e49ffe49ca85e71f2',
+                                  quantity: quality,
+                                  phone: phoneController.text,
+                                  image: image!.path,
+                                );
+                              }else{
+                                print("Upload image");
+                              }
                               Get.defaultDialog(
                                 title: '',
                                 content: Padding(

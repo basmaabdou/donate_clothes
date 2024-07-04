@@ -87,13 +87,20 @@ class _MyDonationViewState extends State<MyDonationView>
                             child: Column(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderRadius:
+                                  BorderRadius.circular(10.0),
                                   child: Image.network(
-                                    user.profileModel!.data!.profilephoto!.url!,
-                                    width: 100,
-                                    height: 100,
+                                    ProfileCubit.get(context)
+                                        .profileModel
+                                        ?.data
+                                        ?.profilephoto
+                                        ?.url ??
+                                        'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
+                                    width: 28.h,
+                                    height: 13.h,
                                   ),
                                 ),
+
                                 SizedBox(
                                   height: 7,
                                 ),
