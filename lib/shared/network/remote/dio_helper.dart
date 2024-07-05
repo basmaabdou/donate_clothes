@@ -5,7 +5,7 @@ class DioHelper {
 
   static init() {
     dio = Dio(BaseOptions(
-      baseUrl: 'https://f335-102-185-133-194.ngrok-free.app/',
+      baseUrl: 'https://donation-system-utjy.onrender.com/',
       receiveDataWhenStatusError: true,
     ));
   }
@@ -33,27 +33,28 @@ class DioHelper {
     dynamic data,
     String lang = 'en',
     String? token,
-    // String? token,
   }) async {
     dio!.options.headers = {
-      'Content-Type': 'application/json',
+      // 'Content-Type': 'application/json',
       'lang': lang,
       'Authorization': 'Bearer ${token}' ?? '',
     };
     return dio!.post(url, queryParameters: query, data: data);
   }
 
+
+
   static Future<Response> postDonateData({
     required String url,
     Map<String, dynamic>? query,
-    dynamic data,
+    required FormData data,
     String lang = 'en',
     String? token,
   }) async {
     dio!.options.headers = {
-      'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>',
+      'Content-Type':'multipart/form-data; boundary=<calculated when request is sent>',
       'lang': lang,
-      'Authorization': 'Bearer ${token}' ?? '',
+      'Authorization': 'Bearer $token' ?? '',
     };
     return dio!.post(url, queryParameters: query, data: data);
   }

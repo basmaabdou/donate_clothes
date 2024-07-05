@@ -96,101 +96,101 @@ class _EditProfileState extends State<EditProfileScreen> {
                   title: Text(
                     'Edit Prifile',
                     style: TextStyle(
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w700,
                         fontSize: 20,
-                        color: Color(0xff000000)),
+                        color: controller.app),
                   ),
                 ),
                 body: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (state is LoadingUpdateProfileImageState)
-                        LinearProgressIndicator(
-                          backgroundColor: controller2.app,
-                        ),
-                      if (state is LoadingUpdateProfileImageState)
-                        SizedBox(
-                          height: 10,
-                        ),
-                      Container(
-                        height: 33.h,
-                        child: Stack(
-                          alignment: AlignmentDirectional.bottomCenter,
-                          children: [
-                            Align(
-                              alignment: AlignmentDirectional.topCenter,
-                              child: Container(
-                                height: 22.h,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(8),
-                                      bottomRight: Radius.circular(8),
-                                    ),
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/c2.jpg'),
-                                      fit: BoxFit.fill,
-                                    )),
-                              ),
-                            ),
-                            Stack(
-                              alignment: AlignmentDirectional.bottomEnd,
-                              children: [
-                                profileImage != null
-                                    ? CircleAvatar(
-                                        radius: 11.h,
-                                        backgroundImage: (profileImage == null)
-                                            ? NetworkImage(
-                                                    profileImage as String)
-                                                as ImageProvider<Object>?
-                                            : FileImage(profileImage!),
-                                      )
-                                    : ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        child: Image.network(
-                                          ProfileCubit.get(context)
-                                                  .profileModel
-                                                  ?.data
-                                                  ?.profilephoto
-                                                  ?.url ??
-                                              'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
-                                          width: 50.h,
-                                          height: 25.h,
-                                        ),
-                                      ),
-
-                                // CircleAvatar(
-                                //         radius: 11.h,
-                                //         backgroundImage: NetworkImage(
-                                //             ProfileCubit.get(context)
-                                //                 .profileModel!
-                                //                 .data!
-                                //                 .profilephoto!
-                                //                 .url!),
-                                //       ),
-                                Positioned(
-                                  top: 15.h,
-                                  right: 13.h,
-                                  child: IconButton(
-                                      onPressed: () {
-                                        getImageFromGallery();
-                                      },
-                                      icon: CircleAvatar(
-                                          radius: 20,
-                                          backgroundColor: controller2.app,
-                                          child: Icon(
-                                            Icons.camera_alt_outlined,
-                                            size: 20,
-                                            color: Colors.white,
-                                          ))),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                      // if (state is LoadingUpdateProfileImageState)
+                      //   LinearProgressIndicator(
+                      //     backgroundColor: controller2.app,
+                      //   ),
+                      // if (state is LoadingUpdateProfileImageState)
+                      //   SizedBox(
+                      //     height: 10,
+                      //   ),
+                      // Container(
+                      //   height: 33.h,
+                      //   child: Stack(
+                      //     alignment: AlignmentDirectional.bottomCenter,
+                      //     children: [
+                      //       Align(
+                      //         alignment: AlignmentDirectional.topCenter,
+                      //         child: Container(
+                      //           height: 22.h,
+                      //           width: double.infinity,
+                      //           decoration: BoxDecoration(
+                      //               borderRadius: BorderRadius.only(
+                      //                 bottomLeft: Radius.circular(8),
+                      //                 bottomRight: Radius.circular(8),
+                      //               ),
+                      //               image: DecorationImage(
+                      //                 image: AssetImage('assets/images/c2.jpg'),
+                      //                 fit: BoxFit.fill,
+                      //               )),
+                      //         ),
+                      //       ),
+                      //       Stack(
+                      //         alignment: AlignmentDirectional.bottomEnd,
+                      //         children: [
+                      //           profileImage != null
+                      //               ? CircleAvatar(
+                      //                   radius: 11.h,
+                      //                   backgroundImage: (profileImage == null)
+                      //                       ? NetworkImage(
+                      //                               profileImage as String)
+                      //                           as ImageProvider<Object>?
+                      //                       : FileImage(profileImage!),
+                      //                 )
+                      //               : ClipRRect(
+                      //                   borderRadius:
+                      //                       BorderRadius.circular(10.0),
+                      //                   child: Image.network(
+                      //                     ProfileCubit.get(context)
+                      //                             .profileModel
+                      //                             ?.data
+                      //                             ?.profilephoto
+                      //                             ?.url ??
+                      //                         'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
+                      //                     width: 50.h,
+                      //                     height: 25.h,
+                      //                   ),
+                      //                 ),
+                      //
+                      //           // CircleAvatar(
+                      //           //         radius: 11.h,
+                      //           //         backgroundImage: NetworkImage(
+                      //           //             ProfileCubit.get(context)
+                      //           //                 .profileModel!
+                      //           //                 .data!
+                      //           //                 .profilephoto!
+                      //           //                 .url!),
+                      //           //       ),
+                      //           Positioned(
+                      //             top: 15.h,
+                      //             right: 13.h,
+                      //             child: IconButton(
+                      //                 onPressed: () {
+                      //                   getImageFromGallery();
+                      //                 },
+                      //                 icon: CircleAvatar(
+                      //                     radius: 20,
+                      //                     backgroundColor: controller2.app,
+                      //                     child: Icon(
+                      //                       Icons.camera_alt_outlined,
+                      //                       size: 20,
+                      //                       color: Colors.white,
+                      //                     ))),
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
 
 
                       Padding(
@@ -202,8 +202,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                               'Your Name',
                               style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontSize: 14,
-                                  color: Color(0xff000000)),
+                                  fontSize: 16,
+                                  color:  Color(0xff000000)),
                             ),
                             SizedBox(height: 10),
                             defaultTextForm(
@@ -216,14 +216,13 @@ class _EditProfileState extends State<EditProfileScreen> {
                                   return null;
                                 },
                                 prefix: Icons.person_outline_rounded),
-                            const SizedBox(
-                              height: 25,
-                            ),
+                             SizedBox(
+                              height: 1.5.h,                            ),
                             Text(
                               'Your Password',
                               style: TextStyle(
                                   fontWeight: FontWeight.w900,
-                                  fontSize: 14,
+                                  fontSize: 16,
                                   color: Color(0xff000000)),
                             ),
                             SizedBox(
@@ -248,9 +247,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                                     isPassword = !isPassword;
                                   });
                                 }),
-                            const SizedBox(
-                              height: 25,
-                            ),
+                            SizedBox(
+                              height: 1.5.h,                            ),
                             Text(
                               'Your Phone',
                               style: TextStyle(
@@ -271,44 +269,41 @@ class _EditProfileState extends State<EditProfileScreen> {
                                   return null;
                                 },
                                 prefix: Icons.phone_in_talk_outlined),
-                            const SizedBox(
-                              height: 10,
+                             SizedBox(
+                              height: 3.h ,
+                            ),
+                            Center(
+                              child: Container(
+                                width: double.infinity,
+                                height: 45,
+                                decoration: BoxDecoration(
+                                    color: controller2.app,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: MaterialButton(
+                                  onPressed: () {
+                                    ProfileCubit.get(context).updateUserData(
+                                      username: nameController.text,
+                                      password: passController.text,
+                                      phone: phoneController.text,
+                                    );
+                                    ProfileCubit.get(context).updateUserProfile(
+                                        profilephoto: profilePhoto);
+                                    setState(() {
+                                      ProfileCubit.get(context).getProfileData();
+                                    });
+                                  },
+                                  child: Text(
+                                    'save',
+                                    style: TextStyle(
+                                        color: Color(0xffFFFFFF),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                      Center(
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width / 1.4,
-                          height: 45,
-                          decoration: BoxDecoration(
-                              color: controller2.app,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: MaterialButton(
-                            onPressed: () {
-                              ProfileCubit.get(context).updateUserData(
-                                username: nameController.text,
-                                password: passController.text,
-                                phone: phoneController.text,
-                              );
-                              ProfileCubit.get(context).updateUserProfile(
-                                  profilephoto: profilePhoto);
-                              setState(() {
-                                ProfileCubit.get(context).getProfileData();
-                              });
-                            },
-                            child: Text(
-                              'save',
-                              style: TextStyle(
-                                  color: Color(0xffFFFFFF),
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
                       ),
                     ],
                   ),

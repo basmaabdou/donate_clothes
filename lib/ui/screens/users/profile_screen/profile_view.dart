@@ -30,6 +30,7 @@ class ProfileView extends StatelessWidget {
             appBar: AppBar(
               backgroundColor: controller2.app,
               elevation: 0,
+              leading: IconButton(icon: Icon(Icons.arrow_back,color: controller2.app,),onPressed: (){},),
             ),
             body: Column(
               children: [

@@ -382,7 +382,6 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         child: MaterialButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              if(image !=null) {
                                 DonationCubit.get(context).createUserOrderData(
                                   itemsName: clothController.text,
                                   location: addressController.text,
@@ -392,11 +391,8 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                       '656a214e49ffe49ca85e71f2',
                                   quantity: quality,
                                   phone: phoneController.text,
-                                  image: image!.path,
+                                  image: image! ,
                                 );
-                              }else{
-                                print("Upload image");
-                              }
                               Get.defaultDialog(
                                 title: '',
                                 content: Padding(

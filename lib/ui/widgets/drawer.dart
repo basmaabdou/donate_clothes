@@ -29,47 +29,47 @@ class DrawerContainer extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
+          //   SizedBox(
+          //     height: 3.h,
+          //   ),
+          //   BlocProvider(
+          //   create: (BuildContext context)  =>ProfileCubit()..getProfileData(),
+          //   child: BlocConsumer<ProfileCubit, ProfileStates>(
+          //       listener: (BuildContext context, ProfileStates state) {},
+          //       builder: (BuildContext context, ProfileStates state) {
+          //         var cubit = ProfileCubit.get(context);
+          //         return ConditionalBuilder(
+          //             condition: cubit.profileModel != null,
+          //             builder: (context) => Column(
+          //               children: [
+          //                 ClipRRect(
+          //                   borderRadius: BorderRadius.circular(10.0),
+          //                   child: Image.network(
+          //                     ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
+          //                         'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
+          //                     width: 16.h,
+          //                     height: 15.h,
+          //                   ),
+          //                 ),
+          //                 Text(
+          //                   ProfileCubit.get(context).profileModel?.data?.username.toString() ??
+          //                       '',
+          //                   style: const TextStyle(
+          //                       fontSize: 18,
+          //                       fontWeight: FontWeight.w800,
+          //                       color: Color(0xffFFFFFF)),
+          //                 ),
+          //               ],
+          //             ),
+          //             fallback: (context) => Scaffold(
+          //                 body: Center(
+          //                     child:
+          //                     CircularProgressIndicator(color: controller.app))));
+          //       },
+          //     ),
+          // ),
             SizedBox(
-              height: 3.h,
-            ),
-            BlocProvider(
-            create: (BuildContext context)  =>ProfileCubit()..getProfileData(),
-            child: BlocConsumer<ProfileCubit, ProfileStates>(
-                listener: (BuildContext context, ProfileStates state) {},
-                builder: (BuildContext context, ProfileStates state) {
-                  var cubit = ProfileCubit.get(context);
-                  return ConditionalBuilder(
-                      condition: cubit.profileModel != null,
-                      builder: (context) => Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: Image.network(
-                              ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
-                                  'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
-                              width: 16.h,
-                              height: 15.h,
-                            ),
-                          ),
-                          Text(
-                            ProfileCubit.get(context).profileModel?.data?.username.toString() ??
-                                '',
-                            style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w800,
-                                color: Color(0xffFFFFFF)),
-                          ),
-                        ],
-                      ),
-                      fallback: (context) => Scaffold(
-                          body: Center(
-                              child:
-                              CircularProgressIndicator(color: controller.app))));
-                },
-              ),
-          ),
-            SizedBox(
-              height: 3.h,
+              height: 4.h,
             ),
             InkWell(
               onTap: () {
