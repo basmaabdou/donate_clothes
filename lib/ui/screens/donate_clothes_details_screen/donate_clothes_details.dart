@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 
+import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:dio/dio.dart';
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/cubit.dart';
@@ -10,9 +11,9 @@ import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/sta
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sizer/sizer.dart';
+
 import '../../../shared/constants.dart';
 import '../../widgets/ThemeImage.widget.dart';
 import '../../widgets/basic.dart';
@@ -43,49 +44,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
   var phoneController = TextEditingController();
   var clothController = TextEditingController();
   var numClothController = TextEditingController();
-
   var formKey = GlobalKey<FormState>();
-  // ImagePicker imagePicker=ImagePicker();
-  // List<XFile> pickedImages=[];
-  // Future<void> pickFromCamera()async{
-  //   try{
-  //     XFile? imagee=await imagePicker.pickImage(source:  ImageSource.camera);
-  //     if(imagee!=null){
-  //       setState(() {
-  //         pickedImages.add(imagee);
-  //       });
-  //     }else{
-  //       setState(() {
-  //         pickedImages=[imagee!];
-  //       });
-  //     }
-  //   }catch(e){
-  //     print(e.toString());
-  //   }
-  // }
-  // Future<void> pickFromGallary()async{
-  //   try{
-  //     List<XFile> images=await imagePicker.pickMultiImage();
-  //     if(images!=null){
-  //       setState(() {
-  //         pickedImages.addAll(images);
-  //       });
-  //     }else{
-  //       setState(() {
-  //         pickedImages=images;
-  //       });
-  //     }
-  //   }catch(e){
-  //     print(e.toString());
-  //   }
-  // }
-  // Future<void> RemoveImage({required String imagePath})async{
-  //   setState(() {
-  //     pickedImages.removeWhere(
-  //             (element) => element.path == imagePath);
-  //   });
-  // }
-
 
   double quality = 1;
   int? isSelectedIndex = 0;
@@ -95,12 +54,14 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
     final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
-        image = File(pickedFile.path);
+        image = File(pickedFile.path); // Convert XFile to File
       });
-      print(image);
-
+      print('Picked Image Path: ${image!}');
+    } else {
+      print('No image selected.');
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -127,18 +88,24 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     },
                     icon: Icon(
                       Icons.arrow_back,
-                      color:  controller.app ==defaultBlueColor? Color(0xffEAEEF5):Colors.white,
+                      color: controller.app == defaultBlueColor
+                          ? Color(0xffEAEEF5)
+                          : Colors.white,
                     )),
                 title: Text(
                   'Donation Clothes Details',
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      color:controller.app ==defaultBlueColor? Color(0xffEAEEF5):Colors.white),
+                      color: controller.app == defaultBlueColor
+                          ? Color(0xffEAEEF5)
+                          : Colors.white),
                 ),
                 backgroundColor: controller.app == defaultColor
                     ? Color.fromARGB(255, 253, 211, 199)
-                    :controller.app ==defaultBlueColor? Color(0xff8AA1CA):Color(0xffD1DFDB),
+                    : controller.app == defaultBlueColor
+                    ? Color(0xff8AA1CA)
+                    : Color(0xffD1DFDB),
                 elevation: 0,
               ),
               body: SingleChildScrollView(
@@ -153,10 +120,11 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         borderRadius: BorderRadiusDirectional.only(
                             bottomStart: Radius.circular(5.h),
                             bottomEnd: Radius.circular(5.h)),
-                        color:controller.app == defaultColor
+                        color: controller.app == defaultColor
                             ? Color.fromARGB(255, 253, 211, 199)
-                            :controller.app ==defaultBlueColor? Color(0xff8AA1CA):Color(0xffD1DFDB),
-
+                            : controller.app == defaultBlueColor
+                            ? Color(0xff8AA1CA)
+                            : Color(0xffD1DFDB),
                       ),
                       child: Padding(
                         padding: EdgeInsets.all(1.h),
@@ -171,7 +139,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                             keyboardType: TextInputType.streetAddress,
                             validator: (value) {
                               if (value!.isEmpty) {
-                                return 'adsress must be not empty';
+                                return 'Address must be not empty';
                               }
                               return null;
                             },
@@ -197,7 +165,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15),
                                   borderSide:
-                                      BorderSide(color: controller2.app),
+                                  BorderSide(color: controller2.app),
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(15.0),
@@ -252,11 +220,11 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                       setState(() {
                                         isSelectedIndex = index;
                                         OrganizationCubit.get(context)
-                                                .idOrganization =
+                                            .idOrganization =
                                             OrganizationCubit.get(context)
-                                                    .organizationResponse
-                                                    ?.result?[0]
-                                                    .sId ??
+                                                .organizationResponse
+                                                ?.result?[0]
+                                                .sId ??
                                                 '';
                                       });
                                     },
@@ -274,10 +242,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                         image: DecorationImage(
                                           image: NetworkImage(
                                               OrganizationCubit.get(context)
-                                                      .organizationResponse
-                                                      ?.result?[index]
-                                                      .images?[0]
-                                                      .url ??
+                                                  .organizationResponse
+                                                  ?.result?[index]
+                                                  .images?[0]
+                                                  .url ??
                                                   ''),
                                           fit: BoxFit.fill,
                                         ),
@@ -285,13 +253,13 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                     ),
                                   ),
                                   separatorBuilder: (context, index) =>
-                                      const SizedBox(
+                                  const SizedBox(
                                     width: 25.0,
                                   ),
                                   itemCount: OrganizationCubit.get(context)
-                                          .organizationResponse
-                                          ?.result
-                                          ?.length ??
+                                      .organizationResponse
+                                      ?.result
+                                      ?.length ??
                                       5,
                                   scrollDirection: Axis.horizontal,
                                 ),
@@ -317,7 +285,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                               hintText: "Name of item",
                               validate: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Phone must be not empty';
+                                  return 'Name must be not empty';
                                 }
                                 return null;
                               },
@@ -326,7 +294,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                             height: 20,
                           ),
                           Text(
-                            'phone number',
+                            'Phone Number',
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -345,10 +313,10 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                               }
                               return null;
                             },
-                            prefix: Icons.phone_in_talk_outlined,
+                            prefix: Icons.phone,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 15,
                           ),
                           Text(
                             'Quantity',
@@ -358,309 +326,121 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                 color: Color(0xff767676)),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           defaultTextForm(
                             controller: numClothController,
                             type: TextInputType.number,
-                            hintText: "Number of items",
+                            hintText: "Enter Quantity",
                             validate: (value) {
                               if (value!.isEmpty) {
-                                return 'number must be not empty';
+                                return 'Quantity must be not empty';
                               }
                               return null;
                             },
-                            prefix: Icons.numbers,
+                            prefix: Icons.production_quantity_limits,
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            'Image',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff767676)),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          image != null
+                              ? Image.file(
+                            image!,
+                            width: 100,
+                            height: 100,
+                          )
+                              : Text('No image selected.'),
+                          TextButton(
+                            onPressed: pickImage,
+                            child: Text('Pick Image'),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          BlocConsumer<DonationCubit, DonationStates>(
+                            listener: (context, state) {
+                              if (state is SuccessCreateStates) {
+                                Get.offAll(() => LayoutScreen());
+                                messageToast(
+                                  msg: "Item Added Successfully",
+                                  state: ToastStates.SUCCESS,
+                                );
+                              } else if (state is ErrorCreateStates) {
+                                print(state.error);
+                                messageToast(
+                                  msg: state.error,
+                                  state: ToastStates.ERROR,
+                                );
+                              }
+                            },
+                            builder: (context, state) {
+                              return ConditionalBuilder(
+                                condition: state is! LoadingCreateStates,
+                                builder: (context) => MaterialButton(
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      if (image != null) {
+                                        DonationCubit.get(context)
+                                            .createUserOrderData(
+                                          itemsName: clothController.text,
+                                          location: addressController.text,
+                                          charity: OrganizationCubit.get(
+                                              context)
+                                              .idOrganization ??
+                                              '656a214e49ffe49ca85e71f2',
+                                          quantity: double.parse(
+                                              numClothController.text),
+                                          phone: phoneController.text,
+                                          image: image!,
+                                        );
+
+                                      } else {
+                                        // print(DonationCubit.get(context).createOrder!.status);
+                                        // messageToast(
+                                        //   msg: 'Please select an image',
+                                        //   state: ToastStates.ERROR,
+                                        // );
+                                      }
+                                    }
+                                  },
+                                  color: controller.app,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                      BorderRadius.circular(10.0)),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(15.0),
+                                    child: Center(
+                                      child: Text(
+                                        'Donate Now',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                fallback: (context) => Center(
+                                  child: CircularProgressIndicator(),
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 0.5.h,
-                    ),
-                    Padding(
-                      padding:  EdgeInsetsDirectional.symmetric(horizontal: 2.h),
-                      child: Container(
-                        width: double.infinity,
-                        height: 200,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
-                        child: image == null
-                            ? Center(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("Upload donation image",style: TextStyle(color: controller.app, fontWeight: FontWeight.w600,
-                                  fontSize: 16),),
-                              IconButton(
-                                  onPressed: () {
-                                    pickImage();
-                                  },
-                                  icon: Icon(
-                                    Icons.camera_alt_outlined,
-                                    size: 20,
-                                    color: controller.app,
-                                  )),
-                            ],
-                          ),
-                        )
-                            : Image.file(image!, fit: BoxFit.cover),
-                      ),
-                    ),
-                    SizedBox(
-                      height:2.h,
-                    ),
-                   //  ElevatedButton(onPressed: (){pickFromCamera();}, child: Text('camera')),
-                   //  ElevatedButton(onPressed: (){pickFromGallary();}, child: Text('gallary')),
-                   //  ElevatedButton(onPressed: (){}, child: Text('upload')),
-                   // ListView.separated(
-                   //   shrinkWrap: true,
-                   //     itemBuilder: (context,index){
-                   //       return Stack(
-                   //         children: [
-                   //           Image.file(
-                   //               File (pickedImages[index].path),
-                   //             height: 200,
-                   //             fit: BoxFit.fill,
-                   //           ),
-                   //           InkWell(
-                   //             onTap: (){RemoveImage(imagePath: pickedImages[index].path);},
-                   //             child: Container(
-                   //               height: 20,width: 20,color: Colors.red,
-                   //               child: Text("X"),
-                   //             ),
-                   //           )
-                   //         ],
-                   //       );
-                   //     },
-                   //     separatorBuilder:  (context,index){
-                   //        return SizedBox(height: 10,);
-                   //     },
-                   //     itemCount: pickedImages.length
-                   // ),
-                    Center(
-                      child: Container(
-                        width: 21.h,
-                        height: 5.5.h,
-                        decoration: BoxDecoration(
-                            color: controller2.app,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: MaterialButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                                DonationCubit.get(context).createUserOrderData(
-                                  itemsName: clothController.text,
-                                  location: addressController.text,
-                                  charity: OrganizationCubit
-                                      .get(context)
-                                      .idOrganization ??
-                                      '656a214e49ffe49ca85e71f2',
-                                  quantity: quality,
-                                  phone: phoneController.text,
-                                  image: image!,
-                                );
-                              Get.defaultDialog(
-                                title: '',
-                                content: Padding(
-                                  padding: const EdgeInsets.all(15.0),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Container(
-                                          width: 73,
-                                          height: 71,
-                                          decoration: BoxDecoration(
-                                              color: defaultColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(50)),
-                                          child: Icon(
-                                            Icons.check,
-                                            size: 50,
-                                            color: Colors.white,
-                                          )),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Text(
-                                        'Thank you for your generous',
-                                        style: TextStyle(
-                                            color: defaultColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                      SizedBox(
-                                        height: 7,
-                                      ),
-                                      Text(
-                                        'DONATION!',
-                                        style: TextStyle(
-                                            color: defaultColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Container(
-                                        width: 84,
-                                        height: 80,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadiusDirectional.all(
-                                                  Radius.circular(20)),
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/like.jpg'),
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
-                                      ),
-                                      Center(
-                                        child: Container(
-                                          width: 135,
-                                          height: 37,
-                                          decoration: BoxDecoration(
-                                              color: controller2.app,
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          child: MaterialButton(
-                                            onPressed: () {
-                                              navigateFinish(
-                                                  context, LayoutScreen());
-                                            },
-                                            child: Text(
-                                              'Go home',
-                                              style: TextStyle(
-                                                  color: Color(0xffFFFFFF),
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.w400),
-                                            ),
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }
-                            if (state is SuccessCreateStates) {
-                              Get.defaultDialog(
-                                title: '',
-                                content: Padding(
-                                  padding: const EdgeInsets.all(15.0),
-                                  child: Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Container(
-                                          width: 73,
-                                          height: 71,
-                                          decoration: BoxDecoration(
-                                              color: defaultColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(50)),
-                                          child: Icon(
-                                            Icons.check,
-                                            size: 50,
-                                            color: Colors.white,
-                                          )),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Text(
-                                        'Thank you for your generous',
-                                        style: TextStyle(
-                                            color: defaultColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                      SizedBox(
-                                        height: 7,
-                                      ),
-                                      Text(
-                                        'DONATION!',
-                                        style: TextStyle(
-                                            color: defaultColor,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                      SizedBox(
-                                        height: 15,
-                                      ),
-                                      Container(
-                                        width: 84,
-                                        height: 80,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadiusDirectional.all(
-                                                  Radius.circular(20)),
-                                          image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/like.jpg'),
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
-                                      ),
-                                      Container(
-                                        width: 110,
-                                        height: 35,
-                                        decoration: BoxDecoration(
-                                            color: controller2.app,
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        child: MaterialButton(
-                                          onPressed: () {
-                                            navigateFinish(
-                                                context, LayoutScreen());
-                                          },
-                                          child: Text(
-                                            'Go Home',
-                                            style: TextStyle(
-                                                color: Color(0xffFFFFFF),
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.w400),
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }
-                          },
-                          child: Row(
-                            children: [
-                              Text(
-                                'Donate Now',
-                                style: TextStyle(
-                                    color: Color(0xffFFFFFF),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                              Spacer(),
-                              Icon(Icons.favorite_sharp, size: 3.h, color: Colors.white)
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 2.h,
                     )
                   ],
                 ),

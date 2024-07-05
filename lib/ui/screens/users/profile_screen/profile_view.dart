@@ -59,11 +59,11 @@ class ProfileView extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
                         child: Image.network(
-                          ProfileCubit.get(context)
-                                  .profileModel
-                                  ?.data
-                                  ?.profilephoto
-                                  ?.url ??
+                          // ProfileCubit.get(context)
+                          //         .profileModel
+                          //         ?.data
+                          //         ?.profilephoto
+                          //         ?.url ??
                               'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
                           width: 16.h,
                           height: 15.h,

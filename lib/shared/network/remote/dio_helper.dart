@@ -5,7 +5,7 @@ class DioHelper {
 
   static init() {
     dio = Dio(BaseOptions(
-      baseUrl: 'https://donation-system-production.up.railway.app/',
+      baseUrl: 'https://donation-system-utjy.onrender.com/',
       receiveDataWhenStatusError: true,
     ));
   }
@@ -44,20 +44,28 @@ class DioHelper {
   static Future<Response> postDonateData({
     required String url,
     Map<String, dynamic>? query,
-    dynamic data,
+    FormData? data,
     String lang = 'en',
-    String? token,
+    String? token, required Options options,
   }) async {
     dio!.options.headers = {
-      'Content-Type':'multipart/form-data; boundary=<calculated when request is sent>',
+      'Content-Type': 'multipart/form-data',
       'lang': lang,
-      'Authorization': 'Bearer ${token}' ?? '',
+      'Authorization': 'Bearer ${token ?? ''}',
     };
-    return dio!.post(url, queryParameters: query, data: data);
+
+    try {
+      print('Request URL: ${dio!.options.baseUrl}$url');
+      print('Request Data: $data');
+      print('Request Headers: ${dio!.options.headers}');
+      Response response = await dio!.post(url, queryParameters: query, data: data);
+      print('Response Data: ${response.data}');
+      return response;
+    } catch (e) {
+      print('Dio Error: $e');
+      rethrow;
+    }
   }
-
-
-
 
   static Future<Response> putData({
     required String url,

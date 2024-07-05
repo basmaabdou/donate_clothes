@@ -71,9 +71,9 @@ class _EditProfileState extends State<EditProfileScreen> {
           passController.text =
               ProfileCubit.get(context).editProfileResponse?.data?.password ??
                   "123456";
-          String profilePhoto =
-              ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
-                  "";
+          // String profilePhoto =
+          //     ProfileCubit.get(context).profileModel?.data?.profilephoto?.url ??
+          //         "";
 
           return ConditionalBuilder(
             condition: ProfileCubit.get(context).profileModel != null,
@@ -286,8 +286,8 @@ class _EditProfileState extends State<EditProfileScreen> {
                                       password: passController.text,
                                       phone: phoneController.text,
                                     );
-                                    ProfileCubit.get(context).updateUserProfile(
-                                        profilephoto: profilePhoto);
+                                    // ProfileCubit.get(context).updateUserProfile(
+                                    //     profilephoto: profilePhoto);
                                     setState(() {
                                       ProfileCubit.get(context).getProfileData();
                                     });

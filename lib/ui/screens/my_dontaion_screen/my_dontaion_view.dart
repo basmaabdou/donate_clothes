@@ -90,11 +90,11 @@ class _MyDonationViewState extends State<MyDonationView>
                                   borderRadius:
                                   BorderRadius.circular(10.0),
                                   child: Image.network(
-                                    ProfileCubit.get(context)
-                                        .profileModel
-                                        ?.data
-                                        ?.profilephoto
-                                        ?.url ??
+                                    // ProfileCubit.get(context)
+                                    //     .profileModel
+                                    //     ?.data
+                                    //     ?.profilephoto
+                                    //     ?.url ??
                                         'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png',
                                     width: 28.h,
                                     height: 13.h,
@@ -181,7 +181,7 @@ class _MyDonationViewState extends State<MyDonationView>
                           indicatorSize: TabBarIndicatorSize.tab,
                         ),
                         Container(
-                          height: 85.h,
+                          height: 220.h,
                           child: TabBarView(
                             controller: tabController,
                             children: [
@@ -195,7 +195,7 @@ class _MyDonationViewState extends State<MyDonationView>
                                             .status! ==
                                         "pending"
                                     ? MyDonation(
-                                  img: DonationCubit.get(context).donationResponse?.orders?[index].image?.url??'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnJ_5M64ZYho13ZFvqQGwQNSXDHLSQ2Z6UBQ&s',
+                                  img: user.profileModel!.data!.orders![index].image!.url??'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnJ_5M64ZYho13ZFvqQGwQNSXDHLSQ2Z6UBQ&s',
                                         title: user.profileModel!.data!
                                             .orders![index].itemsName
                                             .toString(),
@@ -227,7 +227,7 @@ class _MyDonationViewState extends State<MyDonationView>
                                             .status! ==
                                         "collected"
                                     ? MyDonation(
-                                    img: DonationCubit.get(context).donationResponse!.orders![index].image!.url!,
+                                    img:user.profileModel!.data!.orders![index].image!.url.toString(),
 
                                     title: user.profileModel!.data!
                                             .orders![index].itemsName

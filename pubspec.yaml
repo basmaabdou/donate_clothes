@@ -43,6 +43,7 @@ dependencies:
   get: ^4.6.6
   carousel_slider: ^4.2.1
   image_picker: ^1.0.4
+  permission_handler:
   percent_indicator: ^4.2.3
   dropdown_button2: ^2.3.9
   intl: ^0.18.1
