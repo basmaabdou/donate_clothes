@@ -5,7 +5,7 @@ class DioHelper {
 
   static init() {
     dio = Dio(BaseOptions(
-      baseUrl: 'https://donation-system-production.up.railway.app/',
+      baseUrl: 'https://donation-system-utjy.onrender.com/',
       receiveDataWhenStatusError: true,
     ));
   }
@@ -41,23 +41,23 @@ class DioHelper {
     };
     return dio!.post(url, queryParameters: query, data: data);
   }
-
-
-
   static Future<Response> postDonateData({
     required String url,
     Map<String, dynamic>? query,
-    required FormData data,
-    // String lang = 'en',
+    dynamic data,
+    String lang = 'en',
     String? token,
   }) async {
     dio!.options.headers = {
       'Content-Type':'multipart/form-data; boundary=<calculated when request is sent>',
-      // 'lang': lang,
-      'Authorization': 'Bearer $token' ?? '',
+      'lang': lang,
+      'Authorization': 'Bearer ${token}' ?? '',
     };
     return dio!.post(url, queryParameters: query, data: data);
   }
+
+
+
 
   static Future<Response> putData({
     required String url,
