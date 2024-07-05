@@ -5,7 +5,7 @@ class DioHelper {
 
   static init() {
     dio = Dio(BaseOptions(
-      baseUrl: 'https://donation-system-utjy.onrender.com/',
+      baseUrl: 'https://donation-system-production.up.railway.app/',
       receiveDataWhenStatusError: true,
     ));
   }
