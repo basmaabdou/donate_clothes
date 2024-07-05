@@ -1,5 +1,8 @@
+import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 
+import 'package:dio/dio.dart';
 import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/cubit.dart';
 import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/states.dart';
@@ -42,6 +45,47 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
   var numClothController = TextEditingController();
 
   var formKey = GlobalKey<FormState>();
+  // ImagePicker imagePicker=ImagePicker();
+  // List<XFile> pickedImages=[];
+  // Future<void> pickFromCamera()async{
+  //   try{
+  //     XFile? imagee=await imagePicker.pickImage(source:  ImageSource.camera);
+  //     if(imagee!=null){
+  //       setState(() {
+  //         pickedImages.add(imagee);
+  //       });
+  //     }else{
+  //       setState(() {
+  //         pickedImages=[imagee!];
+  //       });
+  //     }
+  //   }catch(e){
+  //     print(e.toString());
+  //   }
+  // }
+  // Future<void> pickFromGallary()async{
+  //   try{
+  //     List<XFile> images=await imagePicker.pickMultiImage();
+  //     if(images!=null){
+  //       setState(() {
+  //         pickedImages.addAll(images);
+  //       });
+  //     }else{
+  //       setState(() {
+  //         pickedImages=images;
+  //       });
+  //     }
+  //   }catch(e){
+  //     print(e.toString());
+  //   }
+  // }
+  // Future<void> RemoveImage({required String imagePath})async{
+  //   setState(() {
+  //     pickedImages.removeWhere(
+  //             (element) => element.path == imagePath);
+  //   });
+  // }
+
 
   double quality = 1;
   int? isSelectedIndex = 0;
@@ -372,6 +416,34 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                     SizedBox(
                       height:2.h,
                     ),
+                   //  ElevatedButton(onPressed: (){pickFromCamera();}, child: Text('camera')),
+                   //  ElevatedButton(onPressed: (){pickFromGallary();}, child: Text('gallary')),
+                   //  ElevatedButton(onPressed: (){}, child: Text('upload')),
+                   // ListView.separated(
+                   //   shrinkWrap: true,
+                   //     itemBuilder: (context,index){
+                   //       return Stack(
+                   //         children: [
+                   //           Image.file(
+                   //               File (pickedImages[index].path),
+                   //             height: 200,
+                   //             fit: BoxFit.fill,
+                   //           ),
+                   //           InkWell(
+                   //             onTap: (){RemoveImage(imagePath: pickedImages[index].path);},
+                   //             child: Container(
+                   //               height: 20,width: 20,color: Colors.red,
+                   //               child: Text("X"),
+                   //             ),
+                   //           )
+                   //         ],
+                   //       );
+                   //     },
+                   //     separatorBuilder:  (context,index){
+                   //        return SizedBox(height: 10,);
+                   //     },
+                   //     itemCount: pickedImages.length
+                   // ),
                     Center(
                       child: Container(
                         width: 21.h,
@@ -391,7 +463,7 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                                       '656a214e49ffe49ca85e71f2',
                                   quantity: quality,
                                   phone: phoneController.text,
-                                  image: image! ,
+                                  image: image!,
                                 );
                               Get.defaultDialog(
                                 title: '',

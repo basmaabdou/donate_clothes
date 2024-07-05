@@ -48,7 +48,7 @@ class DonationCubit extends Cubit<DonationStates> {
         'image': await MultipartFile.fromFile(image.path, filename: image.path.split('/').last),
       });
 
-      DioHelper.postDonateData(
+      DioHelper.postData(
         url: ORDER_DONATAIONORDER,
         data: formData,
         token: token,

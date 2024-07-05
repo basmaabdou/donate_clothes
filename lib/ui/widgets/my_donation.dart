@@ -7,12 +7,13 @@ import '../screens/coins_screen/coins_screen.dart';
 import 'basic.dart';
 
 class MyDonation extends StatefulWidget {
-  final String title, status, loc, id;
-  final int coins;
+   String title, status, loc, id , img;
+   int coins;
 
-  const MyDonation(
+   MyDonation(
       {super.key,
       required this.title,
+      required this.img,
       required this.status,
       required this.loc,
       required this.id,
@@ -60,8 +61,8 @@ class _MyDonationState extends State<MyDonation> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           image: DecorationImage(
-                              image: AssetImage('assets/images/o1.jpg'),
-                              fit: BoxFit.fill),
+                              image: NetworkImage( widget.img ,),
+                                  fit: BoxFit.fill),
                         ),
                       ),
                     ),
