@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/users/forget_password/successful.dart';
+import 'package:sadaka/ui/screens/users/forget_password/successful.dart';
 import 'package:flutter/material.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 
 class SetNewPassword extends StatefulWidget {
   @override

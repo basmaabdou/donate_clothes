@@ -22,24 +22,7 @@ class SettingController extends GetxController {
     update();
   }
 
-  var boardController3 = PageController(initialPage: 2);
 
-  List<String> country = ['Egypt'];
 
-  String? selectedCountry;
-
-  var boardController4 = PageController(initialPage: 3);
-  final List<Currencyy> currencies = [
-    Currencyy('USD/دولار امريكي', 'assets/images/usd.png'),
-    Currencyy('EUR/يورو', 'assets/images/eur.png'),
-    Currencyy('RHD/دينار بحريني', 'assets/images/bhd.jpeg'),
-    Currencyy('GBP/جنيه استرليني', 'assets/images/jpb.png'),
-  ].obs;
 }
 
-class Currencyy {
-  final String title;
-  final String imageUrl;
-
-  Currencyy(this.title, this.imageUrl);
-}

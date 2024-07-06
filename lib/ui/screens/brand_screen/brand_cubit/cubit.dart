@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/states.dart';
+import 'package:sadaka/ui/screens/brand_screen/brand_cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../models/brands_response.dart';
 import '../../../../models/getSingleBrand.response.dart';

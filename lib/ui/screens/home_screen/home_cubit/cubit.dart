@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:donate_clothes/models/users_model.dart';
-import 'package:donate_clothes/ui/screens/home_screen/home_cubit/states.dart';
+import 'package:sadaka/models/users_model.dart';
+import 'package:sadaka/ui/screens/home_screen/home_cubit/states.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

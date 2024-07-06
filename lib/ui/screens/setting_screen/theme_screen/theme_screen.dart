@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
-import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
-import 'package:donate_clothes/ui/screens/splash_screen/splash_screen.dart';
+import 'package:sadaka/ui/screens/layout_screen/layout_screen.dart';
+import 'package:sadaka/ui/screens/onboarding_screen/on_boarding_screen.dart';
+import 'package:sadaka/ui/screens/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';

@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:643278070250:android:8d3a0fadb85b063a595293",
         "android_client_info": {
-          "package_name": "com.example.donate_clothes"
+          "package_name": "com.example.sadaka"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "643278070250-r3qjgsutl19kqajgb4t33rl59j42llkf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.donate_clothes",
+            "package_name": "com.example.sadaka",
             "certificate_hash": "2065d0d9b24b7161e05597dbd453f979b4103a57"
           }
         },

@@ -1,4 +1,4 @@
-package com.example.donate_clothes
+package com.example.sadaka
 
 import io.flutter.embedding.android.FlutterActivity
 

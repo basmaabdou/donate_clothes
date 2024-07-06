@@ -1,4 +1,4 @@
-import 'package:donate_clothes/ui/widgets/ThemeImage.widget.dart';
+import 'package:sadaka/ui/widgets/ThemeImage.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

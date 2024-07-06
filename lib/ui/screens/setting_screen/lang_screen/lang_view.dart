@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/setting_controller/theme_controller.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/setting_screen.dart';
+import 'package:sadaka/ui/screens/layout_screen/layout_screen.dart';
+import 'package:sadaka/ui/screens/setting_screen/setting_controller/theme_controller.dart';
+import 'package:sadaka/ui/screens/setting_screen/setting_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

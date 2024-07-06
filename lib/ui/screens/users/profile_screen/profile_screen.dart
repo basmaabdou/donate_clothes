@@ -1,7 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/profile_view.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/profile_view.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

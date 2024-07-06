@@ -1,6 +1,6 @@
-import 'package:donate_clothes/shared/constants.dart';
-import 'package:donate_clothes/ui/widgets/ThemeImage.widget.dart';
-import 'package:donate_clothes/ui/widgets/basic.dart';
+import 'package:sadaka/shared/constants.dart';
+import 'package:sadaka/ui/widgets/ThemeImage.widget.dart';
+import 'package:sadaka/ui/widgets/basic.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -11,7 +11,6 @@ import 'package:sizer/sizer.dart';
 
 import '../../widgets/animation.dart';
 import '../../widgets/default_text_form_field..dart';
-import '../donate_clothes_details_screen/donate_clothes_details.dart';
 import '../home_screen/home_cubit/cubit.dart';
 
 class OurWorkScreen extends StatelessWidget {

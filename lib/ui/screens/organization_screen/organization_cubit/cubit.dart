@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/states.dart';
+import 'package:sadaka/ui/screens/organization_screen/organization_cubit/states.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../models/getOrganizationDetials_response.dart';

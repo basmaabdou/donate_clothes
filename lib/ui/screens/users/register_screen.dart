@@ -1,6 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
-import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
+import 'package:sadaka/ui/screens/users/user_cubit/cubit.dart';
+import 'package:sadaka/ui/screens/users/user_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

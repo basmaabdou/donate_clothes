@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/screens/layout_screen/layout_screen.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/cubit_profile/states.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';

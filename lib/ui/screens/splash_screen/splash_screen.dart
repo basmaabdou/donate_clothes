@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:donate_clothes/shared/constants.dart';
+import 'package:sadaka/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';

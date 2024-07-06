@@ -6,6 +6,7 @@ import 'dart:convert';
 class PaymentController extends GetxController {
   var paymentToken = ''.obs;
   var isLoading = true.obs;
+  var isSuccess = true.obs;
   var errorMessage = ''.obs;
 
   @override
@@ -24,6 +25,7 @@ class PaymentController extends GetxController {
       );
 
       if (response.statusCode == 200) {
+        isSuccess.value=true;
         final data = json.decode(response.body);
         paymentToken.value = data['token'];
       } else {
@@ -33,6 +35,7 @@ class PaymentController extends GetxController {
     } catch (e) {
       errorMessage.value = 'Error: $e';
     } finally {
+      isSuccess.value=false;
       isLoading.value = false;
     }
   }

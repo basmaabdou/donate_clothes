@@ -1,5 +1,5 @@
-import 'package:donate_clothes/ui/screens/users/login_screen.dart';
-import 'package:donate_clothes/ui/widgets/default_button.dart';
+import 'package:sadaka/ui/screens/users/login_screen.dart';
+import 'package:sadaka/ui/widgets/default_button.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 

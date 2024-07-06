@@ -1,8 +1,8 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:donate_clothes/ui/screens/users/forget_password/forget_password_page.dart';
-import 'package:donate_clothes/ui/screens/users/register_screen.dart';
-import 'package:donate_clothes/ui/screens/users/user_cubit/cubit.dart';
-import 'package:donate_clothes/ui/screens/users/user_cubit/states.dart';
+import 'package:sadaka/ui/screens/users/forget_password/forget_password_page.dart';
+import 'package:sadaka/ui/screens/users/register_screen.dart';
+import 'package:sadaka/ui/screens/users/user_cubit/cubit.dart';
+import 'package:sadaka/ui/screens/users/user_cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -80,8 +80,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image(image: AssetImage('assets/images/blueLogo.jpg'),width:double.infinity,height:30.h,fit: BoxFit.fill,),
-                      SizedBox(height: 5.h,),
+                      Image(image: AssetImage(controller.app == defaultBlueColor
+                  ? 'assets/images/blueLogo.jpg'
+                      : controller.app == defaultGreenColor
+                  ? 'assets/images/greenLogoo.png'
+                      : 'assets/images/orangeLogo.jpeg'),width:double.infinity,height:30.h,fit:controller.app == defaultBlueColor? BoxFit.fill: BoxFit.cover),
+                    if(controller.app == defaultBlueColor)
+                        SizedBox(height: 5.h,),
                      Padding(
                        padding:  EdgeInsetsDirectional.symmetric(horizontal: 2.h),
                        child: Center(

@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/cubit.dart';
-import 'package:donate_clothes/ui/screens/brand_screen/brand_cubit/states.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/states.dart';
+import 'package:sadaka/ui/screens/brand_screen/brand_cubit/cubit.dart';
+import 'package:sadaka/ui/screens/brand_screen/brand_cubit/states.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/cubit_profile/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_flutter/qr_flutter.dart';

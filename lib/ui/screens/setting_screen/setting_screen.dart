@@ -1,8 +1,8 @@
-import 'package:donate_clothes/ui/screens/setting_screen/lang_screen/lang_view.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/setting_controller/theme_controller.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/theme_screen/theme_screen.dart';
-import 'package:donate_clothes/ui/screens/users/login_screen.dart';
-import 'package:donate_clothes/ui/screens/users/register_screen.dart';
+import 'package:sadaka/ui/screens/setting_screen/lang_screen/lang_view.dart';
+import 'package:sadaka/ui/screens/setting_screen/setting_controller/theme_controller.dart';
+import 'package:sadaka/ui/screens/setting_screen/theme_screen/theme_screen.dart';
+import 'package:sadaka/ui/screens/users/login_screen.dart';
+import 'package:sadaka/ui/screens/users/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

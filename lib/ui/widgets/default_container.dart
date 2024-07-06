@@ -1,4 +1,4 @@
-import 'package:donate_clothes/ui/screens/setting_screen/setting_controller/theme_controller.dart';
+import 'package:sadaka/ui/screens/setting_screen/setting_controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

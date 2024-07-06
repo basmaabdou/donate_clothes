@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
-import 'package:donate_clothes/ui/screens/my_dontaion_screen/donation_cubit/donation_state.dart';
-import 'package:donate_clothes/ui/widgets/basic.dart';
+import 'package:sadaka/ui/screens/my_dontaion_screen/donation_cubit/donation_cubit.dart';
+import 'package:sadaka/ui/screens/my_dontaion_screen/donation_cubit/donation_state.dart';
+import 'package:sadaka/ui/widgets/basic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
@@ -8,8 +8,6 @@ import 'package:sizer/sizer.dart';
 import '../../widgets/animation.dart';
 import '../../widgets/default_text_form_field..dart';
 import '../../widgets/my_donation.dart';
-import '../donate_clothes_details_screen/donate_clothes_details.dart';
-import '../organization_screen/organization_cubit/cubit.dart';
 import '../users/profile_screen/cubit_profile/cubit.dart';
 
 class MyDonationView extends StatefulWidget {

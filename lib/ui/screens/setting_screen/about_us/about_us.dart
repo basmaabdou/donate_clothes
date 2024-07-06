@@ -1,5 +1,5 @@
-import 'package:donate_clothes/ui/widgets/basic.dart';
-import 'package:donate_clothes/ui/widgets/question_widget.dart';
+import 'package:sadaka/ui/widgets/basic.dart';
+import 'package:sadaka/ui/widgets/question_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

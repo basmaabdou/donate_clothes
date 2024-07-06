@@ -1,19 +1,19 @@
 import 'package:bloc/bloc.dart';
-import 'package:donate_clothes/firebase_options.dart';
-import 'package:donate_clothes/generated/l10n.dart';
-import 'package:donate_clothes/shared/bloc_observed.dart';
-import 'package:donate_clothes/shared/constants.dart';
-import 'package:donate_clothes/shared/network/local/cache_helper.dart';
-import 'package:donate_clothes/shared/network/remote/dio_helper.dart';
-import 'package:donate_clothes/ui/screens/payment/controller/payement_controller.dart';
-import 'package:donate_clothes/ui/screens/home_screen/home_screen.dart';
-import 'package:donate_clothes/ui/screens/layout_screen/layout_screen.dart';
-import 'package:donate_clothes/ui/screens/onboarding_screen/on_boarding_screen.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/setting_controller/theme_controller.dart';
-import 'package:donate_clothes/ui/screens/splash_screen/splash_screen.dart';
-import 'package:donate_clothes/ui/screens/users/login_screen.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/cubit_profile/cubit.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/firebase_options.dart';
+import 'package:sadaka/generated/l10n.dart';
+import 'package:sadaka/shared/bloc_observed.dart';
+import 'package:sadaka/shared/constants.dart';
+import 'package:sadaka/shared/network/local/cache_helper.dart';
+import 'package:sadaka/shared/network/remote/dio_helper.dart';
+import 'package:sadaka/ui/screens/payment/controller/payement_controller.dart';
+import 'package:sadaka/ui/screens/home_screen/home_screen.dart';
+import 'package:sadaka/ui/screens/layout_screen/layout_screen.dart';
+import 'package:sadaka/ui/screens/onboarding_screen/on_boarding_screen.dart';
+import 'package:sadaka/ui/screens/setting_screen/setting_controller/theme_controller.dart';
+import 'package:sadaka/ui/screens/splash_screen/splash_screen.dart';
+import 'package:sadaka/ui/screens/users/login_screen.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/cubit_profile/cubit.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
               locale: const Locale('en'),
               supportedLocales: S.delegate.supportedLocales,
               debugShowCheckedModeBanner: false,
-              home: LoginScreen(),
+              home: SplashScreen(),
             );
           },
         ));

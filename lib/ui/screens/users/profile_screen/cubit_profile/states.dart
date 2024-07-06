@@ -1,4 +1,4 @@
-import 'package:donate_clothes/models/ger_coins_response.dart';
+import 'package:sadaka/models/ger_coins_response.dart';
 
 import '../../../../../models/create_order_response.dart';
 

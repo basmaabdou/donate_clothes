@@ -1,4 +1,4 @@
-import 'package:donate_clothes/ui/screens/users/forget_password/confirm_page.dart';
+import 'package:sadaka/ui/screens/users/forget_password/confirm_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

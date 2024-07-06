@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:sizer/sizer.dart';
 
-import '../screens/donate_clothes_details_screen/donate_clothes_details.dart';
 import '../screens/our_work_screen/work_screen.dart';
 import 'animation.dart';
 import 'basic.dart';

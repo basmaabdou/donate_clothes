@@ -1,11 +1,11 @@
-import 'package:donate_clothes/models/profile_response.dart';
+import 'package:sadaka/models/profile_response.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../shared/constants.dart';
-import '../screens/payment/view/payment_view.dart';
 import '../screens/donate_clothes_details_screen/donate_clothes_details.dart';
+import '../screens/payment/view/payment_view.dart';
 import 'ThemeImage.widget.dart';
 import 'animation.dart';
 

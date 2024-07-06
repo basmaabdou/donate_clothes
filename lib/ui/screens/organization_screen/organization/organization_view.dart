@@ -1,4 +1,4 @@
-import 'package:donate_clothes/ui/widgets/ThemeImage.widget.dart';
+import 'package:sadaka/ui/widgets/ThemeImage.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -102,39 +102,37 @@ class OrganizationView extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    SingleChildScrollView(
-                      child: Container(
-                        height: 120.h,
-                        child: ListView.separated(
-                          physics: BouncingScrollPhysics(),
-                          itemBuilder: (context, index) => OurOrganization(
-                            image: OrganizationCubit.get(context)
-                                .organizationResponse!
-                                .result![index]
-                                .images![index]
-                                .url!,
-                            title: OrganizationCubit.get(context)
-                                .organizationResponse!
-                                .result![index]
-                                .title!,
-                            info: OrganizationCubit.get(context)
-                                .organizationResponse!
-                                .result![index]
-                                .organizationInfo!,
-                            sId: OrganizationCubit.get(context)
-                                .organizationResponse!
-                                .result![index]
-                                .sId!,
-                          ),
-                          separatorBuilder: (context, index) => const SizedBox(
-                            height: 15.0,
-                          ),
-                          itemCount: OrganizationCubit.get(context)
+                    Container(
+                      height: 600,
+                      child: ListView.separated(
+                        physics: BouncingScrollPhysics(),
+                        itemBuilder: (context, index) => OurOrganization(
+                          image: OrganizationCubit.get(context)
                               .organizationResponse!
-                              .result!
-                              .length,
-                          scrollDirection: Axis.vertical,
+                              .result![index]
+                              .images![index]
+                              .url!,
+                          title: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .title!,
+                          info: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .organizationInfo!,
+                          sId: OrganizationCubit.get(context)
+                              .organizationResponse!
+                              .result![index]
+                              .sId!,
                         ),
+                        separatorBuilder: (context, index) => const SizedBox(
+                          height: 15.0,
+                        ),
+                        itemCount: OrganizationCubit.get(context)
+                            .organizationResponse!
+                            .result!
+                            .length,
+                        scrollDirection: Axis.vertical,
                       ),
                     ),
                   ],

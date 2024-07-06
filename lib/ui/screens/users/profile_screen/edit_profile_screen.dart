@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/profile_view.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/profile_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';

@@ -1,6 +1,6 @@
 {
-    "name": "donate_clothes",
-    "short_name": "donate_clothes",
+    "name": "sadaka",
+    "short_name": "sadaka",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

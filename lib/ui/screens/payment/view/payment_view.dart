@@ -1,9 +1,13 @@
 // views/payment_view.dart
-import 'package:donate_clothes/ui/screens/payment/controller/payement_controller.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/screens/payment/controller/payement_controller.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+import '../../../../shared/constants.dart';
+import '../../../widgets/basic.dart';
+import '../../layout_screen/layout_screen.dart';
 
 class PaymentView extends StatelessWidget {
   final PaymentController controller = Get.put(PaymentController());
@@ -26,6 +30,7 @@ class PaymentView extends StatelessWidget {
             initialUrl: url,
             javascriptMode: JavascriptMode.unrestricted,
           );
+
         } else {
           return Center(child: Text('Unknown error occurred.'));
         }

@@ -1,4 +1,4 @@
-import 'package:donate_clothes/ui/screens/organization_screen/organization_cubit/cubit.dart';
+import 'package:sadaka/ui/screens/organization_screen/organization_cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import '../../shared/constants.dart';
 

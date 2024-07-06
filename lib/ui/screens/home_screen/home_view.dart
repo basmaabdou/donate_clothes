@@ -1,14 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:donate_clothes/ui/screens/brand_screen/brand_detail/brand_details_screen.dart';
-import 'package:donate_clothes/ui/screens/my_dontaion_screen/my_donation_screen.dart';
-import 'package:donate_clothes/ui/screens/organization_screen/organization_details/organization_details_screen.dart';
-import 'package:donate_clothes/ui/screens/setting_screen/theme_screen/theme_screen.dart';
-import 'package:donate_clothes/ui/screens/users/profile_screen/profile_screen.dart';
-import 'package:donate_clothes/ui/widgets/basic.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
-import 'package:donate_clothes/ui/widgets/drawer.dart';
-import 'package:donate_clothes/ui/widgets/logout.dart';
-import 'package:donate_clothes/ui/widgets/slider.dart';
+import 'package:sadaka/ui/screens/brand_screen/brand_detail/brand_details_screen.dart';
+import 'package:sadaka/ui/screens/my_dontaion_screen/my_donation_screen.dart';
+import 'package:sadaka/ui/screens/organization_screen/organization_details/organization_details_screen.dart';
+import 'package:sadaka/ui/screens/setting_screen/theme_screen/theme_screen.dart';
+import 'package:sadaka/ui/screens/users/profile_screen/profile_screen.dart';
+import 'package:sadaka/ui/widgets/basic.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/widgets/drawer.dart';
+import 'package:sadaka/ui/widgets/logout.dart';
+import 'package:sadaka/ui/widgets/slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -245,7 +245,7 @@ class _HomeScreenState extends State<HomeView>
                             enableInfiniteScroll: true,
                             reverse: false,
                             autoPlay: true,
-                            autoPlayInterval: Duration(seconds: 5),
+                            autoPlayInterval: Duration(seconds: 2),
                             autoPlayAnimationDuration: Duration(seconds: 1),
                             autoPlayCurve: Curves.linearToEaseOut,
                             scrollDirection: Axis.horizontal,

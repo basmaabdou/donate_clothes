@@ -1,6 +1,6 @@
-import 'package:donate_clothes/ui/screens/my_dontaion_screen/my_donation_screen.dart';
-import 'package:donate_clothes/ui/widgets/basic.dart';
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/screens/my_dontaion_screen/my_donation_screen.dart';
+import 'package:sadaka/ui/widgets/basic.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 

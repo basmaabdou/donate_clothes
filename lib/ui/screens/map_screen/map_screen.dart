@@ -8,7 +8,6 @@ import '../../../shared/constants.dart';
 import '../../widgets/basic.dart';
 import '../../widgets/default_text_form_field..dart';
 import '../donate_clothes_details_screen/donate_clothes_details.dart';
-
 class MapScreen extends StatefulWidget {
   @override
   State<MapScreen> createState() => _MapScreenState();
@@ -68,23 +67,24 @@ class _MapScreenState extends State<MapScreen> {
                     },
                   ),
                   Positioned(
-                    top: 50,
+                    top: 40,
                     left: 20,
                     child: Container(
                       width: 35,
                       height: 35,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
-                        color: defaultColor,
+                        color: controller2.app,
                       ),
                       child: IconButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
+                        color: controller2.app,
                         icon: Icon(
                           Icons.arrow_back,
-                          size: 22,
-                          color: Colors.black45,
+                          size: 20,
+                          color: Colors.white ,
                         ),
                       ),
                     ),

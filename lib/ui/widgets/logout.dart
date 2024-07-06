@@ -1,5 +1,5 @@
-import 'package:donate_clothes/ui/widgets/default_text_form_field..dart';
-import 'package:donate_clothes/ui/widgets/setting_row.dart';
+import 'package:sadaka/ui/widgets/default_text_form_field..dart';
+import 'package:sadaka/ui/widgets/setting_row.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
