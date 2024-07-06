@@ -417,15 +417,15 @@ class _DonateClothesDetailsState extends State<DonateClothesDetails> {
                         child: MaterialButton(
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
-                              // DonationCubit.get(context).createUserOrderData(
-                              //   itemsName: clothController.text,
-                              //   location: addressController.text,
-                              //   charity: OrganizationCubit.get(context)
-                              //           .idOrganization ??
-                              //       '656a214e49ffe49ca85e71f2',
-                              //   quantity: quality,
-                              //   phone: phoneController.text,
-                              // );
+                              DonationCubit.get(context).createUserOrderData(
+                                itemsName: clothController.text,
+                                location: addressController.text,
+                                charity: OrganizationCubit.get(context)
+                                        .idOrganization ??
+                                    '656a214e49ffe49ca85e71f2',
+                                quantity: quality,
+                                phone: phoneController.text,
+                              );
                               Get.defaultDialog(
                                 title: '',
                                 content: Padding(
