@@ -32,7 +32,6 @@ class Data {
   int? quantity;
   int? phone;
   String? status;
-  Image? image;
   int? ordercoins;
   String? userinfo;
   String? sId;
@@ -45,7 +44,6 @@ class Data {
         this.quantity,
         this.phone,
         this.status,
-        this.image,
         this.ordercoins,
         this.userinfo,
         this.sId,
@@ -58,7 +56,6 @@ class Data {
     quantity = json['quantity'];
     phone = json['phone'];
     status = json['status'];
-    image = json['image'] != null ? new Image.fromJson(json['image']) : null;
     ordercoins = json['ordercoins'];
     userinfo = json['userinfo'];
     sId = json['_id'];
@@ -73,32 +70,10 @@ class Data {
     data['quantity'] = this.quantity;
     data['phone'] = this.phone;
     data['status'] = this.status;
-    if (this.image != null) {
-      data['image'] = this.image!.toJson();
-    }
     data['ordercoins'] = this.ordercoins;
     data['userinfo'] = this.userinfo;
     data['_id'] = this.sId;
     data['__v'] = this.iV;
-    return data;
-  }
-}
-
-class Image {
-  String? url;
-  String? publicId;
-
-  Image({this.url, this.publicId});
-
-  Image.fromJson(Map<String, dynamic> json) {
-    url = json['url'];
-    publicId = json['publicId'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
-    data['publicId'] = this.publicId;
     return data;
   }
 }
